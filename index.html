@@ -183,12 +183,11 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   left: 50vw;
   transform: translate(-50%, -50%);
   color: #413e7a;
-  font-size: 50px;
+  font-size: 40px;
   max-width: 100%;
   white-space: nowrap;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
-
 
 
 
@@ -202,10 +201,11 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   z-index: 1000000000;
   background-color: #6965c6;
   height: fit-content;
-  max-width: 80vh;
+  max-height: 90vh;
+  max-width: 90vw;
   padding: 4vh;
   transition: 0.4s;
-  box-shadow: 30px 30px 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 3vh 3vh 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
   font-size: 3.5vh;
   background-image: url(exclamate.svg);
     background-repeat: no-repeat;
@@ -364,7 +364,6 @@ function openNav() {
   document.getElementById("main").style.pointerEvents = "";
   setTimeout(() => {
     document.getElementById("menuArrow").style.animation = "none";
-
   }, 200)
   document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
@@ -383,11 +382,11 @@ function closeNav() {
 
 
 function go(location) {  // handles fade out animation and goes to corresponding page
-  document.getElementById("menuSlider").style.display = "none";
   if (location == "./old-site/index") {
     borWarning();
   }
   else {
+    document.getElementById("menuSlider").style.display = "none";
     document.getElementById("transitionScreen").style.top = "0";
     document.getElementById("transitionScreenLocation").style.top = "50vh";
     document.getElementById("transitionScreen").style.height = "100%";
@@ -417,6 +416,7 @@ function borWarningClos() {
 function borWarningGo() {
   borWarningClos();
   closeNav();
+  document.getElementById("menuSlider").style.display = "none";
   document.body.style.backgroundColor = "#4F5861";
   document.getElementById("bgdots").style.filter = "none";
   document.getElementById("bgdots").style.opacity = "0";

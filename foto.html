@@ -2,51 +2,61 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="shortcut icon" type="image/png" href="logo.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="favicon.svg">
+
+<title>nudi</title>
+
 <style>
 body {
-  background-color: #4F5861;
-  font-family: 'Comfortaa';
+  background-color: #5552a0;
+  font-family: 'Reem Kufi Fun', sans-serif;
   font-size: 40px;
-  color: #B3E8CD;
+  color: #cfc5fd;
+  margin: none;
+  user-select: none;
+  overflow: hidden;
+  transition: 1s;
 }
+span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 
-.sidenavtext {
-  font-family: 'Comfortaa';
-  font-size: 40px;
-  color: #B3E8CD;
-}
+.sidenavtext { font-size: 40px; color: #cfc5fd; }
 
 .sidenav {
   height: 100%;
   width: 0%;
-  position: fixed;
-  z-index: 108;
+  position: absolute;
+  z-index: 100;
   top: 0;
   left: 0;
-  background-color: #729394;
+  background-color: #6262bf;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
   font-size: 0px;
+  box-shadow: none;
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
 }
-
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  background-color: #6262bf;
+  margin: 8px 8px 8px 32px;
   text-decoration: none;
-  color: #B3E8CD;
+  color: #cfc5fd;
   display: block;
-  transition: 0.2s;
+  transition: 0.4s;
+  width: fit-content;
 }
+.sidenav a:hover { color: #E3F6ED; scale: 115%;}
+.sidenav a div:hover { padding-left: 20px; }
+.sidenav a div { transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
 
-.sidenav a:hover {
-  color: #E3F6ED;
-}
 
 .sidenav .closebtn {
   position: absolute;
@@ -56,93 +66,63 @@ body {
   margin-left: 50px;
 }
 
-.menuOpen {
-  position: fixed;
-  left: 40px;
-  top: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
-  color: #B3E8CD;
-  background-color: #729394;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  cursor: pointer;
-  font-size: 60px;
-  border-radius: 10px;
-  z-index: 30;
-}
-.menuOpen:hover {
-  color: #E3F6ED;
-}
-.icon {
-  filter: invert(89%) sepia(47%) saturate(216%) hue-rotate(74deg) brightness(96%) contrast(88%);
-  height: 50%;
-  width: 50%;
-  transition: 0.2s;
-}
-.icon:hover {
-  filter: invert(96%) sepia(8%) saturate(415%) hue-rotate(80deg) brightness(103%) contrast(93%);
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
 }
 
-
-.photoPage {
-  max-height: 80%;
-  max-width: 80%;
-  border-radius: 15px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-width: 20px;
-  box-shadow: 0px 0px 0px 20px #B3E8CD;
-  transition: 0.4s ease;
-}
 
 
 .title {
-  position: fixed;
-  left: 40px;
-  top: 140px;
-  font-size: 75px;
-  transition: 0.5s;
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  z-index: 2;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  width: fit-content;
+  height: fit-content;
+  font-size: 100px;
+  transition: 1s;
+  left: 15%;
+  position: relative;
+  top: 20%;
+  z-index: 50;
+  transform: rotate(-90deg);
+  transform-origin: top left;
 }
 
-.arrow {
-  height: 75px;
-  width: 70px;
-  color: #B3E8CD;
-  text-decoration: none;
-  background-color: #729394;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 5px;
+.menuSlider {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  min-width: 150px;
+  width: 5%;
   cursor: pointer;
-  border-radius: 100%;
-  position: fixed;
-  font-size: 60px;
   transition: 0.1s;
-  z-index: 20;
+  z-index: 1;
 }
-.arrow:hover {
-  color: #E3F6ED;
+.arrow {
+  position: relative;
+  left: 40px;
+  animation: point 5s infinite ease 1s;
+  transition: 0.2s;
+  height: 0.6in;
+  width: 0.6in;
+  transform: translate(0, -50%);
+  transform-origin: top left;
+  top: 50%;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
+}
+.menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
+.menuSlider:hover .arrow{ scale: 115%; }
+
+@keyframes point {
+  60% {left: 40px;}
+  80% {left: 80px;}
 }
 
 
 .bgdots {
   background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
-  transform: rotate(30deg);
   background-size: 50px 50px;
   width: 400%;
   height: 400%;
@@ -151,372 +131,306 @@ body {
   left: -150%;
   animation: bg 1000s infinite;
   animation-timing-function: linear;
-  transition: 3s ease;
+  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  filter: blur(2px);
   z-index: -5;
+  transform: rotate(-60deg);
 }
-
 @keyframes bg {
-  50% {transform: rotate(-10deg); background-size: 80px 80px;}
+  50% {transform: rotate(-20deg); background-size: 80px 80px;}
 }
 
-
-.dcontainer {
+.logoWrap {
+  top: -1%;
+  height: 100%;
+  width: 100%;
   position: fixed;
-  bottom: 10px;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: 1s;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 600px;
-  height: 40px;
+    justify-content: center;
+    align-items: center;
+    animation: logofloat infinite 6s ease-in-out 0.5s;
+}
+@keyframes logofloat {
+  50% {top: 1%;}
+}
+.bgLogo {
+  height: 50%;
+  max-width: 60%;
+  filter: drop-shadow(0.5vh 0.5vh 1vh black);
+  opacity: 0.2;
 }
 
-.dots {
-  color: rgba(0,0,0,0);
-  font-size: 0%;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: #729394;
-  transition: 0.2s;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  line-height: 160%;
+
+
+
+.transitionScreen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #6262bf;
+  overflow: hidden;
+  transition: 1s;
+  font-size: 0px;
+  box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  z-index: 10000;
+  align-content: center;
+}
+.transitionScreenLocation {
+  line-height: 0px;
+  position: fixed;
+  bottom: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  color: #413e7a;
+  font-size: 40px;
+  max-width: 100%;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+
+
+.borWarning {
+  position: absolute;
+    transform: rotate(10deg) scale(0.75) translate(-50%, -50%);
+    transform-origin: left bottom;
+    left: 50%;
+    top: 50%;
+  opacity: 0;
+  z-index: 1000000000;
+  background-color: #6965c6;
+  height: fit-content;
+  max-height: 90vh;
+  max-width: 90vw;
+  padding: 4vh;
+  transition: 0.4s;
+  box-shadow: 3vh 3vh 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
+  font-size: 3.5vh;
+  background-image: url(exclamate.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 92.5%;
+    background-size: 2.5%;
+  display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 80% 10% 10%;
+}
+
+.oldP { grid-area: 1 / 1 / 2 / 3; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))}
+.oldContinue { grid-area: 2 / 1 / 3 / 3; text-align: center; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
+.oldYes { grid-area: 3 / 1 / 4 / 2; }
+.oldNo { grid-area: 3 / 2 / 4 / 3; }
+
+button {
+  background-color: #cfc5fd;
+  border: none;
+  width: 11vh;
+  border-radius: 1vh 0 1vh 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #6965c6;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  font-family: 'Reem Kufi Fun', sans-serif;
+  font-size: 2vh;
+  padding: 2vh;
+  line-height: 0px;
   cursor: pointer;
-  color: #729394 !important;
-}
-.dots:hover {
-  line-height: 170%;
-  background-color: #E3F6ED !important;
-  font-size: 60% !important;
-  height: 35px !important;
-  width: 35px !important;
 }
 
-body {
-  -ms-user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  user-select: none; /* supported by Chrome and Opera */
+
+.borblur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  filter: none;
+  background: none;
+}
+
+
+
+.oldLogo {
+  display: none;
+  height: 50%;
+  opacity: 0;
+  transition: 1s;
+    transition-timing-function: ease-out;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: scale(3000%) translate(-55%, -25%);
+    transform-origin: left top;
 }
 </style>
 </head>
 
 
-<body onload="onLoad()" draggable="false" style="margin: 0;">
-<img id="bg" style="height: 50%;opacity: 0.1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%)" src="logo.png"> <!--background logo img-->
-<div id="main" style="z-index: 1; padding: 40px; height: 100%; width: 100%; position: fixed; opacity: 0; transition: 0.6s;">
 
 
-<div id="menuOpen" onclick="javascript:openNav()" class="menuOpen"><img draggable="false" style="width: 85%; height: 100%;" src="menu.svg" class="icon"></div>
-<br>
-<span id="title" class="title">foto</span><!--title-->
 
 
+
+
+
+
+
+<body draggable="false" style="margin: 0px;">
+
+
+
+
+<div class="borblur" id="borblur"> <!--borblur :pffft:-->
 
 <div id="sideNav" class="sidenav">
   <div class="sidenavtext">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
-    <a href="javascript:goHome()">domů</a>
-    <a href="javascript:goFoto()">foto</a>
-    <a href="javascript:goKresby()">kresby</a>
-    <a href="javascript:goDopis()">dopis</a>
-    <a href="javascript:goAudio()">audio</a>
-    <a href="javascript:goAbout()">about</a>
+    <a href="javascript:go('index')"><div>domů</div></a>
+    <a href="javascript:go('foto')"><div>foto</div></a> 
+    <a href="javascript:go('kresby')"><div>kresby</div></a> 
+    <a href="javascript:go('dopis')"><div>dopis</div></a> 
+    <a href="javascript:go('audio')"><div>audio</div></a>
+    <a href="javascript:go('about')"><div>about</div></a>
+    <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
 </div> <!-- end of sidenav options-->
 
 
 
 
-<div id="arrow" onclick="moveRight()" style="top: 60%; right: 5%; transform: scaleX(-1);" class="arrow"><img draggable="false" src="ledthead.svg" class="icon"></div> <!--left arrow-->
-<div id="arrow" onclick="moveLeft()" style="top: 60%; left: 5%;" class="arrow"><img src="ledthead.svg" draggable="false" class="icon"></div> <!--right arrow-->
-
-
-<div id="photos" class="photos"> <!--photos-->
-<img id="photo1" class="photoPage" src="foto/photo (1).jpg"> <!--each photo listed-->
-<img id="photo2" style="left: 150%;" class="photoPage" src="foto/photo (2).jpg"> <!--all but first photo moved off screen at load-->
-<img id="photo3" style="left: 150%;" class="photoPage" src="foto/photo (3).jpg">
-<img id="photo4" style="left: 150%;" class="photoPage" src="foto/photo (4).jpg">
-<img id="photo5" style="left: 150%;" class="photoPage" src="foto/photo (5).jpg">
-<img id="photo6" style="left: 150%;" class="photoPage" src="foto/photo (6).jpg">
-<img id="photo7" style="left: 150%;" class="photoPage" src="foto/photo (7).jpg">
-<img id="photo8" style="left: 150%;" class="photoPage" src="foto/photo (8).jpg">
-<img id="photo9" style="left: 150%;" class="photoPage" src="foto/photo (9).jpg">
-<img id="photo10" style="left: 150%;" class="photoPage" src="foto/photo (10).jpg">
-<img id="photo11" style="left: 150%;" class="photoPage" src="foto/photo (11).jpg">
-<img id="photo12" style="left: 150%;" class="photoPage" src="foto/photo (12).jpg">
-<img id="photo13" style="left: 150%;" class="photoPage" src="foto/photo (13).jpg">
-<img id="photo14" style="left: 150%;" class="photoPage" src="foto/photo (14).jpg">
-<img id="photo15" style="left: 150%;" class="photoPage" src="foto/photo (15).jpg">
-<img id="photo16" style="left: 150%;" class="photoPage" src="foto/photo (16).jpg">
-<img id="photo17" style="left: 150%;" class="photoPage" src="foto/photo (17).jpg">
-<img id="photo18" style="left: 150%;" class="photoPage" src="foto/photo (18).jpg">
-<img id="photo19" style="left: 150%;" class="photoPage" src="foto/photo (19).jpg">
-<img id="photo20" style="left: 150%;" class="photoPage" src="foto/photo (20).jpg">
-<img id="photo21" style="left: 150%;" class="photoPage" src="foto/photo (21).jpg">
-<img id="photo22" style="left: 150%;" class="photoPage" src="foto/photo (22).jpg">
-<img id="photo23" style="left: 150%;" class="photoPage" src="foto/photo (23).jpg">
-<img id="photo24" style="left: 150%;" class="photoPage" src="foto/photo (24).jpg">
-<img id="photo25" style="left: 150%;" class="photoPage" src="foto/photo (25).jpg">
-<img id="photo26" style="left: 150%;" class="photoPage" src="foto/photo (26).jpg">
+<div onclick="openNav()" class="menuSlider" id="menuSlider">
+  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon">
 </div>
 
-<div id="dcontainer" class="dcontainer"> <!--dots at bottom-->
 
-<div onclick="dotClick(this)" class="dots" id="dot1">1</div>
-<div onclick="dotClick(this)" class="dots" id="dot2">2</div>
-<div onclick="dotClick(this)" class="dots" id="dot3">3</div>
-<div onclick="dotClick(this)" class="dots" id="dot4">4</div>
-<div onclick="dotClick(this)" class="dots" id="dot5">5</div>
-<div onclick="dotClick(this)" class="dots" id="dot6">6</div>
-<div onclick="dotClick(this)" class="dots" id="dot7">7</div>
-<div onclick="dotClick(this)" class="dots" id="dot8">8</div>
-<div onclick="dotClick(this)" class="dots" id="dot9">9</div>
-<div onclick="dotClick(this)" class="dots" id="dot10">10</div>
-<div onclick="dotClick(this)" class="dots" id="dot11">11</div>
-<div onclick="dotClick(this)" class="dots" id="dot12">12</div>
-<div onclick="dotClick(this)" class="dots" id="dot13">13</div>
-<div onclick="dotClick(this)" class="dots" id="dot14">14</div>
-<div onclick="dotClick(this)" class="dots" id="dot15">15</div>
-<div onclick="dotClick(this)" class="dots" id="dot16">16</div>
-<div onclick="dotClick(this)" class="dots" id="dot17">17</div>
-<div onclick="dotClick(this)" class="dots" id="dot18">18</div>
-<div onclick="dotClick(this)" class="dots" id="dot19">19</div>
-<div onclick="dotClick(this)" class="dots" id="dot20">20</div>
-<div onclick="dotClick(this)" class="dots" id="dot21">21</div>
-<div onclick="dotClick(this)" class="dots" id="dot22">22</div>
-<div onclick="dotClick(this)" class="dots" id="dot23">23</div>
-<div onclick="dotClick(this)" class="dots" id="dot24">24</div>
-<div onclick="dotClick(this)" class="dots" id="dot25">25</div>
-<div onclick="dotClick(this)" class="dots" id="dot26">26</div>
-</div>
+
+<div id="main" class="main" onclick="closeNav()">
+<div id="title" class="title">radal</div> <!--main title-->
 
 <div class="bgdots" id="bgdots"></div>
+
+
+
+<div id="transitionScreen" class="transitionScreen"><div class="transitionScreenLocation" id="transitionScreenLocation">ass</div></div>
+
+
+
+<div class="logoWrap" id="logoWrap">
+<img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg">
+</div><!--background logo img-->
+</div> <!--end of main-->
+
+
+</div> <!--borblur-->
+
+
+<img id="oldlogo" class="oldLogo" draggable="false" src="logo.png"> <!--old logo for transition to old site-->
+
+
+<div class="borWarning" id="borWarning">
+<!-- img -->
+<div class="oldP">This was the old web-app I made for school admissions. It's pretty bad and was optimized for a specific resolution (1680x1050) as I forgor 💀 that screen scaling would have an effect. There is also no optimization for mobile devices.</div>
+<br>
+<div class="oldContinue">Continue?</div>
+<br>
+<button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
 </div>
+
+
 </body>
 
 
+
+
+
+
+
+
+
+
+
 <script>
-bgNavPos = -150;
-bgPicPos = 0;
-bgPos = bgNavPos + bgPicPos;
-
-pic = 1;
-
-
+document.getElementById("transitionScreenLocation").innerHTML = window.location;
+document.getElementById("transitionScreen").style.bottom = "0";
+setTimeout(() => {
+  document.getElementById("transitionScreen").style.height = "0";
+  document.getElementById("transitionScreen").style.boxShadow = "none";
+}, 200)
 
 
 
 
 
 function openNav() {
-  bgNavPos = -130;
-  bgPos = bgNavPos + bgPicPos;
-  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
-  document.getElementById("title").style.opacity = "0.3";   //title
-  document.getElementById("title").style.fontSize = "50px"; //title
-  document.getElementById("bgdots").style.left = bgPos+ "%";   //animates background to slide right when nav opens
-}
-
-function closeNav() {
-  bgNavPos = -150;
-  bgPos = bgNavPos + bgPicPos;
-  document.getElementById("sideNav").style.width = "0";
-  document.getElementById("title").style.opacity = "1";
-  document.getElementById("title").style.fontSize = "75px";
-  document.getElementById("bgdots").style.left = bgPos+ "%";
-}
-
-
-
-
-
-
-
-
-function onLoad() { // fade in animation at load
+  document.getElementById("main").style.pointerEvents = "";
   setTimeout(() => {
-    document.getElementById("main").style.opacity = "1";
-    document.getElementById("dot1").style.height = "30px"; //dots at bottom
-    document.getElementById("dot1").style.width = "30px";
-    document.getElementById("dot1").style.backgroundColor = "#B3E8CD";
-    document.getElementById("dot1").style.fontSize = "55%";
+    document.getElementById("menuArrow").style.animation = "none";
   }, 200)
+  document.getElementById("main").style.filter = "blur(0.5vh)";
+  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
+  document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
+  document.getElementById("title").style.left = "20%";    //title
+  document.getElementById("bgdots").style.left = "-130%";   //animates background to slide right when nav opens
+}
+function closeNav() {
+  document.getElementById("main").style.filter = "";
+  document.getElementById("sideNav").style.width = "0";     //sidenav
+  document.getElementById("sideNav").style.boxShadow = "none"; 
+  document.getElementById("title").style.left = "15%";    //title
+  document.getElementById("bgdots").style.left = "-150%";
 }
 
 
 
-
-
-
-
-
-function goHome() {  // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 600)
-}
-function goFoto() {  // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "foto.html";
-  }, 600)
-}
-function goKresby() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "kresby.html";
-  }, 600)
-}
-function goDopis() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "dopis.html";
-  }, 600)
-}
-function goAbout() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "about.html";
-  }, 600)
-}
-function goAudio() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "audio.html";
-  }, 600)
-}
-
-
-
-
-
-
-
-function moveRight() {
-  if (pic==26) {
-    //do nothing
+function go(location) {  // handles fade out animation and goes to corresponding page
+  if (location == "./old-site/index") {
+    borWarning();
   }
   else {
-
-    bgPicPos = bgPicPos - 5;
-    bgPos = bgNavPos + bgPicPos;
-    
-    document.getElementById("bgdots").style.left = bgPos+ "%";
-
-
-    document.getElementById("photo" + pic).style.left = "-150%"; //moves pic offscreen to the left
-
-    var pDiv = document.getElementById("dcontainer"); 
-    var cDiv = pDiv.children;
-    for (var i = 0; i < cDiv.length; i++) {
-      if (cDiv[i].tagName == "DIV") {      //allows me to change style of children
-         cDiv[i].style.height = "15px";  
-         cDiv[i].style.width = "15px";
-         cDiv[i].style.backgroundColor = "#729394";
-         cDiv[i].style.fontSize = "0%";
-      }
-    }
-    
-
-    pic = pic + 1; //increases the id of the picture to move
-    document.getElementById("photo" + pic).style.left = "50%"; //moves pic to the middle of the screen
-
+    document.getElementById("menuSlider").style.display = "none";
+    document.getElementById("transitionScreen").style.top = "0";
+    document.getElementById("transitionScreenLocation").style.top = "50vh";
+    document.getElementById("transitionScreen").style.height = "100%";
+    document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
+    document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
+    closeNav();
     setTimeout(() => {
-      doDot();
-    }, 200)
-  }
-}
-
-function moveLeft() {
-  if (pic==1) {
-    //do nothing
-  }
-  else {
-
-    bgPicPos = bgPicPos + 5;
-    bgPos = bgNavPos + bgPicPos;
-
-    document.getElementById("bgdots").style.left = bgPos+ "%";
-
-
-    document.getElementById("photo" + pic).style.left = "150%"; //moves pic offscreen to the right
-
-    var pDiv = document.getElementById("dcontainer"); 
-    var cDiv = pDiv.children;
-    for (var i = 0; i < cDiv.length; i++) {
-      if (cDiv[i].tagName == "DIV") {      //allows me to change style and resetS children
-         cDiv[i].style.height = "15px";  
-         cDiv[i].style.width = "15px";
-         cDiv[i].style.backgroundColor = "#729394";
-         cDiv[i].style.fontSize = "0%";
-      }
-    }
-
-
-    pic = pic - 1;  //decreases the id of the picture to move
-    document.getElementById("photo" + pic).style.left = "50%";  //moves pic to the middle of the screen
-
-    setTimeout(() => {
-      doDot();
-    }, 200)
-  }
+      window.location.href = location + ".html";
+    }, 1000)
+  };
 }
 
 
 
-function doDot() {
-  document.getElementById("dot" + pic).style.height = "30px"; //dots at bottom
-  document.getElementById("dot" + pic).style.width = "30px";
-  document.getElementById("dot" + pic).style.backgroundColor = "#B3E8CD";
-  document.getElementById("dot" + pic).style.fontSize = "55%";
+function borWarning() {
+  document.getElementById("borWarning").style.opacity = "1";
+  document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
+  document.getElementById("borblur").style.filter = "blur(1.5vh)";
+  document.getElementById("borblur").style.background = "inherit";
 }
-
-
-
-function dotClick(self) { 
-  var number = self.innerHTML; //asks itself what the inner html of the div is, the number is always there, it's just scaled down infinitely
-  if (number < pic) { //if the desired location is smaller than current location (doesn't do anything if it's the same)\/
-    while (number != pic) { //continue moving left till you reach destination (till value of dot pressed is equal to current picture)
-      moveLeft();
-    }
-  }
-  else {
-    while (number != pic) { //continue moving right till you reach destination (till value of dot pressed is equal to current picture)
-      moveRight();
-    }
-  }
+function borWarningClos() {
+  document.getElementById("borWarning").style.opacity = "0";
+  document.getElementById("borWarning").style.transform = "rotate(10deg) scale(0.75) translate(-50%,-50%)";
+  document.getElementById("borblur").style.filter = "";
+  document.getElementById("borblur").style.background = "none";
 }
-
-
-
- //detects left/right arrow keyes so you can cycle through photos with them
-document.onkeydown = checkKey;
-
-function checkKey(e) {
-
-    e = e || window.event;
-
-     if (e.keyCode == '37') {
-      moveLeft();
-       // left arrow
-    }
-    else if (e.keyCode == '39') {
-      moveRight();
-       // right arrow
-    }
+function borWarningGo() {
+  borWarningClos();
+  closeNav();
+  document.getElementById("menuSlider").style.display = "none";
+  document.body.style.backgroundColor = "#4F5861";
+  document.getElementById("bgdots").style.filter = "none";
+  document.getElementById("bgdots").style.opacity = "0";
+  document.getElementById("borblur").style.opacity = "0";
+  document.getElementById("logoWrap").style.transform = "scaleX(0%)";
+  document.getElementById("oldlogo").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("oldlogo").style.opacity = "0.1";
+    document.getElementById("oldlogo").style.transform = "translate(-50%, -50%)";
+  }, 1) //have to do this or the logo appears without transition
+  setTimeout(() => {
+    location = "./old-site/index.html";
+  }, 1200)
 }
 </script>
 </html>
