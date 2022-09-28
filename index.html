@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="favicon.svg">
+
+<title>nudi</title>
+
+<style>
+body {
+  background-color: #5552a0;
+  font-family: 'Reem Kufi Fun', sans-serif;
+  font-size: 40px;
+  color: #cfc5fd;
+  margin: none;
+  user-select: none;
+  overflow: hidden;
+  transition: 1s;
+}
+span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
+
+
+
+.sidenavtext { font-size: 40px; color: #cfc5fd; }
+
+.sidenav {
+  height: 100%;
+  width: 0%;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #6262bf;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-size: 0px;
+  box-shadow: none;
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+}
+.sidenav a {
+  background-color: #6262bf;
+  margin: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #cfc5fd;
+  display: block;
+  transition: 0.4s;
+  width: fit-content;
+}
+.sidenav a:hover { color: #E3F6ED; scale: 115%;}
+.sidenav a div:hover { padding-left: 20px; }
+.sidenav a div { transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
+}
+
+
+
+.title {
+  font-size: 100px;
+  transition: 1s;
+  left: 15%;
+  position: relative;
+  top: 20%;
+  z-index: 50;
+}
+
+.menuSlider {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  min-width: 150px;
+  width: 5%;
+  cursor: pointer;
+  transition: 0.1s;
+  z-index: 1;
+}
+.arrow {
+  position: relative;
+  left: 40px;
+  animation: point 5s infinite ease 1s;
+  transition: 0.2s;
+  height: 0.6in;
+  width: 0.6in;
+  transform: translate(0, -50%);
+  transform-origin: top left;
+  top: 50%;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
+}
+.menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
+.menuSlider:hover .arrow{ scale: 115%; }
+
+@keyframes point {
+  60% {left: 40px;}
+  80% {left: 80px;}
+}
+
+
+.bgdots {
+  background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
+  background-size: 50px 50px;
+  width: 400%;
+  height: 400%;
+  position: fixed;
+  top: -150%;
+  left: -150%;
+  animation: bg 1000s infinite;
+  animation-timing-function: linear;
+  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  filter: blur(2px);
+  z-index: -5;
+  transform: rotate(-60deg);
+}
+@keyframes bg {
+  50% {transform: rotate(-20deg); background-size: 80px 80px;}
+}
+
+.logoWrap {
+  top: -1%;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  transform: 1s;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: logofloat infinite 6s ease-in-out 0.5s;
+}
+@keyframes logofloat {
+  50% {top: 1%;}
+}
+.bgLogo {
+  height: 50%;
+  max-width: 60%;
+  filter: drop-shadow(10vh 10vh 3vh black);
+  animation: logorotat forwards 3.75s ease-out 0.3s;
+  transform: rotate3d(1, 1, 1, 90deg) translateZ(60vh);
+  opacity: 0;
+}
+@keyframes logorotat {
+    100% {transform: translateZ(0vh); filter: drop-shadow(0.5vh 0.5vh 1vh black); opacity: 0.2;}
+}
+
+
+
+.transitionScreen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #6262bf;
+  overflow: hidden;
+  transition: 1s;
+  font-size: 0px;
+  box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  z-index: 10000;
+  align-content: center;
+}
+.transitionScreenLocation {
+  line-height: 0px;
+  position: fixed;
+  bottom: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  color: #413e7a;
+  font-size: 50px;
+  max-width: 100%;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+
+
+
+.borWarning {
+  position: absolute;
+    transform: rotate(10deg) scale(0.75) translate(-50%, -50%);
+    transform-origin: left bottom;
+    left: 50%;
+    top: 50%;
+  opacity: 0;
+  z-index: 1000000000;
+  background-color: #6965c6;
+  height: fit-content;
+  max-width: 80vh;
+  padding: 4vh;
+  transition: 0.4s;
+  box-shadow: 30px 30px 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
+  font-size: 3.5vh;
+  background-image: url(exclamate.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 92.5%;
+    background-size: 2.5%;
+  display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 80% 10% 10%;
+}
+
+.oldP { grid-area: 1 / 1 / 2 / 3; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))}
+.oldContinue { grid-area: 2 / 1 / 3 / 3; text-align: center; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
+.oldYes { grid-area: 3 / 1 / 4 / 2; }
+.oldNo { grid-area: 3 / 2 / 4 / 3; }
+
+button {
+  background-color: #cfc5fd;
+  border: none;
+  width: 11vh;
+  border-radius: 1vh 0 1vh 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #6965c6;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  font-family: 'Reem Kufi Fun', sans-serif;
+  font-size: 2vh;
+  line-height: 0px;
+  cursor: pointer;
+}
+
+
+.borblur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  filter: none;
+  background: none;
+}
+
+
+
+.oldLogo {
+  display: none;
+  height: 50%;
+  opacity: 0;
+  transition: 1s;
+    transition-timing-function: ease-out;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: scale(3000%) translate(-55%, -25%);
+    transform-origin: left top;
+}
+</style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+<body draggable="false" style="margin: 0px;">
+
+
+
+
+<div class="borblur" id="borblur"> <!--borblur :pffft:-->
+
+<div id="sideNav" class="sidenav">
+  <div class="sidenavtext">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
+    <a href="javascript:go('index')"><div>domů</div></a>
+    <a href="javascript:go('foto')"><div>foto</div></a> 
+    <a href="javascript:go('kresby')"><div>kresby</div></a> 
+    <a href="javascript:go('dopis')"><div>dopis</div></a> 
+    <a href="javascript:go('audio')"><div>audio</div></a>
+    <a href="javascript:go('about')"><div>about</div></a>
+    <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
+  </div>
+</div> <!-- end of sidenav options-->
+
+
+
+
+<div onclick="openNav()" class="menuSlider" id="menuSlider">
+  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon">
+</div>
+
+
+
+<div id="main" class="main" onclick="closeNav()">
+<span id="title" class="title">radal</span> <!--main title-->
+
+<div class="bgdots" id="bgdots"></div>
+
+
+
+<div id="transitionScreen" class="transitionScreen"><div class="transitionScreenLocation" id="transitionScreenLocation">ass</div></div>
+
+
+
+<div class="logoWrap" id="logoWrap">
+<img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg">
+</div><!--background logo img-->
+</div> <!--end of main-->
+
+
+</div> <!--borblur-->
+
+
+<img id="oldlogo" class="oldLogo" draggable="false" src="logo.png"> <!--old logo for transition to old site-->
+
+
+<div class="borWarning" id="borWarning">
+<!-- img -->
+<div class="oldP">This was the old web-app I made for school admissions. It's pretty bad and was optimized for a specific resolution (1680x1050) as I forgor 💀 that screen scaling would have an effect. There is also no optimization for mobile devices.</div>
+<br>
+<div class="oldContinue">Continue?</div>
+<br>
+<button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
+</div>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.getElementById("transitionScreenLocation").innerHTML = window.location;
+document.getElementById("transitionScreen").style.bottom = "0";
+setTimeout(() => {
+  document.getElementById("transitionScreen").style.height = "0";
+  document.getElementById("transitionScreen").style.boxShadow = "none";
+}, 200)
+
+
+
+
+
+function openNav() {
+  document.getElementById("main").style.pointerEvents = "";
+  setTimeout(() => {
+    document.getElementById("menuArrow").style.animation = "none";
+
+  }, 200)
+  document.getElementById("main").style.filter = "blur(0.5vh)";
+  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
+  document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
+  document.getElementById("title").style.left = "20%";    //title
+  document.getElementById("bgdots").style.left = "-130%";   //animates background to slide right when nav opens
+}
+function closeNav() {
+  document.getElementById("main").style.filter = "";
+  document.getElementById("sideNav").style.width = "0";     //sidenav
+  document.getElementById("sideNav").style.boxShadow = "none"; 
+  document.getElementById("title").style.left = "15%";    //title
+  document.getElementById("bgdots").style.left = "-150%";
+}
+
+
+
+function go(location) {  // handles fade out animation and goes to corresponding page
+  document.getElementById("menuSlider").style.display = "none";
+  if (location == "./old-site/index") {
+    borWarning();
+  }
+  else {
+    document.getElementById("transitionScreen").style.top = "0";
+    document.getElementById("transitionScreenLocation").style.top = "50vh";
+    document.getElementById("transitionScreen").style.height = "100%";
+    document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
+    document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
+    closeNav();
+    setTimeout(() => {
+      window.location.href = location + ".html";
+    }, 1000)
+  };
+}
+
+
+
+function borWarning() {
+  document.getElementById("borWarning").style.opacity = "1";
+  document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
+  document.getElementById("borblur").style.filter = "blur(1.5vh)";
+  document.getElementById("borblur").style.background = "inherit";
+}
+function borWarningClos() {
+  document.getElementById("borWarning").style.opacity = "0";
+  document.getElementById("borWarning").style.transform = "rotate(10deg) scale(0.75) translate(-50%,-50%)";
+  document.getElementById("borblur").style.filter = "";
+  document.getElementById("borblur").style.background = "none";
+}
+function borWarningGo() {
+  borWarningClos();
+  closeNav();
+  document.body.style.backgroundColor = "#4F5861";
+  document.getElementById("bgdots").style.filter = "none";
+  document.getElementById("bgdots").style.opacity = "0";
+  document.getElementById("borblur").style.opacity = "0";
+  document.getElementById("logoWrap").style.transform = "scaleX(0%)";
+  document.getElementById("oldlogo").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("oldlogo").style.opacity = "0.1";
+    document.getElementById("oldlogo").style.transform = "translate(-50%, -50%)";
+  }, 1) //have to do this or the logo appears without transition
+  setTimeout(() => {
+    location = "./old-site/index.html";
+  }, 1200)
+}
+</script>
+</html>

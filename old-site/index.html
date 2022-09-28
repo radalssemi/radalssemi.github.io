@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="shortcut icon" type="image/png" href="logo.png">
+<style>
+body {
+  background-color: #4F5861;
+  font-family: 'Comfortaa';
+  font-size: 40px;
+  color: #B3E8CD;
+  transition: 0.6s; /* --added-after   */
+}
+
+
+
+.transitionScreenLocation { /* --added-after   */
+  line-height: 0px;
+  position: fixed;
+  bottom: 50vh;
+  left: 50vw;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  color: #413e7a;
+  font-size: 50px;
+  max-width: 100%;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  font-family: 'Reem Kufi Fun', sans-serif;
+} /* --added-after   */
+
+
+
+
+
+
+
+
+.sidenavtext {
+  font-family: 'Comfortaa';
+  font-size: 40px;
+  color: #B3E8CD;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 108;
+  top: 0;
+  left: 0;
+  background-color: #729394;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-size: 0px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #B3E8CD;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidenav a:hover {
+  color: #E3F6ED;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.menuOpen {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  color: #B3E8CD;
+  background-color: #729394;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  font-size: 60px;
+  border-radius: 10px;
+  z-index: 30;
+}
+
+.icon {
+  filter: invert(89%) sepia(47%) saturate(216%) hue-rotate(74deg) brightness(96%) contrast(88%);
+  height: 50%;
+  width: 50%;
+  transition: 0.2s;
+}
+.icon:hover {
+  filter: invert(96%) sepia(8%) saturate(415%) hue-rotate(80deg) brightness(103%) contrast(93%);
+}
+
+.title {
+  font-size: 100px;
+  transition: 0.5s;
+  left: 240px;
+  position: relative;
+  z-index: 50;
+}
+
+.arrow {
+  position: fixed;
+  top: 35px;
+  left: 30px;
+  animation: point 2s infinite;
+  transition: 0.1s;
+  height: 175px;
+  width: 200px;
+  transform: scaleX(-1);
+}
+
+
+@keyframes point {
+  50% {left: 80px;}
+}
+
+
+.bgdots {
+  background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
+  transform: rotate(-60deg);
+  background-size: 50px 50px;
+  width: 400%;
+  height: 400%;
+  position: fixed;
+  top: -150%;
+  left: -150%;
+  animation: bg 1000s infinite;
+  animation-timing-function: linear;
+  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  z-index: -5;
+}
+
+@keyframes bg {
+  50% {transform: rotate(-20deg); background-size: 80px 80px;}
+}
+
+
+body {
+  -ms-user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  user-select: none; /* supported by Chrome and Opera */
+}
+</style>
+
+
+</head>
+
+
+
+
+<body onload="onLoad()" draggable="false" style="margin: 40px;">
+<img id="bg" style="height: 50%;opacity: 0.1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%)" src="logo.png"> <!--background logo img-->
+<div id="main" style="position: fixed; opacity: 0; transition: 0.6s;">
+<div id="arrow" class="arrow"><img src="arrow.svg" class="icon"></div>
+<div id="menuOpen" onclick="javascript:openNav()" class="menuOpen"><img draggable="false" style="width: 85%; height: 100%;" src="menu.svg" class="icon"></div>
+
+<span id="title" class="title">portfolio</span> <!--main title-->
+<br>
+
+
+<div id="sideNav" class="sidenav">
+  <div class="sidenavtext">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
+    <a href="javascript:goHome()">domů</a>
+    <a href="javascript:goFoto()">foto</a>
+    <a href="javascript:goKresby()">kresby</a>
+    <a href="javascript:goDopis()">dopis</a>
+    <a href="javascript:goAudio()">audio</a>
+    <a href="javascript:goAbout()">about</a>
+    <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:goBack()">go back</a> <!-- added button to go back  --added-after   -->
+  </div>
+</div> <!-- end of sidenav options-->
+
+<div id="info" style="transition: 0.7s;padding: 4px; border-color: #729394;border-width: 10px; border-style: none none solid none; position: fixed; top: 70%; right: 10%;">chtěl jsem udělat trochu víc</div>
+<div class="bgdots" id="bgdots"></div>
+</div>
+
+
+<div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
+
+</body>
+
+
+<script>
+function openNav() {
+  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
+  document.getElementById("title").style.left = "390px";    //title
+  document.getElementById("info").style.right = "20%";      //info
+  document.getElementById("bgdots").style.left = "-130%";      //animates background to slide right when nav opens
+  setTimeout(() => {
+    document.getElementById("arrow").style.opacity = "0";   //arrow lol
+  }, 400)
+}
+
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";     //sidenav
+  document.getElementById("title").style.left = "240px";    //title
+  document.getElementById("info").style.right = "10%";      //info
+  document.getElementById("bgdots").style.left = "-150%";
+}
+
+</script>
+
+<script>
+function onLoad() {  // fade in animation at load
+  setTimeout(() => {
+    document.getElementById("main").style.opacity = "1"; //fade in effect
+  }, 200)
+}
+</script>
+<script>
+
+
+
+
+
+
+
+function goBack() { //only adding button to go back to new site   --added-after
+  document.getElementById("main").style.opacity = "0";  
+  document.getElementById("bg").style.opacity = "0";                          
+  document.body.style.backgroundColor = "#6262bf";            
+  closeNav();  
+  setTimeout(() => {
+    showAss(); 
+  }, 300)                                                
+  setTimeout(() => {                                          
+  window.location.href = "../index.html";                     
+  }, 800)                                                     
+}            // --added-after                                                 
+
+document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/index.html";
+function showAss() { // --added-after
+  document.getElementById("transitionScreenLocation").style.opacity = "1";
+} // --added-after
+
+
+
+
+
+
+
+
+//damn, this was so messy  
+
+function goHome() {  // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 600)
+}
+function goFoto() {  // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "foto.html";
+  }, 600)
+}
+function goKresby() { // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "kresby.html";
+  }, 600)
+}
+function goDopis() { // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "dopis.html";
+  }, 600)
+}
+function goAbout() { // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "about.html";
+  }, 600)
+}
+function goAudio() { // handles fade out animation and goes to corresponding page
+  document.getElementById("main").style.opacity = "0"
+  closeNav();
+  setTimeout(() => {
+    window.location.href = "audio.html";
+  }, 600)
+}
+</script>
+</script>
+</html>
