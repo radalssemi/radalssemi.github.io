@@ -52,6 +52,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   display: block;
   transition: 0.4s;
   width: fit-content;
+  z-index: 3;
 }
 .sidenav a:hover { color: #E3F6ED; scale: 115%;}
 .sidenav a div:hover { padding-left: 20px; }
@@ -81,12 +82,16 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   height: fit-content;
   font-size: 100px;
   transition: 1s;
-  left: 15%;
-  position: relative;
-  top: 20%;
+  left: 150px;
+  position: absolute;
+  bottom: 200px;
   z-index: 50;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translate(-50%,-50%);
   transform-origin: top left;
+  color: #413e7a;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .menuSlider {
@@ -262,6 +267,24 @@ button {
     transform: scale(3000%) translate(-55%, -25%);
     transform-origin: left top;
 }
+
+
+
+
+
+
+
+
+.fotoGrid {
+  position: fixed;
+    transform: translate(-50%);
+    left: 50%;
+    top: 50%;
+  background-color: red;
+  padding: 4vh;
+  display: grid;
+    grid-template-columns: 50% 50%
+}
 </style>
 </head>
 
@@ -293,6 +316,7 @@ button {
     <a href="javascript:go('about')"><div>about</div></a>
     <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
+  <div id="title" class="title">foto</div> <!--main title-->
 </div> <!-- end of sidenav options-->
 
 
@@ -305,7 +329,7 @@ button {
 
 
 <div id="main" class="main" onclick="closeNav()">
-<div id="title" class="title">radal</div> <!--main title-->
+
 
 <div class="bgdots" id="bgdots"></div>
 
@@ -336,7 +360,7 @@ button {
 <button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
 </div>
 
-
+<div class="fotoGrid" id="fotoGrid"><span>1</span><span>2</span></div>
 </body>
 
 
@@ -369,14 +393,12 @@ function openNav() {
   document.getElementById("main").style.filter = "blur(0.5vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
   document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
-  document.getElementById("title").style.left = "20%";    //title
   document.getElementById("bgdots").style.left = "-130%";   //animates background to slide right when nav opens
 }
 function closeNav() {
   document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     //sidenav
   document.getElementById("sideNav").style.boxShadow = "none"; 
-  document.getElementById("title").style.left = "15%";    //title
   document.getElementById("bgdots").style.left = "-150%";
 }
 
