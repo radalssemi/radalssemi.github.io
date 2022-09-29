@@ -117,20 +117,18 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 .bgdots {
-  background: radial-gradient(circle, rgba(0,0,0,0.05) 40px, transparent 0);
-  background-size: 500px 50px;
-  width: 150%;
-  height: 150%;
+  background: radial-gradient(circle, rgba(0,0,0,0.05) 20px, transparent 0);
+  transform: rotate(-60deg);
+  background-size: 50px 50px;
+  width: 200%;
+  height: 200%;
   position: fixed;
-  top: 75%;
-  left: 75%;
-  animation: bg 1000s infinite;
+  top: -150%;
+  left: -150%;
+  animation: bg 10s infinite;
   animation-timing-function: linear;
   transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
-  filter: blur(2px);
   z-index: -5;
-  transform-origin: center;
-  transform: translate(-50%,-50%);
 }
 @keyframes bg {
   50% { transform: translate(-50%,-50%); background-size: 80px 80px; }
