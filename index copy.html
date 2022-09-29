@@ -119,21 +119,20 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 .bgdots {
   background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
   background-size: 50px 50px;
-  width: 150%;
-  height: 150%;
+  width: 400%;
+  height: 400%;
   position: fixed;
-  top: 75%;
-  left: 75%;
+  top: -150%;
+  left: -150%;
   animation: bg 1000s infinite;
   animation-timing-function: linear;
   transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
   filter: blur(2px);
   z-index: -5;
-  transform-origin: left top;
-  transform: rotate(-60deg) translate(-50%,-50%);
+  transform: rotate(-60deg);
 }
 @keyframes bg {
-  50% {transform: rotate(-20deg) translate(-50%,-50%) background-size: 80px 80px;}
+  50% {transform: rotate(-20deg); background-size: 80px 80px;}
 }
 
 .logoWrap {
