@@ -127,22 +127,31 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 .bgdots {
-  background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
-  background-size: 50px 50px;
-  width: 400%;
-  height: 400%;
   position: fixed;
-  top: -150%;
-  left: -150%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -5;
+  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.bgdots::before {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  top: -75%;
+  left: -75%;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(0,0,0,0.04) 10px, transparent 15px);
+  background-size: 100px 100px;
   animation: bg 1000s infinite;
   animation-timing-function: linear;
-  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
-  filter: blur(2px);
-  z-index: -5;
-  transform: rotate(-60deg);
+  transform-origin: center;
+  rotate: 100deg;
 }
 @keyframes bg {
-  50% {transform: rotate(-20deg); background-size: 80px 80px;}
+  50% {  rotate: -100deg; background-size: 150px 150px;}
 }
 
 .logoWrap {
@@ -279,18 +288,16 @@ button {
   position: fixed;
     transform: translate(-50%);
     left: 50%;
-    top: 50%;
+  overflow-y: scroll;
   background-color: red;
-  padding: 4vh;
-  width: 50%;
+  padding: 2%;
+  max-width: 1100px;
   display: grid;
-    grid-template-columns: 50% 50%;
-    justify-content: center;
-    align-items: center;
+
+    grid-template-columns: 40% 40%;
 }
 .fotoGrid img {
-  width: 50%;
-  margin: auto 0 auto 0;
+  width: 100%;
 }
 </style>
 </head>
@@ -370,6 +377,16 @@ button {
 <div class="fotoGrid" id="fotoGrid">
 <img src="foto/photo (1).jpg">
 <img src="foto/photo (2).jpg">
+<img src="foto/photo (3).jpg">
+<img src="foto/photo (4).jpg">
+<img src="foto/photo (5).jpg">
+<img src="foto/photo (6).jpg">
+<img src="foto/photo (7).jpg">
+<img src="foto/photo (8).jpg">
+<img src="foto/photo (9).jpg">
+<img src="foto/photo (10).jpg">
+<img src="foto/photo (11).jpg">
+<img src="foto/photo (12).jpg">
 <asssdddd></asssdddd>
 </div>
 </body>
