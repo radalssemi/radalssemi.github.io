@@ -45,7 +45,6 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
 }
 .sidenav a {
-  background-color: #6262bf;
   margin: 8px 8px 8px 32px;
   text-decoration: none;
   color: #cfc5fd;
@@ -83,6 +82,24 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   top: 20%;
   z-index: 50;
 }
+.sideTitle {
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  width: fit-content;
+  height: fit-content;
+  font-size: 100px;
+  transition: 1s;
+  left: 150px;
+  position: fixed;
+  bottom: 150px;
+  z-index: 50;
+  transform: rotate(-90deg) translate(-50%,-50%);
+  transform-origin: top left;
+  color: #413e7a;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  opacity: 0.5;
+  z-index: -1;
+}
+
 
 .menuSlider {
   position: absolute;
@@ -303,6 +320,7 @@ button {
     <a href="javascript:go('about')"><div>about</div></a>
     <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
+  <div id="sideTitle" class="sideTitle">home</div> <!--current page-->
 </div> <!-- end of sidenav options-->
 
 

@@ -45,7 +45,6 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
 }
 .sidenav a {
-  background-color: #6262bf;
   margin: 8px 8px 8px 32px;
   text-decoration: none;
   color: #cfc5fd;
@@ -56,7 +55,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 }
 .sidenav a:hover { color: #E3F6ED; scale: 115%;}
 .sidenav a div:hover { padding-left: 20px; }
-.sidenav a div { transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
+.sidenav a div {z-index: 3; transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
 
 
 .sidenav .closebtn {
@@ -76,22 +75,22 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 
-.title {
+.sideTitle {
   filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
   width: fit-content;
   height: fit-content;
   font-size: 100px;
   transition: 1s;
   left: 150px;
-  position: absolute;
-  bottom: 200px;
+  position: fixed;
+  bottom: 150px;
   z-index: 50;
   transform: rotate(-90deg) translate(-50%,-50%);
   transform-origin: top left;
   color: #413e7a;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
   opacity: 0.5;
-  z-index: 2;
+  z-index: -1;
 }
 
 .menuSlider {
@@ -331,7 +330,7 @@ button {
     <a href="javascript:go('about')"><div>about</div></a>
     <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
-  <div id="title" class="title">foto</div> <!--main title-->
+  <div id="sideTitle" class="sideTitle">foto</div> <!--current page-->
 </div> <!-- end of sidenav options-->
 
 
@@ -351,7 +350,7 @@ button {
 
 
 <div id="transitionScreen" class="transitionScreen"><div class="transitionScreenLocation" id="transitionScreenLocation">ass</div></div>
-
+<script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
 
 
 <div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg"></div><!--background logo img-->
@@ -400,7 +399,6 @@ button {
 
 
 <script>
-document.getElementById("transitionScreenLocation").innerHTML = window.location;
 document.getElementById("transitionScreen").style.bottom = "0";
 setTimeout(() => {
   document.getElementById("transitionScreen").style.height = "0";
