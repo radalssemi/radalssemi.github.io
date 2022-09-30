@@ -291,7 +291,8 @@ button {
   overflow-y: scroll;
   background-color: red;
   padding: 2%;
-  max-width: 1100px;
+  width: 1000px;
+  max-width: 75vw;
   display: grid;
 
     grid-template-columns: 40% 40%;
@@ -418,16 +419,18 @@ function openNav() {
   setTimeout(() => {
     document.getElementById("menuArrow").style.animation = "none";
   }, 200)
-  document.getElementById("main").style.filter = "blur(0.5vh)";
+  document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
   document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
-  document.getElementById("bgdots").style.left = "-130%";   //animates background to slide right when nav opens
+  document.getElementById("title").style.left = "20%";    //title
+  document.getElementById("bgdots").style.left = "10%";   //animates background to slide right when nav opens
 }
 function closeNav() {
   document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     //sidenav
   document.getElementById("sideNav").style.boxShadow = "none"; 
-  document.getElementById("bgdots").style.left = "-150%";
+  document.getElementById("title").style.left = "15%";    //title
+  document.getElementById("bgdots").style.left = "0%";
 }
 
 
@@ -469,7 +472,6 @@ function borWarningGo() {
   closeNav();
   document.getElementById("menuSlider").style.display = "none";
   document.body.style.backgroundColor = "#4F5861";
-  document.getElementById("bgdots").style.filter = "none";
   document.getElementById("bgdots").style.opacity = "0";
   document.getElementById("borblur").style.opacity = "0";
   document.getElementById("logoWrap").style.transform = "scaleX(0%)";
