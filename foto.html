@@ -354,9 +354,21 @@ button {
 
 
 
-<div class="logoWrap" id="logoWrap">
-<img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg">
-</div><!--background logo img-->
+<div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg"></div><!--background logo img-->
+<div class="fotoGrid" id="fotoGrid">
+  <img src="foto/photo (1).jpg">
+  <img src="foto/photo (2).jpg">
+  <img src="foto/photo (3).jpg">
+  <img src="foto/photo (4).jpg">
+  <img src="foto/photo (5).jpg">
+  <img src="foto/photo (6).jpg">
+  <img src="foto/photo (7).jpg">
+  <img src="foto/photo (8).jpg">
+  <img src="foto/photo (9).jpg">
+  <img src="foto/photo (10).jpg">
+  <img src="foto/photo (11).jpg">
+  <img src="foto/photo (12).jpg">
+</div>
 </div> <!--end of main-->
 
 
@@ -375,21 +387,6 @@ button {
 <button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
 </div>
 
-<div class="fotoGrid" id="fotoGrid">
-<img src="foto/photo (1).jpg">
-<img src="foto/photo (2).jpg">
-<img src="foto/photo (3).jpg">
-<img src="foto/photo (4).jpg">
-<img src="foto/photo (5).jpg">
-<img src="foto/photo (6).jpg">
-<img src="foto/photo (7).jpg">
-<img src="foto/photo (8).jpg">
-<img src="foto/photo (9).jpg">
-<img src="foto/photo (10).jpg">
-<img src="foto/photo (11).jpg">
-<img src="foto/photo (12).jpg">
-<asssdddd></asssdddd>
-</div>
 </body>
 
 
@@ -422,14 +419,12 @@ function openNav() {
   document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
   document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
-  document.getElementById("title").style.left = "20%";    //title
   document.getElementById("bgdots").style.left = "10%";   //animates background to slide right when nav opens
 }
 function closeNav() {
   document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     //sidenav
   document.getElementById("sideNav").style.boxShadow = "none"; 
-  document.getElementById("title").style.left = "15%";    //title
   document.getElementById("bgdots").style.left = "0%";
 }
 
