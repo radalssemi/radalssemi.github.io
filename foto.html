@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="favicon.svg">
 
@@ -43,6 +44,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   font-size: 0px;
   box-shadow: none;
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  pointer-events: none;
 }
 .sidenav a {
   margin: 8px 8px 8px 32px;
@@ -119,10 +121,6 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 .menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
 .menuSlider:hover .arrow{ scale: 115%; }
 
-@keyframes point {
-  60% {left: 40px;}
-  80% {left: 80px;}
-}
 
 
 .bgdots {
@@ -225,7 +223,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
     background-repeat: no-repeat;
     background-position: 50% 92.5%;
     background-size: 2.5%;
-  display: grid;
+  display: none;
     grid-template-columns: 50% 50%;
     grid-template-rows: 80% 10% 10%;
 }
@@ -281,23 +279,49 @@ button {
 
 
 
-
-
-.fotoGrid {
+.fotoAll {
   position: fixed;
-    transform: translate(-50%);
-    left: 50%;
-  overflow-y: scroll;
-  background-color: red;
-  padding: 2%;
-  width: 1000px;
-  max-width: 75vw;
-  display: grid;
-
-    grid-template-columns: 40% 40%;
-}
-.fotoGrid img {
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.row {
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  top: 10%;
+  display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5%;
+  background-color: red;
+  padding: 0 10px 10px 10px;
+  width: 70%;
+  bottom: 10%;
+}
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 23%;
+  max-width: 25%;
+}
+.column img {
+  vertical-align: middle;
+  width: 100%;
+  margin-top: 10px;
+}
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1000px) {
+  .column {
+    flex: 48%;
+    max-width: 50%;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 98%;
+    max-width: 100%;
+  }
 }
 </style>
 </head>
@@ -328,7 +352,7 @@ button {
     <a href="javascript:go('dopis')"><div>dopis</div></a> 
     <a href="javascript:go('audio')"><div>audio</div></a>
     <a href="javascript:go('about')"><div>about</div></a>
-    <a style="white-space: nowrap; position: absolute;bottom: 80px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
+    <a style="white-space: nowrap; position: absolute;bottom: 80px; font-size: 25px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
   <div id="sideTitle" class="sideTitle">foto</div> <!--current page-->
 </div> <!-- end of sidenav options-->
@@ -354,23 +378,53 @@ button {
 
 
 <div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg"></div><!--background logo img-->
-<div class="fotoGrid" id="fotoGrid">
-  <img src="foto/photo (1).jpg">
-  <img src="foto/photo (2).jpg">
-  <img src="foto/photo (3).jpg">
-  <img src="foto/photo (4).jpg">
-  <img src="foto/photo (5).jpg">
-  <img src="foto/photo (6).jpg">
-  <img src="foto/photo (7).jpg">
-  <img src="foto/photo (8).jpg">
-  <img src="foto/photo (9).jpg">
-  <img src="foto/photo (10).jpg">
-  <img src="foto/photo (11).jpg">
-  <img src="foto/photo (12).jpg">
-</div>
+
+
+
+<div class="fotoAll">
+  <div class="row"> 
+    <div class="column">
+      <img src="foto/photo (1).jpg" style="width:100%">
+      <img src="foto/photo (2).jpg" style="width:100%">
+      <img src="foto/photo (3).jpg" style="width:100%">
+      <img src="foto/photo (4).jpg" style="width:100%">
+      <img src="foto/photo (5).jpg" style="width:100%">
+
+    </div>
+    <div class="column">
+      <img src="foto/photo (6).jpg" style="width:100%">
+      <img src="foto/photo (7).jpg" style="width:100%">
+      <img src="foto/photo (8).jpg" style="width:100%">
+      <img src="foto/photo (9).jpg" style="width:100%">
+      <img src="foto/photo (10).jpg" style="width:100%">
+      <img src="foto/photo (11).jpg" style="width:100%">
+
+
+    </div>  
+    <div class="column">
+      <img src="foto/photo (13).jpg" style="width:100%">
+      <img src="foto/photo (14).jpg" style="width:100%">
+      <img src="foto/photo (15).jpg" style="width:100%">
+      <img src="foto/photo (16).jpg" style="width:100%">
+      <img src="foto/photo (17).jpg" style="width:100%">
+      <img src="foto/photo (18).jpg" style="width:100%">
+      <img src="foto/photo (19).jpg" style="width:100%">
+      <img src="foto/photo (20).jpg" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="foto/photo (12).jpg" style="width:100%">
+      <img src="foto/photo (21).jpg" style="width:100%">
+      <img src="foto/photo (22).jpg" style="width:100%">
+      <img src="foto/photo (23).jpg" style="width:100%">
+      <img src="foto/photo (24).jpg" style="width:100%">
+      <img src="foto/photo (25).jpg" style="width:100%">
+      <img src="foto/photo (26).jpg" style="width:100%">
+    </div>
+  </div>
+</div> 
+
+
 </div> <!--end of main-->
-
-
 </div> <!--borblur-->
 
 
@@ -410,6 +464,7 @@ setTimeout(() => {
 
 
 function openNav() {
+  document.getElementById("sideNav").style.pointerEvents = "all";
   document.getElementById("main").style.pointerEvents = "";
   setTimeout(() => {
     document.getElementById("menuArrow").style.animation = "none";
@@ -420,6 +475,7 @@ function openNav() {
   document.getElementById("bgdots").style.left = "10%";   //animates background to slide right when nav opens
 }
 function closeNav() {
+  document.getElementById("sideNav").style.pointerEvents = "none";
   document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     //sidenav
   document.getElementById("sideNav").style.boxShadow = "none"; 
@@ -449,16 +505,23 @@ function go(location) {  // handles fade out animation and goes to corresponding
 
 
 function borWarning() {
-  document.getElementById("borWarning").style.opacity = "1";
-  document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
-  document.getElementById("borblur").style.filter = "blur(1.5vh)";
-  document.getElementById("borblur").style.background = "inherit";
+  document.getElementById("borWarning").style.display = "grid";
+  setTimeout(() => {
+    document.getElementById("borWarning").style.opacity = "1";
+    document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
+    document.getElementById("borblur").style.filter = "blur(1.5vh)";
+    document.getElementById("borblur").style.background = "inherit";
+  }, 10) //this is done so the effects aren't applied at the same time resulting in the element popping in wihtout a transition playing
+
 }
 function borWarningClos() {
   document.getElementById("borWarning").style.opacity = "0";
   document.getElementById("borWarning").style.transform = "rotate(10deg) scale(0.75) translate(-50%,-50%)";
   document.getElementById("borblur").style.filter = "";
   document.getElementById("borblur").style.background = "none";
+  setTimeout(() => {
+    document.getElementById("borWarning").style.display = "none";
+  }, 400)
 }
 function borWarningGo() {
   borWarningClos();
