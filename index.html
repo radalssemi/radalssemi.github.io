@@ -462,7 +462,7 @@ function borWarningGo() {
   setTimeout(() => {
     document.getElementById("oldlogo").style.opacity = "0.1";
     document.getElementById("oldlogo").style.transform = "translate(-50%, -50%)";
-  }, 1) //have to do this or the logo appears without transition
+  }, 10) //have to do this or the logo appears without transition
   setTimeout(() => {
     location = "./old-site/index.html";
   }, 1200)
