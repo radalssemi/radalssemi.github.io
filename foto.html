@@ -178,6 +178,7 @@ function go(location) {  // handles fade out animation and goes to corresponding
   }
   else {
     document.getElementById("menuSlider").style.display = "none";
+    document.getElementById("smallScreenOpenNav").style.display = "none";
     document.getElementById("transitionScreen").style.top = "0";
     document.getElementById("transitionScreenLocation").style.top = "50vh";
     document.getElementById("transitionScreen").style.height = "100%";
@@ -215,6 +216,7 @@ function borWarningGo() {
   borWarningClos();
   closeNav();
   document.getElementById("menuSlider").style.display = "none";
+  document.getElementById("smallScreenOpenNav").style.display = "none";
   document.body.style.backgroundColor = "#4F5861";
   document.getElementById("bgdots").style.opacity = "0";
   document.getElementById("borblur").style.opacity = "0";
