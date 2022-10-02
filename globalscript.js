@@ -115,20 +115,3 @@ function borWarningGo() {
     location = "./old-site/index.html";
   }, 1200)
 }
-
-
-
-
-var images = document.querySelectorAll(".widthhundred").length;
-
-for (var i = 0; i < images ; i++) {
-    document.querySelectorAll(".widthhundred")[i].addEventListener("click", function() {
-        console.log( event.target.id );
-        switchPhotoMode(event.target.id);
-    });
-}
-
-
-function switchPhotoMode(targetImage) {
-  console.log("urmom" + targetImage)
-}
