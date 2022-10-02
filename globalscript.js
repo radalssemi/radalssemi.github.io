@@ -12,10 +12,10 @@ var imgs = document.images, //stolen script to detect that all images were loade
 function incrementCounter() {
   counter++;
   if ( counter === len ) {
-    console.log( 'All images loaded!' );
-    //hideTransition();
+    hideTransition();
   }
 }
+
 
 
 document.getElementById("loadingThing").style.opacity = "1"; // I made the transition screen go away only after everything's loaded,
