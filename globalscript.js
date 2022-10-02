@@ -12,7 +12,7 @@ var imgs = document.images, //stolen script to detect that all images were loade
 function incrementCounter() {
   counter++;
   if ( counter === len ) {
-    // hideTransition();
+    hideTransition();
     console.log("ass");
   }
 }
