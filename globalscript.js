@@ -12,7 +12,8 @@ var imgs = document.images, //stolen script to detect that all images were loade
 function incrementCounter() {
   counter++;
   if ( counter === len ) {
-    hideTransition();
+    // hideTransition();
+    console.log("ass");
   }
 }
 
@@ -67,7 +68,7 @@ function go(location) {  // handles fade out animation and goes to corresponding
     document.getElementById("transitionScreen").style.height = "100%";
     document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
     document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
-    document.getElementById("loadingThing").style.opacity = "0";
+    document.getElementById("loadingThing").style.display = "none";
     closeNav();
     setTimeout(() => {
       window.location.href = location + ".html";

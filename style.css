@@ -203,24 +203,24 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 .transitionScreen {
-  height: 100%;
-  width: 100%;
   position: absolute;
+    height: 100%;
+    width: 100%;
   background-color: #6262bf;
   overflow: hidden;
   transition: 1s;
   font-size: 0px;
   box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
-  z-index: 10000;
+  z-index: 10000000000;
   align-content: center;
 }
 .transitionScreenLocation {
   line-height: 0px;
   position: fixed;
-  bottom: 50vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
+    bottom: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
   color: #413e7a;
   font-size: 40px;
   max-width: 100%;
@@ -320,17 +320,17 @@ button {
 }
 
 .loadingThing:after {
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: bottom;
-    animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
-    content: "\2026";
-    /* ascii code for the ellipsis character */
-    width: 0px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 21px;
   }
-  
-  @keyframes ellipsis {
-    to {
-      width: 21px;
-    }
-  }
+}

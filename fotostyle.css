@@ -39,16 +39,16 @@
 }
 
 .fotoBackground {
-    position: fixed;
-      transform: translate(-50%, -50%) rotate(-3deg);
-      left: 50%;
-      top: 50%;
-    transform: 1s;
-    background-color: #6262bf;
-    height: 70%;
-    width: 80%;
-    display: block;
-  }
+  position: fixed;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    left: 50%;
+    top: 50%;
+  transform: 1s;
+  background-color: #6262bf;
+  height: 70%;
+  width: 80%;
+  display: block;
+}
 
 
 @media screen and (max-width: 1300px) {
