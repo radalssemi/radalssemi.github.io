@@ -8,14 +8,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="fotostyle.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="favicon.svg">
-<title>nudi home</title>
-
-
+<title>nudi foto</title>
 </head>
-
 
 
 
@@ -39,34 +37,32 @@
     <a href="javascript:go('about')"><div>about</div></a>
     <a href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
-  <div id="sideTitle" class="sideTitle">index</div> <!--current page-->
+  <div id="sideTitle" class="sideTitle">foto</div> <!--current page-->
 </div> <!-- end of sidenav options-->
-
 
 
 
 <img onclick="openNav()" src="openNav.svg" class="smallScreenOpenNav" id="smallScreenOpenNav" draggable="false">  <!--for smaller screens-->
 <div onclick="openNav()" class="menuSlider" id="menuSlider">
-  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon"> <!--for bigger screens-->
+  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
 </div>
 
 
 
-<div id="main" class="main" onclick="closeNav()"> <!--things outside sidenav for blur effect-->
+<div id="main" class="main" onclick="closeNav()">
 
-<span id="title" class="title">radal</span> <!--main title-->
 
 <div class="bgdots" id="bgdots"></div>
 
 
 
 
+<div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg" style="transform: translateZ(0vh); filter: drop-shadow(0.5vh 0.5vh 1vh black); opacity: 0.2;"></div><!--background logo img-->
 
 
-<div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg"></div><!--background logo img-->
+
+
 </div> <!--end of main-->
-
-
 </div> <!--borblur-->
 
 
@@ -82,17 +78,7 @@
 <button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
 </div>
 
-
 </body>
-
-
-
-
-
-
-
-
-
 
 
 <script src="globalscript.js"></script>
