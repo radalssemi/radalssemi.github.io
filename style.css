@@ -389,3 +389,38 @@ button {
 .widthhundred {
   width: 100%;
 }
+
+
+
+
+
+
+
+
+
+.loadingThing {
+  position: absolute;
+    left: 100px;
+    bottom: 100px;
+  opacity: 0;
+  transition: 5s 2.5s;
+  font-size: 30px;
+  color: #413e7a;
+  filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
+}
+
+.loadingThing:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
+    content: "\2026";
+    /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+  
+  @keyframes ellipsis {
+    to {
+      width: 21px;
+    }
+  }

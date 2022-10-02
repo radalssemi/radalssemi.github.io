@@ -13,10 +13,13 @@ function incrementCounter() {
   counter++;
   if ( counter === len ) {
     console.log( 'All images loaded!' );
-    hideTransition();
+    //hideTransition();
   }
 }
 
+
+document.getElementById("loadingThing").style.opacity = "1"; // I made the transition screen go away only after everything's loaded,
+                                                             // this will make a loading thing appear slowly
 
 function hideTransition() {
   document.getElementById("transitionScreen").style.bottom = "0";
@@ -64,6 +67,7 @@ function go(location) {  // handles fade out animation and goes to corresponding
     document.getElementById("transitionScreen").style.height = "100%";
     document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
     document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
+    document.getElementById("loadingThing").style.opacity = "0";
     closeNav();
     setTimeout(() => {
       window.location.href = location + ".html";
