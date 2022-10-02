@@ -69,8 +69,8 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   top: 20%;
   z-index: 50;
 }
+
 .sideTitle {
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
   width: fit-content;
   height: fit-content;
   font-size: 100px;
@@ -325,10 +325,10 @@ button {
   display: flex;
     flex-wrap: wrap;
     column-gap: 0.5%;
-  background-color: red;
   padding: 0 10px 10px 10px;
   width: 70%;
   bottom: 10%;
+  z-index: 1;
 }
 .column {
   flex: 23%;
@@ -338,7 +338,28 @@ button {
   vertical-align: middle;
   width: 100%;
   margin-top: 10px;
+  transition: 0.3s;
+  cursor: pointer;
 }
+.column img:hover {
+   scale: 110%;
+   box-shadow: 0 0 2vh 0 black; 
+}
+
+
+.fotoBackground {
+    position: fixed;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      left: 50%;
+      top: 50%;
+    transform: 1s;
+    background-color: #6262bf;
+    height: 70%;
+    width: 80%;
+    display: block;
+  }
+
+
 @media screen and (max-width: 1300px) {
   .column {
     flex: 48%;
@@ -346,6 +367,10 @@ button {
   }
   .row {
     width: 60%;
+  }
+  .fotoBackground {
+    width: 70%;
+    transform: translate(-50%, -50%) rotate(2deg);
   }
 }
 @media screen and (max-width: 800px) {
@@ -356,4 +381,11 @@ button {
   .row {
     width: 50%;
   }
+  .fotoBackground {
+    width: 70%;
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+}
+.widthhundred {
+  width: 100%;
 }

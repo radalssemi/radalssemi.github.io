@@ -11,7 +11,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="favicon.svg">
-<title>nudi</title>
+<title>nudi foto</title>
 </head>
 
 
@@ -49,7 +49,7 @@
 
 <img onclick="openNav()" src="openNav.svg" class="smallScreenOpenNav" id="smallScreenOpenNav" draggable="false">  <!--for smaller screens-->
 <div onclick="openNav()" class="menuSlider" id="menuSlider">
-  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon"> <!--for bigger screens-->
+  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
 </div>
 
 
@@ -69,47 +69,49 @@
 
 
 
+
+
+
 <div class="fotoAll">
   <div class="row"> 
     <div class="column">
-      <img src="foto/photo (1).jpg" style="width:100%">
-      <img src="foto/photo (2).jpg" style="width:100%">
-      <img src="foto/photo (3).jpg" style="width:100%">
-      <img src="foto/photo (4).jpg" style="width:100%">
-      <img src="foto/photo (5).jpg" style="width:100%">
-
+      <img src="foto/photo (1).jpg" class="widthhundred" id="1">
+      <img src="foto/photo (2).jpg" class="widthhundred" id="2">
+      <img src="foto/photo (3).jpg" class="widthhundred" id="3">
+      <img src="foto/photo (4).jpg" class="widthhundred" id="4">
+      <img src="foto/photo (5).jpg" class="widthhundred" id="5">
     </div>
     <div class="column">
-      <img src="foto/photo (6).jpg" style="width:100%">
-      <img src="foto/photo (7).jpg" style="width:100%">
-      <img src="foto/photo (8).jpg" style="width:100%">
-      <img src="foto/photo (9).jpg" style="width:100%">
-      <img src="foto/photo (10).jpg" style="width:100%">
-      <img src="foto/photo (11).jpg" style="width:100%">
-
-
+      <img src="foto/photo (6).jpg" class="widthhundred" id="6">
+      <img src="foto/photo (7).jpg" class="widthhundred" id="7">
+      <img src="foto/photo (8).jpg" class="widthhundred" id="8">
+      <img src="foto/photo (9).jpg" class="widthhundred" id="9">
+      <img src="foto/photo (10).jpg" class="widthhundred" id="10">
+      <img src="foto/photo (11).jpg" class="widthhundred" id="11">
     </div>  
     <div class="column">
-      <img src="foto/photo (13).jpg" style="width:100%">
-      <img src="foto/photo (14).jpg" style="width:100%">
-      <img src="foto/photo (15).jpg" style="width:100%">
-      <img src="foto/photo (16).jpg" style="width:100%">
-      <img src="foto/photo (17).jpg" style="width:100%">
-      <img src="foto/photo (18).jpg" style="width:100%">
-      <img src="foto/photo (19).jpg" style="width:100%">
-      <img src="foto/photo (20).jpg" style="width:100%">
+      <img src="foto/photo (12).jpg" class="widthhundred" id="12">
+      <img src="foto/photo (13).jpg" class="widthhundred" id="13">
+      <img src="foto/photo (14).jpg" class="widthhundred" id="14">
+      <img src="foto/photo (15).jpg" class="widthhundred" id="15">
+      <img src="foto/photo (16).jpg" class="widthhundred" id="16">
+      <img src="foto/photo (17).jpg" class="widthhundred" id="17">
+      <img src="foto/photo (18).jpg" class="widthhundred" id="18">
+      <img src="foto/photo (19).jpg" class="widthhundred" id="19">
     </div>
     <div class="column">
-      <img src="foto/photo (12).jpg" style="width:100%">
-      <img src="foto/photo (21).jpg" style="width:100%">
-      <img src="foto/photo (22).jpg" style="width:100%">
-      <img src="foto/photo (23).jpg" style="width:100%">
-      <img src="foto/photo (24).jpg" style="width:100%">
-      <img src="foto/photo (25).jpg" style="width:100%">
-      <img src="foto/photo (26).jpg" style="width:100%">
+      <img src="foto/photo (20).jpg" class="widthhundred" id="20">
+      <img src="foto/photo (21).jpg" class="widthhundred" id="21">
+      <img src="foto/photo (22).jpg" class="widthhundred" id="22">
+      <img src="foto/photo (23).jpg" class="widthhundred" id="23">
+      <img src="foto/photo (24).jpg" class="widthhundred" id="24">
+      <img src="foto/photo (25).jpg" class="widthhundred" id="25">
+      <img src="foto/photo (26).jpg" class="widthhundred" id="26">
     </div>
   </div>
+  <div class="fotoBackground"></div>
 </div> 
+
 
 
 </div> <!--end of main-->
@@ -131,106 +133,5 @@
 </body>
 
 
-
-
-
-
-
-
-
-
-
-<script>
-document.getElementById("transitionScreen").style.bottom = "0";
-setTimeout(() => {
-  document.getElementById("transitionScreen").style.height = "0";
-  document.getElementById("transitionScreen").style.boxShadow = "none";
-}, 200)
-
-
-
-
-
-function openNav() {
-  document.getElementById("sideNav").style.pointerEvents = "all";
-  document.getElementById("main").style.pointerEvents = "";
-  setTimeout(() => {
-    document.getElementById("menuArrow").style.animation = "none";
-  }, 200)
-  document.getElementById("main").style.filter = "blur(1vh)";
-  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
-  document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
-  document.getElementById("bgdots").style.left = "10%";   //animates background to slide right when nav opens
-}
-function closeNav() {
-  document.getElementById("sideNav").style.pointerEvents = "none";
-  document.getElementById("main").style.filter = "";
-  document.getElementById("sideNav").style.width = "0";     //sidenav
-  document.getElementById("sideNav").style.boxShadow = "none"; 
-  document.getElementById("bgdots").style.left = "0%";
-}
-
-
-
-function go(location) {  // handles fade out animation and goes to corresponding page
-  if (location == "./old-site/index") {
-    borWarning();
-  }
-  else {
-    document.getElementById("menuSlider").style.display = "none";
-    document.getElementById("smallScreenOpenNav").style.display = "none";
-    document.getElementById("transitionScreen").style.top = "0";
-    document.getElementById("transitionScreenLocation").style.top = "50vh";
-    document.getElementById("transitionScreen").style.height = "100%";
-    document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
-    document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
-    closeNav();
-    setTimeout(() => {
-      window.location.href = location + ".html";
-    }, 1000)
-  };
-}
-
-
-
-function borWarning() {
-  document.getElementById("borWarning").style.display = "grid";
-  setTimeout(() => {
-    document.getElementById("borWarning").style.opacity = "1";
-    document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
-    document.getElementById("borblur").style.filter = "blur(1.5vh)";
-    document.getElementById("borblur").style.background = "inherit";
-  }, 10) //this is done so the effects aren't applied at the same time resulting in the element popping in wihtout a transition playing
-
-}
-function borWarningClos() {
-  document.getElementById("borWarning").style.opacity = "0";
-  document.getElementById("borWarning").style.transform = "rotate(10deg) scale(0.75) translate(-50%,-50%)";
-  document.getElementById("borblur").style.filter = "";
-  document.getElementById("borblur").style.background = "none";
-  setTimeout(() => {
-    document.getElementById("borWarning").style.display = "none";
-  }, 400)
-}
-function borWarningGo() {
-  borWarningClos();
-  closeNav();
-  document.getElementById("menuSlider").style.display = "none";
-  document.getElementById("smallScreenOpenNav").style.display = "none";
-  document.body.style.backgroundColor = "#4F5861";
-  document.getElementById("bgdots").style.opacity = "0";
-  document.getElementById("borblur").style.opacity = "0";
-  document.getElementById("logoWrap").style.transform = "scaleX(0%)";
-  document.getElementById("oldlogo").style.display = "block";
-  setTimeout(() => {
-    document.getElementById("oldlogo").style.opacity = "0.1";
-    document.getElementById("oldlogo").style.transform = "translate(-50%, -50%)";
-  }, 10) //have to do this or the logo appears without transition
-  setTimeout(() => {
-    location = "./old-site/index.html";
-  }, 1200)
-}
-
-console.log(document.cookie)
-</script>
+<script src="globalscript.js"></script>
 </html>
