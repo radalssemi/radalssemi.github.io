@@ -7,308 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="favicon.svg">
-
 <title>nudi</title>
 
-<style>
-body {
-  background-color: #5552a0;
-  font-family: 'Reem Kufi Fun', sans-serif;
-  font-size: 40px;
-  color: #cfc5fd;
-  margin: none;
-  user-select: none;
-  overflow: hidden;
-  transition: 1s;
-}
-span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
-
-
-.sidenavtext { font-size: 40px; color: #cfc5fd; }
-
-.sidenav {
-  height: 100%;
-  width: 0%;
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background-color: #6262bf;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  font-size: 0px;
-  box-shadow: none;
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
-  pointer-events: none;
-}
-.sidenav a {
-  margin: 8px 8px 8px 32px;
-  text-decoration: none;
-  color: #cfc5fd;
-  display: block;
-  transition: 0.4s;
-  width: fit-content;
-}
-.sidenav a:hover { color: #E3F6ED; scale: 115%;}
-.sidenav a:hover div { padding-left: 20px; }
-.sidenav a div { transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
-
-
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.main {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: 0.6s;
-}
-
-
-
-.title {
-  font-size: 100px;
-  transition: 1s;
-  left: 15%;
-  position: relative;
-  top: 20%;
-  z-index: 50;
-}
-.sideTitle {
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
-  width: fit-content;
-  height: fit-content;
-  font-size: 100px;
-  transition: 1s;
-  left: 150px;
-  position: fixed;
-  bottom: 150px;
-  z-index: 50;
-  transform: rotate(-90deg) translate(-50%,-50%);
-  transform-origin: top left;
-  color: #413e7a;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-  opacity: 0.5;
-  z-index: -1;
-}
-
-
-.menuSlider {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  height: 100vh;
-  min-width: 150px;
-  width: 5%;
-  cursor: pointer;
-  transition: 0.1s;
-  z-index: 1;
-}
-.arrow {
-  position: relative;
-  left: 40px;
-  animation: point 5s infinite ease 1s;
-  transition: 0.2s;
-  height: 0.6in;
-  width: 0.6in;
-  transform: translate(0, -50%);
-  transform-origin: top left;
-  top: 50%;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
-}
-.menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
-.menuSlider:hover .arrow{ scale: 115%; }
-
-@keyframes point {
-  60% {left: 40px;}
-  80% {left: 80px; }
-}
-
-
-.bgdots {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -5;
-  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-.bgdots::before {
-  content: "";
-  position: absolute;
-  width: 250%;
-  height: 250%;
-  top: -75%;
-  left: -75%;
-  z-index: -1;
-  background: radial-gradient(circle, rgba(0,0,0,0.04) 10px, transparent 15px);
-  background-size: 100px 100px;
-  animation: bg 1000s infinite;
-  animation-timing-function: linear;
-  transform-origin: center;
-  rotate: 100deg;
-}
-@keyframes bg {
-  50% { rotate: -100deg; background-size: 150px 150px; }
-}
-
-
-
-.logoWrap {
-  top: -1%;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  transform: 1s;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: logofloat infinite 6s ease-in-out 0.5s;
-}
-@keyframes logofloat {
-  50% {top: 1%;}
-}
-.bgLogo {
-  height: 50%;
-  max-width: 60%;
-  filter: drop-shadow(10vh 10vh 3vh black);
-  animation: logorotat forwards 3.75s ease-out 0.3s;
-  transform: rotate3d(1, 1, 1, 90deg) translateZ(60vh);
-  opacity: 0;
-}
-@keyframes logorotat {
-    100% {transform: translateZ(0vh); filter: drop-shadow(0.5vh 0.5vh 1vh black); opacity: 0.2;}
-}
-
-
-
-.transitionScreen {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: #6262bf;
-  overflow: hidden;
-  transition: 1s;
-  font-size: 0px;
-  box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
-  z-index: 10000;
-  align-content: center;
-}
-.transitionScreenLocation {
-  line-height: 0px;
-  position: fixed;
-  bottom: 50vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  color: #413e7a;
-  font-size: 40px;
-  max-width: 100%;
-  white-space: nowrap;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-}
-
-
-
-.borWarning {
-  position: absolute;
-    transform: rotate(10deg) scale(0.75) translate(-50%, -50%);
-    transform-origin: left bottom;
-    left: 50%;
-    top: 50%;
-  opacity: 0;
-  z-index: 1000000000;
-  background-color: #6965c6;
-  height: fit-content;
-  max-height: 90vh;
-  max-width: 90vw;
-  padding: 4vh;
-  transition: 0.4s;
-  box-shadow: 3vh 3vh 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
-  font-size: 3.5vh;
-  background-image: url(exclamate.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 92.5%;
-    background-size: 2.5%;
-  display: none;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 80% 10% 10%;
-}
-
-.oldP { grid-area: 1 / 1 / 2 / 3; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))}
-.oldContinue { grid-area: 2 / 1 / 3 / 3; text-align: center; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
-.oldYes { grid-area: 3 / 1 / 4 / 2; }
-.oldNo { grid-area: 3 / 2 / 4 / 3; }
-
-button {
-  background-color: #cfc5fd;
-  border: none;
-  width: 11vh;
-  border-radius: 1vh 0 1vh 0;
-  margin-left: auto;
-  margin-right: auto;
-  color: #6965c6;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
-  font-family: 'Reem Kufi Fun', sans-serif;
-  font-size: 2vh;
-  padding: 2vh;
-  line-height: 0px;
-  cursor: pointer;
-}
-
-
-.borblur {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: 0.5s;
-  filter: none;
-  background: none;
-}
-
-
-
-.oldLogo {
-  display: none;
-  height: 50%;
-  opacity: 0;
-  transition: 1s;
-    transition-timing-function: ease-out;
-  position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: scale(3000%) translate(-55%, -25%);
-    transform-origin: left top;
-}
-</style>
 </head>
 
 
 
 
 
-
-
-
-
-
-
 <body draggable="false" style="margin: 0px;">
-
-
-
 
 <div class="borblur" id="borblur"> <!--borblur :pffft:-->
 
@@ -321,7 +33,7 @@ button {
     <a href="javascript:go('dopis')"><div>dopis</div></a> 
     <a href="javascript:go('audio')"><div>audio</div></a>
     <a href="javascript:go('about')"><div>about</div></a>
-    <a style="white-space: nowrap; position: absolute;bottom: 80px; font-size: 25px;" href="javascript:go('./old-site/index')"><div>old site</div></a>
+    <a href="javascript:go('./old-site/index')"><div>old site</div></a>
   </div>
   <div id="sideTitle" class="sideTitle">index</div> <!--current page-->
 </div> <!-- end of sidenav options-->
@@ -329,13 +41,15 @@ button {
 
 
 
+<img onclick="openNav()" src="openNav.svg" class="smallScreenOpenNav" id="smallScreenOpenNav" draggable="false">  <!--for smaller screens-->
 <div onclick="openNav()" class="menuSlider" id="menuSlider">
-  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon">
+  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon"> <!--for bigger screens-->
 </div>
 
 
 
-<div id="main" class="main" onclick="closeNav()">
+<div id="main" class="main" onclick="closeNav()"> <!--things outside sidenav for blur effect-->
+
 <span id="title" class="title">radal</span> <!--main title-->
 
 <div class="bgdots" id="bgdots"></div>
@@ -384,8 +98,6 @@ setTimeout(() => {
   document.getElementById("transitionScreen").style.height = "0";
   document.getElementById("transitionScreen").style.boxShadow = "none";
 }, 200)
-
-
 
 
 
