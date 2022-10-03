@@ -76,3 +76,36 @@
     transform: translate(-50%, -50%) rotate(-1deg);
   }
 }
+
+
+
+
+.dcontainer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 600px;
+  height: 40px;
+}
+
+.dots {
+  color: rgba(0,0,0,0);
+  font-size: 0%;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #729394;
+  transition: 0.2s;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 160%;
+  cursor: pointer;
+  color: #729394 !important;
+}

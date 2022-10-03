@@ -1,10 +1,12 @@
 var imgs = document.images, //stolen script to detect that all images were loaded
     len = imgs.length,
     counter = 0;
-
+    document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
 [].forEach.call( imgs, function( img ) {
-  if(img.complete)
+  if(img.complete) {
     incrementCounter();
+    document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
+  }
   else
     img.addEventListener( 'load', incrementCounter, false );
 } );
@@ -12,16 +14,16 @@ var imgs = document.images, //stolen script to detect that all images were loade
 function incrementCounter() {
   counter++;
   if ( counter === len ) {
-    hideTransition();
+    // hideTransition();
     console.log("photos loaded probably");
   }
 }
 
 
 
-document.getElementById("loadingThing").style.opacity = "1"; // I made the transition screen go away only after everything's loaded,
-                                                             // this will make a loading thing appear slowly
-hideTransition();
+document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
+document.getElementById("loadingNumber").style.opacity = "1"; // this will make a loading thing appear slowly
+                                                             
 function hideTransition() {
   document.getElementById("transitionScreen").style.bottom = "0";
   setTimeout(() => {
@@ -69,6 +71,7 @@ function go(location) {  // handles fade out animation and goes to corresponding
     document.getElementById("transitionScreen").style.boxShadow = "0 0 0 50vh rgba(98, 98, 191, 1)";
     document.getElementById("transitionScreenLocation").innerHTML = window.location.origin + "/" + location + ".html";
     document.getElementById("loadingThing").style.display = "none";
+    document.getElementById("loadingNumber").style.display = "none";
     closeNav();
     setTimeout(() => {
       window.location.href = location + ".html";
