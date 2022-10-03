@@ -1,27 +1,27 @@
-var imgs = document.images, //stolen script to detect that all images were loaded
-    len = imgs.length,
-    counter = 0;
+// var imgs = document.images, //stolen script to detect that all images were loaded
+//     len = imgs.length,
+//     counter = 0;
 
-[].forEach.call( imgs, function( img ) {
-  if(img.complete)
-    incrementCounter();
-  else
-    img.addEventListener( 'load', incrementCounter, false );
-} );
+// [].forEach.call( imgs, function( img ) {
+//   if(img.complete)
+//     incrementCounter();
+//   else
+//     img.addEventListener( 'load', incrementCounter, false );
+// } );
 
-function incrementCounter() {
-  counter++;
-  if ( counter === len ) {
-    hideTransition();
-    console.log("ass");
-  }
-}
+// function incrementCounter() {
+//   counter++;
+//   if ( counter === len ) {
+//     hideTransition();
+//     console.log("ass");
+//   }
+// }
 
 
 
 document.getElementById("loadingThing").style.opacity = "1"; // I made the transition screen go away only after everything's loaded,
                                                              // this will make a loading thing appear slowly
-
+hideTransition();
 function hideTransition() {
   document.getElementById("transitionScreen").style.bottom = "0";
   setTimeout(() => {
