@@ -1,16 +1,60 @@
-var images = document.querySelectorAll(".column img").length;
+// var images = document.querySelectorAll(".column img").length;
 
-for (var i = 0; i < images ; i++) {
-    document.querySelectorAll(".column img")[i].addEventListener("click", function() {
-        console.log( event.target.id );
-        switchPhotoMode(event.target.id);
-    });
-}
+// for (var i = 0; i < images ; i++) {
+//     document.querySelectorAll(".column img")[i].addEventListener("click", function() {
+//         console.log( event.target.id );
+//         switchPhotoMode(event.target.id);
+//     });
+// }
+
 
 
 function switchPhotoMode(targetImage) {
-  document.getElementById("row").style.opacity = "0";
+  document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
+  document.getElementById("fotoAll").style.pointerEvents = "none";
+
+  nodes = document.getElementById('row').childNodes; //basically selects all columns
+  for( ai=0; ai<nodes.length; ai++) {
+    if (nodes[ai].nodeName.toLowerCase() == 'div') {
+      imgFadeOutAnimation(ai);
+   }
+  }
+
+
+
+  setTimeout(() => {
+    function showOtherFuckingThing();
+  }, 700)
 }
+
+
+
+
+function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's retarded
+  setTimeout(function() {
+    nodes[ai].style.opacity = "0";
+    nodes[ai].style.transform = "translateY(1%) scale(90%)";
+  }, 50 * ai);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,11 +163,12 @@ function checkKey(e) {
     e = e || window.event;
 
      if (e.keyCode == '37') {
-      moveLeft();
+    //   moveLeft();
        // left arrow
     }
     else if (e.keyCode == '39') {
-      moveRight();
+    //   moveRight();
+      document.getElementById("fotoBackground").removeAttribute("style");
        // right arrow
     }
 }
