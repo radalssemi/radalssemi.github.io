@@ -1,21 +1,21 @@
-// var imgs = document.images, //stolen script to detect that all images were loaded
-//     len = imgs.length,
-//     counter = 0;
+var imgs = document.images, //stolen script to detect that all images were loaded
+    len = imgs.length,
+    counter = 0;
 
-// [].forEach.call( imgs, function( img ) {
-//   if(img.complete)
-//     incrementCounter();
-//   else
-//     img.addEventListener( 'load', incrementCounter, false );
-// } );
+[].forEach.call( imgs, function( img ) {
+  if(img.complete)
+    incrementCounter();
+  else
+    img.addEventListener( 'load', incrementCounter, false );
+} );
 
-// function incrementCounter() {
-//   counter++;
-//   if ( counter === len ) {
-//     hideTransition();
-//     console.log("ass");
-//   }
-// }
+function incrementCounter() {
+  counter++;
+  if ( counter === len ) {
+    hideTransition();
+    console.log("photos loaded probably");
+  }
+}
 
 
 
