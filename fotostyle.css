@@ -40,9 +40,8 @@
   box-shadow: 0 0 0 0.5vh #6262bf;
 }
 .column img:hover {
-   scale: 150%;
+   scale: 110%;
    box-shadow: 0 0 0 1.5vh #6262bf;
-   z-index: 4;
 }
 
 .fotoBackground {
