@@ -36,11 +36,11 @@
   transition: 0.3s;
   cursor: pointer;
   margin-bottom: 10px;
-  box-shadow: 0 0 0 0.5vh #6262bf;
+  box-shadow: 0 0 0 0.75vh #6262bf;
 }
 .column .fotoImg:hover {
    scale: 110%;
-   box-shadow: 0 0 0 1.5vh #6262bf;
+   box-shadow: 0 0 0 1.25vh #6262bf;
 }
 
 .fotoBackground {
