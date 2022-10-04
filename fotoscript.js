@@ -25,16 +25,13 @@ function switchPhotoMode(targetImage) {
 
   setTimeout(() => {
     showOtherFuckingThing(targetImage);
-  }, 1000)
+  }, 750)
 }
-
-
-
 
 function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's retarded
   setTimeout(function() {
     nodes[ai].style.opacity = "0";
-    nodes[ai].style.transform = "translateY(1%) scale(90%)";
+    nodes[ai].style.transform = "translateY(100px)";
   }, 50 * ai);
 }
 
@@ -43,21 +40,57 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 
-// Declare a fragment:
 
 
 
 
 function showOtherFuckingThing(targetImage) {
+  var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+  fragment.appendChild(document.getElementById(targetImage)); // Append desired element to the fragment
+  document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
-  var fragment = document.createDocumentFragment();
-  fragment.appendChild(document.getElementById(targetImage));// Append desired element to the fragment
-  document.getElementById("fotoAllPage").appendChild(fragment);// Append fragment to desired element
   document.getElementById(targetImage).classList = "fotoPage";
   setTimeout(() => {
-    document.getElementById("targetImage").opacity = "1";
-  }, 10)
+    document.getElementById(targetImage).style.opacity = "1";
+    document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(100%)";
+  }, 20)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
