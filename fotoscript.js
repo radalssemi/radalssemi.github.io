@@ -11,7 +11,7 @@ for (var i = 0; i < images ; i++) {
 
 function switchPhotoMode(targetImage) {
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
-
+  document.getElementById("row").style.pointerEvents = "none";
 
   nodes = document.getElementById('row').childNodes; //basically selects all columns
   for( ai=0; ai<nodes.length; ai++) {
