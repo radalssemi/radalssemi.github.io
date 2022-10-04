@@ -25,7 +25,7 @@ function switchPhotoMode(targetImage) {
 
   setTimeout(() => {
     showOtherFuckingThing(targetImage);
-  }, 700)
+  }, 1000)
 }
 
 
@@ -43,11 +43,20 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 
+// Declare a fragment:
+
+
 
 
 function showOtherFuckingThing(targetImage) {
+
+  var fragment = document.createDocumentFragment();
+  fragment.appendChild(document.getElementById(targetImage));// Append desired element to the fragment
+  document.getElementById("fotoAllPage").appendChild(fragment);// Append fragment to desired element
   document.getElementById(targetImage).classList = "fotoPage";
-  document.getElementById("column").style.opacity = "1";
+  setTimeout(() => {
+    document.getElementById("targetImage").opacity = "1";
+  }, 10)
 }
 
 
