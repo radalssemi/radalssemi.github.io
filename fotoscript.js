@@ -42,11 +42,11 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 
-document.getElementById("1").classList = "fotoPage";
+
 
 
 function showOtherFuckingThing(targetImage) {
-
+  document.getElementById(targetImage).classList = "fotoPage";
   document.getElementById("column").style.opacity = "1";
 }
 
@@ -169,7 +169,7 @@ function checkKey(e) {
 
      if (e.keyCode == '37') {
     //   moveLeft();
-    
+
        // left arrow
     }
     else if (e.keyCode == '39') {
