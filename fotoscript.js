@@ -1,17 +1,17 @@
-// var images = document.querySelectorAll(".column img").length;
+var images = document.querySelectorAll(".column img").length;
 
-// for (var i = 0; i < images ; i++) {
-//     document.querySelectorAll(".column img")[i].addEventListener("click", function() {
-//         console.log( event.target.id );
-//         switchPhotoMode(event.target.id);
-//     });
-// }
+for (var i = 0; i < images ; i++) {
+    document.querySelectorAll(".column img")[i].addEventListener("click", function() {
+        console.log( event.target.id );
+        switchPhotoMode(event.target.id);
+    });
+}
 
 
 
 function switchPhotoMode(targetImage) {
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
-  document.getElementById("fotoAll").style.pointerEvents = "none";
+
 
   nodes = document.getElementById('row').childNodes; //basically selects all columns
   for( ai=0; ai<nodes.length; ai++) {
@@ -22,8 +22,9 @@ function switchPhotoMode(targetImage) {
 
 
 
+
   setTimeout(() => {
-    function showOtherFuckingThing();
+    showOtherFuckingThing(targetImage);
   }, 700)
 }
 
@@ -41,9 +42,13 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 
+document.getElementById("1").classList = "fotoPage";
 
 
+function showOtherFuckingThing(targetImage) {
 
+  document.getElementById("column").style.opacity = "1";
+}
 
 
 
@@ -164,11 +169,12 @@ function checkKey(e) {
 
      if (e.keyCode == '37') {
     //   moveLeft();
+    
        // left arrow
     }
     else if (e.keyCode == '39') {
     //   moveRight();
-      document.getElementById("fotoBackground").removeAttribute("style");
+
        // right arrow
     }
 }

@@ -1,6 +1,6 @@
-var imgs = document.images, //stolen script to detect that all images were loaded
-    len = imgs.length,
-    counter = 0;
+const imgs = document.images, //stolen and edited script to detect that all images were loaded
+      len = imgs.length;
+var counter = 0;
     document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
 [].forEach.call( imgs, function( img ) {
   if(img.complete) {
@@ -15,7 +15,6 @@ function incrementCounter() {
   document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
   if ( counter === len ) {
     hideTransition();
-    console.log("photos loaded probably");
   }
 }
 
