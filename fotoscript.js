@@ -53,7 +53,7 @@ function showOtherFuckingThing(targetImage) {
 
     document.getElementById(i).classList = "fotoPage";
     setTimeout(() => {
-      document.getElementById(i).style.opacity = "1";
+      document.getElementById(i).style.opacity = "1"; //bruh i is not what it was when this runs
       document.getElementById(i).style.transform = "translate(-50%, -50%) scale(100%)";
     }, 20)
   }
