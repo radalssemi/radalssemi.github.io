@@ -1,4 +1,4 @@
-var images = document.querySelectorAll(".column img").length;
+const images = document.querySelectorAll(".column img").length;
 
 for (var i = 0; i < images ; i++) {
     document.querySelectorAll(".column img")[i].addEventListener("click", function() {
@@ -45,15 +45,18 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 function showOtherFuckingThing(targetImage) {
-  var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-  fragment.appendChild(document.getElementById(targetImage)); // Append desired element to the fragment
-  document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
+  for (var i = 0; i < images ; i++) {
+    var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+    fragment.appendChild(document.getElementById(i+1)); // Append desired element to the fragment
+    document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
-  document.getElementById(targetImage).classList = "fotoPage";
-  setTimeout(() => {
-    document.getElementById(targetImage).style.opacity = "1";
-    document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(100%)";
-  }, 20)
+
+    document.getElementById(i).classList = "fotoPage";
+    setTimeout(() => {
+      document.getElementById(i).style.opacity = "1";
+      document.getElementById(is).style.transform = "translate(-50%, -50%) scale(100%)";
+    }, 20)
+  }
 }
 
 
