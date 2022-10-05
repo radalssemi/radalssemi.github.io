@@ -45,16 +45,16 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 function showOtherFuckingThing(targetImage) {
-  for (var i = 0; i < images ; i++) {
+  for (var i = 1; i < images + 1; i++) {
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-    fragment.appendChild(document.getElementById(i+1)); // Append desired element to the fragment
+    fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
 
     document.getElementById(i).classList = "fotoPage";
     setTimeout(() => {
       document.getElementById(i).style.opacity = "1";
-      document.getElementById(is).style.transform = "translate(-50%, -50%) scale(100%)";
+      document.getElementById(i).style.transform = "translate(-50%, -50%) scale(100%)";
     }, 20)
   }
 }
