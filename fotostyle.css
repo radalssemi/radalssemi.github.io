@@ -68,7 +68,7 @@
   }
   .fotoBackground {
     width: 70%;
-    transform: translate(-50%, -50%) rotate(2deg);
+    transform: translate(-50%, -50%) rotate(3deg);
   }
 }
 @media screen and (max-width: 800px) {
@@ -82,7 +82,7 @@
   }
   .fotoBackground {
     width: 70%;
-    transform: translate(-50%, -50%) rotate(-1deg);
+    transform: translate(-50%, -50%) rotate(-3deg);
   }
 }
 
@@ -125,7 +125,7 @@
   max-height: 80vh;
   position: fixed;
   top: 50%;
-  left: 200%;
+  left: 100%;
   transform: translate(-50%, -50%) scale(69%) rotate(10deg);
   transition: 0.6s;
   opacity: 0;

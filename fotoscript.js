@@ -16,7 +16,7 @@ function switchPhotoMode(targetImage) {
   nodes = document.getElementById('row').childNodes; //basically selects all columns
   for( ai=0; ai<nodes.length; ai++) {
     if (nodes[ai].nodeName.toLowerCase() == 'div') {
-      imgFadeOutAnimation(ai);
+      imgFadeOutAnimation(ai); // applies effects with a delay, I know it's retarded
    }
   }
 
@@ -28,7 +28,7 @@ function switchPhotoMode(targetImage) {
   }, 750)
 }
 
-function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's retarded
+function imgFadeOutAnimation(ai) { // applies effects with a delay, I know it's retarded, I need to do this because ai var is not the same in 50ms
   setTimeout(function() {
     nodes[ai].style.opacity = "0";
     nodes[ai].style.transform = "translateY(100px)";
@@ -52,21 +52,16 @@ function showOtherFuckingThing(targetImage) {
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
 
-
-
-  
-
-
     document.getElementById(i).classList = "fotoPage";
-    applyStyleToElement(i, targetImage); // I need to call this function with i each time cause if I just put the setTimeout here i is not 1-64,
-                                         //  it just ends up at the last value. This ensures that the style is applied to each image by id
   }
-}
-function applyStyleToElement(id, targetImage) {
+
+  currentFotoPage = 1; // this keeps track of the current image shown in fotoPage mode, I declare it here cause I said so
+
+  document.getElementById("1").style.left = "50%";
   setTimeout(() => {
-    document.getElementById(id).style.opacity = "1"; 
-    document.getElementById(id).style.transform = "translate(-50%, -50%) scale(100%)";
-  }, 20)
+    document.getElementById("1").style.opacity = "1"; 
+    document.getElementById("1").style.transform = "translate(-50%, -50%) scale(100%)";
+  }, 200)
 }
 
 
@@ -82,17 +77,26 @@ function applyStyleToElement(id, targetImage) {
 
 
 function movePic(direction) {
-  if (pic==64 && pic==1) {
+  if (currentFotoPage==images && direction=="right" || currentFotoPage==1 && direction=="left") {
+    console.log("sugmaballs - " + direction);
     return;
   }
 
   else {
     switch(direction) {
-      case "left":
-
-        break;
       case "right":
-  
+        document.getElementById(currentFotoPage).style.left = "0%"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.opacity = "0"; //moves currentFotoPage offscreen to the LEFT
+        currentFotoPage++;
+        document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
+        document.getElementById(currentFotoPage).style.opacity = "1"; //moves currentFotoPage offscreen to the LEFT
+        break;
+      case "left":
+        document.getElementById(currentFotoPage).style.left = "100%"; //moves currentFotoPage offscreen to the RIGHT
+        document.getElementById(currentFotoPage).style.opacity = "0"; //moves currentFotoPage offscreen to the LEFT
+        currentFotoPage--;
+        document.getElementById(currentFotoPage).style.opacity = "1"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image onscreen to the center
         break;
     }
   }
