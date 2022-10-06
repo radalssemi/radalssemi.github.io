@@ -45,17 +45,56 @@ function imgFadeOutAnimation(ai) { //applies effects with a delay, I know it's r
 
 
 function showOtherFuckingThing(targetImage) {
+
   for (var i = 1; i < images + 1; i++) {
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
 
+
+
+  
+
+
     document.getElementById(i).classList = "fotoPage";
-    setTimeout(() => {
-      document.getElementById(i).style.opacity = "1"; //bruh i is not what it was when this runs
-      document.getElementById(i).style.transform = "translate(-50%, -50%) scale(100%)";
-    }, 20)
+    applyStyleToElement(i, targetImage); // I need to call this function with i each time cause if I just put the setTimeout here i is not 1-64,
+                                         //  it just ends up at the last value. This ensures that the style is applied to each image by id
+  }
+}
+function applyStyleToElement(id, targetImage) {
+  setTimeout(() => {
+    document.getElementById(id).style.opacity = "1"; 
+    document.getElementById(id).style.transform = "translate(-50%, -50%) scale(100%)";
+  }, 20)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function movePic(direction) {
+  if (pic==64 && pic==1) {
+    return;
+  }
+
+  else {
+    switch(direction) {
+      case "left":
+
+        break;
+      case "right":
+  
+        break;
+    }
   }
 }
 
@@ -89,26 +128,7 @@ function showOtherFuckingThing(targetImage) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function moveLeft() { //I had to reuse this garbage code cause I didn't have time
+function moveRight() { //I had to reuse this garbage code cause I didn't have time
   if (pic==64) {
     //do nothing
   }
