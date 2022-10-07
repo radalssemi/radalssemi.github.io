@@ -61,16 +61,16 @@ function showOtherFuckingThing(targetImage) {
     currentFotoPage++;
     document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
   }
-  document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(69%)";
+  document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(69%)"; // makes it so the image you clicked on appears from the middle and not the right
 
-  
-  setTimeout(() => {
+
+  setTimeout(() => { // actually shows the image you clicked on
     document.getElementById(targetImage).style.opacity = "1";
     document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(100%)";
   }, 100)
-  setTimeout(() => {
+  setTimeout(() => { // this is to avoid controls before the image has appeared and transition animation has finished
     fotoPageOpened = true;
-  }, 620)
+  }, 520)
 }
 
 
@@ -86,19 +86,19 @@ function showOtherFuckingThing(targetImage) {
 
 
 function movePic(direction) {
-  if (currentFotoPage==images && direction=="right" || currentFotoPage==1 && direction=="left") {
-    console.log("sugmaballs - " + direction);
+  if (currentFotoPage==images && direction=="right" || currentFotoPage==1 && direction=="left") { // idk why I need to check if the direction is actually left/right 
+    console.log("sugmaballs - " + direction); //    ^ = OR
     return;
   }
 
   else {
     switch(direction) {
       case "right":
-        document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage to the LEFT
         document.getElementById(currentFotoPage).style.opacity = "0";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -40%) scale(69%) rotate(-10deg)";
         currentFotoPage++;
-        document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
+        document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image to the center
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         break;
@@ -109,7 +109,7 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -60%) scale(131%) rotate(10deg)";
         currentFotoPage--;
         document.getElementById(currentFotoPage).style.opacity = "1";
-        document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image onscreen to the center
+        document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image to the center
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         break;
     }
