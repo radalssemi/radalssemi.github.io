@@ -66,7 +66,7 @@ function showOtherFuckingThing(targetImage) {
 
   while(currentFotoPage != targetImage) {
     document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
-    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -40%) scale(69%) rotate(-15deg)";
+    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
     currentFotoPage++;
     document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
   }
@@ -105,7 +105,7 @@ function movePic(direction) {
       case "right":
         document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage to the LEFT
         document.getElementById(currentFotoPage).style.opacity = "0";
-        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -40%) scale(69%) rotate(-10deg)";
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
         currentFotoPage++;
         document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image to the center
         document.getElementById(currentFotoPage).style.opacity = "1";
@@ -115,7 +115,7 @@ function movePic(direction) {
       case "left":
         document.getElementById(currentFotoPage).style.left = "60%"; //moves currentFotoPage to the RIGHT
         document.getElementById(currentFotoPage).style.opacity = "0"; 
-        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -60%) scale(131%) rotate(10deg)";
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
         currentFotoPage--;
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image to the center

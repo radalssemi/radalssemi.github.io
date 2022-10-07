@@ -137,7 +137,7 @@
   position: fixed;
   top: 50%;
   left: 60%;
-  transform: translate(-50%, -60%) scale(131%) rotate(10deg);
+  transform: translate(-50%, -50%) scale(69%);
   transition: 0.4s;
   opacity: 0;
   box-shadow: 0 0 0 3vh #6868cc, 0 3vh 0 3vh #6868cc;
