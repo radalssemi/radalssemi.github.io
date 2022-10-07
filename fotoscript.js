@@ -63,11 +63,7 @@ function showOtherFuckingThing(targetImage) {
   }
   document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(69%)";
 
-  // document.getElementById("1").style.left = "50%";
-  // setTimeout(() => {
-  //   document.getElementById("1").style.opacity = "1"; 
-  //   document.getElementById("1").style.transform = "translate(-50%, -50%) scale(100%)";
-  // }, 200)
+  
   setTimeout(() => {
     document.getElementById(targetImage).style.opacity = "1";
     document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(100%)";
