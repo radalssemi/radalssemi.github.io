@@ -70,11 +70,11 @@ function showOtherFuckingThing(targetImage) {
   // }, 200)
   setTimeout(() => {
     document.getElementById(targetImage).style.opacity = "1";
-    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
-  }, 10)
+    document.getElementById(target).style.transform = "translate(-50%, -50%) scale(100%)";
+  }, 100)
   setTimeout(() => {
     fotoPageOpened = true;
-  }, 520)
+  }, 620)
 }
 
 
