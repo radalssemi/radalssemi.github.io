@@ -57,7 +57,7 @@ function showOtherFuckingThing(targetImage) {
 
   while(currentFotoPage != targetImage) {
     document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
-    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -30%) scale(69%) rotate(-15deg)";
+    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -40%) scale(69%) rotate(-15deg)";
     currentFotoPage++;
     document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
   }
@@ -100,7 +100,7 @@ function movePic(direction) {
       case "right":
         document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
         document.getElementById(currentFotoPage).style.opacity = "0";
-        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -30%) scale(69%) rotate(-10deg)";
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -40%) scale(69%) rotate(-10deg)";
         currentFotoPage++;
         document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
         document.getElementById(currentFotoPage).style.opacity = "1";
