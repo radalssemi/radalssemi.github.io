@@ -12,7 +12,6 @@ for (var i = 0; i < images ; i++) {
 
 
 function switchPhotoMode(targetImage) {
-
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
 
@@ -22,6 +21,17 @@ function switchPhotoMode(targetImage) {
       imgFadeOutAnimation(ai); // applies effects with a delay, I know it's retarded
    }
   }
+  
+
+  document.getElementById("menuSlider").style.pointerEvents = "none";
+  document.getElementById("menuSlider").style.opacity = "0";
+  document.getElementById("smallScreenOpenNav").style.opacity = "0";
+  document.getElementById("smallScreenOpenNav").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("smallScreenOpenNav").style.opacity = "1";
+  }, 500)
+
+
 
   setTimeout(() => {
     showOtherFuckingThing(targetImage);
@@ -46,7 +56,6 @@ fotoPageOpened = false;
 
 
 function showOtherFuckingThing(targetImage) {
-
   for (var i = 1; i < images + 1; i++) { // this makes all images
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment

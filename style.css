@@ -102,11 +102,11 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 }
 .arrow {
   position: relative;
-  left: 40px;
+  left: 3.5vh;
   animation: point 5s infinite ease 1s;
   transition: 0.2s;
-  height: 0.6in;
-  width: 0.6in;
+  height: 6vh;
+  width: 6vh;
   transform: translate(0, -50%);
   transform-origin: top left;
   top: 50%;
