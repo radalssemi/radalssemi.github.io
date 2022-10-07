@@ -1,15 +1,18 @@
 const images = document.querySelectorAll(".column img").length;
 
 for (var i = 0; i < images ; i++) {
-    document.querySelectorAll(".column img")[i].addEventListener("click", function() {
-        console.log( event.target.id );
-        switchPhotoMode(event.target.id);
+    document.querySelectorAll(".fotoImg")[i].addEventListener("click", function() {
+        if(fotoPageOpened == false) {
+          console.log( event.target.id );
+          switchPhotoMode(event.target.id);
+        }
     });
 }
 
 
 
 function switchPhotoMode(targetImage) {
+
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
 
@@ -19,9 +22,6 @@ function switchPhotoMode(targetImage) {
       imgFadeOutAnimation(ai); // applies effects with a delay, I know it's retarded
    }
   }
-
-
-
 
   setTimeout(() => {
     showOtherFuckingThing(targetImage);
@@ -40,28 +40,41 @@ function imgFadeOutAnimation(ai) { // applies effects with a delay, I know it's 
 
 
 
-
+currentFotoPage = 1;
+fotoPageOpened = false;
 
 
 
 function showOtherFuckingThing(targetImage) {
 
-  for (var i = 1; i < images + 1; i++) {
+  for (var i = 1; i < images + 1; i++) { // this makes all images
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
 
-
     document.getElementById(i).classList = "fotoPage";
   }
 
-  currentFotoPage = 1; // this keeps track of the current image shown in fotoPage mode, I declare it here cause I said so
+  while(currentFotoPage != targetImage) {
+    document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
+    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -30%) scale(69%) rotate(-15deg)";
+    currentFotoPage++;
+    document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
+  }
+  document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(69%)";
 
-  document.getElementById("1").style.left = "50%";
+  // document.getElementById("1").style.left = "50%";
+  // setTimeout(() => {
+  //   document.getElementById("1").style.opacity = "1"; 
+  //   document.getElementById("1").style.transform = "translate(-50%, -50%) scale(100%)";
+  // }, 200)
   setTimeout(() => {
-    document.getElementById("1").style.opacity = "1"; 
-    document.getElementById("1").style.transform = "translate(-50%, -50%) scale(100%)";
-  }, 200)
+    document.getElementById(targetImage).style.opacity = "1";
+    document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
+  }, 10)
+  setTimeout(() => {
+    fotoPageOpened = true;
+  }, 520)
 }
 
 
@@ -85,18 +98,23 @@ function movePic(direction) {
   else {
     switch(direction) {
       case "right":
-        document.getElementById(currentFotoPage).style.left = "0%"; //moves currentFotoPage offscreen to the LEFT
-        document.getElementById(currentFotoPage).style.opacity = "0"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.opacity = "0";
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -30%) scale(69%) rotate(-10deg)";
         currentFotoPage++;
         document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
-        document.getElementById(currentFotoPage).style.opacity = "1"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.opacity = "1";
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         break;
+      
       case "left":
-        document.getElementById(currentFotoPage).style.left = "100%"; //moves currentFotoPage offscreen to the RIGHT
-        document.getElementById(currentFotoPage).style.opacity = "0"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.left = "60%"; //moves currentFotoPage to the RIGHT
+        document.getElementById(currentFotoPage).style.opacity = "0"; 
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -60%) scale(131%) rotate(10deg)";
         currentFotoPage--;
-        document.getElementById(currentFotoPage).style.opacity = "1"; //moves currentFotoPage offscreen to the LEFT
+        document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image onscreen to the center
+        document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         break;
     }
   }
@@ -109,141 +127,15 @@ function movePic(direction) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function moveRight() { //I had to reuse this garbage code cause I didn't have time
-  if (pic==64) {
-    //do nothing
-  }
-  else {
-
-    bgPicPos = bgPicPos - 5;
-    bgPos = bgNavPos + bgPicPos;
-    
-    document.getElementById("bgdots").style.left = bgPos+ "%";
-
-
-    document.getElementById("photo" + pic).style.left = "-150%"; //moves pic offscreen to the left
-
-    var pDiv = document.getElementById("dcontainer"); 
-    var cDiv = pDiv.children;
-    for (var i = 0; i < cDiv.length; i++) {
-      if (cDiv[i].tagName == "DIV") {      //allows me to change style of children
-         cDiv[i].style.height = "15px";  
-         cDiv[i].style.width = "15px";
-         cDiv[i].style.backgroundColor = "#729394";
-         cDiv[i].style.fontSize = "0%";
-      }
-    }
-    
-
-    pic = pic + 1; //increases the id of the picture to move
-    document.getElementById("photo" + pic).style.left = "50%"; //moves pic to the middle of the screen
-
-    setTimeout(() => {
-      doDot();
-    }, 200)
-  }
-}
-
-function moveLeft() {
-  if (pic==1) {
-    //do nothing
-  }
-  else {
-
-    bgPicPos = bgPicPos + 5;
-    bgPos = bgNavPos + bgPicPos;
-
-    document.getElementById("bgdots").style.left = bgPos+ "%";
-
-
-    document.getElementById("photo" + pic).style.left = "150%"; //moves pic offscreen to the right
-
-    var pDiv = document.getElementById("dcontainer"); 
-    var cDiv = pDiv.children;
-    for (var i = 0; i < cDiv.length; i++) {
-      if (cDiv[i].tagName == "DIV") {      //allows me to change style and resetS children
-         cDiv[i].style.height = "15px";  
-         cDiv[i].style.width = "15px";
-         cDiv[i].style.backgroundColor = "#729394";
-         cDiv[i].style.fontSize = "0%";
-      }
-    }
-
-
-    pic = pic - 1;  //decreases the id of the picture to move
-    document.getElementById("photo" + pic).style.left = "50%";  //moves pic to the middle of the screen
-
-    setTimeout(() => {
-      doDot();
-    }, 200)
-  }
-}
-
-
-
-function doDot() {
-  document.getElementById("dot" + pic).style.height = "30px"; //dots at bottom
-  document.getElementById("dot" + pic).style.width = "30px";
-  document.getElementById("dot" + pic).style.backgroundColor = "#B3E8CD";
-  document.getElementById("dot" + pic).style.fontSize = "55%";
-}
-
-
-
-function dotClick(self) { 
-  var number = self.innerHTML; //asks itself what the inner html of the div is, the number is always there, it's just scaled down infinitely
-  if (number < pic) { //if the desired location is smaller than current location (doesn't do anything if it's the same)\/
-    while (number != pic) { //continue moving left till you reach destination (till value of dot pressed is equal to current picture)
-      moveLeft();
-    }
-  }
-  else {
-    while (number != pic) { //continue moving right till you reach destination (till value of dot pressed is equal to current picture)
-      moveRight();
-    }
-  }
-}
-
-
-
- //detects left/right arrow keyes so you can cycle through photos with them
+// detects left/right arrow keyes so you can cycle through photos with them
 document.onkeydown = checkKey;
 
 function checkKey(e) {
-
-    e = e || window.event;
-
-     if (e.keyCode == '37') {
-    //   moveLeft();
-
-       // left arrow
-    }
-    else if (e.keyCode == '39') {
-    //   moveRight();
-
-       // right arrow
-    }
+  e = e || window.event;
+  if (e.keyCode == '37' && fotoPageOpened == true) {     // left arrow
+    movePic("left");
+  }
+  else if (e.keyCode == '39' && fotoPageOpened == true) {     // right arrow
+    movePic("right");
+  }
 }

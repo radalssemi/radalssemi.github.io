@@ -89,6 +89,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 .dcontainer {
   position: fixed;
   bottom: 10px;
@@ -120,16 +130,17 @@
 }
 
 
+
 .fotoPage {
   max-width: 80vw;
   max-height: 80vh;
   position: fixed;
   top: 50%;
-  left: 100%;
-  transform: translate(-50%, -50%) scale(69%) rotate(10deg);
-  transition: 0.6s;
+  left: 60%;
+  transform: translate(-50%, -60%) scale(131%) rotate(10deg);
+  transition: 0.5s;
   opacity: 0;
-  box-shadow: 0 0 0 3vh #6262bf;
+  box-shadow: 0 0 0 3vh #6868cc, 0 3vh 0 3vh #6868cc;
 }
 .fotoAllPage {
   width: 100%;
