@@ -36,11 +36,26 @@
   transition: 0.3s;
   cursor: pointer;
   margin-bottom: 10px;
-  box-shadow: 0 0 0 0.75vh #6262bf;
+  background-color: #6868cc;
+  box-shadow: 0 0 0 0.75vh #6868cc, 0 1.25vh 0 0.75vh #6868cc;
 }
 .column .fotoImg:hover {
    scale: 110%;
-   box-shadow: 0 0 0 1.25vh #6262bf;
+  box-shadow: 0 0 0 1.25vh #6868cc, 0 1.25vh 0 1.25vh #6868cc;
+}
+
+.column div {
+  vertical-align: middle;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: #6868cc;
+  box-shadow: 0 0 0 0.75vh #6868cc, 0 1.25vh 0 0.75vh #6868cc;
+}
+.column div:hover {
+   scale: 110%;
+  box-shadow: 0 0 0 1.25vh #6868cc, 0 1.25vh 0 1.25vh #6868cc;
 }
 
 .fotoBackground {
@@ -98,7 +113,6 @@
 
 
 
-
 .dcontainer {
   position: fixed;
   bottom: 10px;
@@ -133,7 +147,7 @@
 
 .fotoPage {
   max-width: 80vw;
-  max-height: 80vh;
+  height: 80vh;
   position: fixed;
   top: 50%;
   left: 60%;
