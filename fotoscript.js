@@ -22,16 +22,15 @@ function switchPhotoMode(targetImage) {
    }
   }
   
-
   document.getElementById("menuSlider").style.pointerEvents = "none";
   document.getElementById("menuSlider").style.opacity = "0";
   document.getElementById("smallScreenOpenNav").style.opacity = "0";
-  document.getElementById("smallScreenOpenNav").style.display = "block";
+  document.getElementById("smallScreenOpenNav").style.display = "flex";
+  document.getElementById("fotoBackground").style.width = "100%";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.opacity = "1";
-    document.getElementById("backButton").style.transform = "translate(0, -50%)";
+    document.getElementById("backButton").style.transform = "none";
   }, 500)
-
 
 
   setTimeout(() => {
@@ -61,7 +60,6 @@ function showOtherFuckingThing(targetImage) {
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
-
     document.getElementById(i).classList = "fotoPage";
   }
 
@@ -71,8 +69,8 @@ function showOtherFuckingThing(targetImage) {
     currentFotoPage++;
     document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
   }
-  document.getElementById(targetImage).style.transform = "translate(-50%, -50%) scale(69%)"; // makes it so the image you clicked on appears from the middle and not the right
 
+  document.getElementById(targetImage).style.left = "50%"; //if I don't do this the first images bugs 
 
   setTimeout(() => { // actually shows the image you clicked on
     document.getElementById(targetImage).style.opacity = "1";

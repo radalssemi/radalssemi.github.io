@@ -45,14 +45,12 @@ function openNav() {
   document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
   document.getElementById("sideNav").style.boxShadow = "0 0 0 30px rgba(98, 98, 191, 0.3)"; 
-  document.getElementById("bgdots").style.left = "10%";   //animates background to slide right when nav opens
 }
 function closeNav() {
   document.getElementById("sideNav").style.pointerEvents = "none";
   document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     //sidenav
   document.getElementById("sideNav").style.boxShadow = "none"; 
-  document.getElementById("bgdots").style.left = "0%";
 }
 
 

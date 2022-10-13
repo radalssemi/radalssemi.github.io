@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  
 <meta charset="utf-8" />
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="fotostyle.css">
 
+<link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="fotostyle.css" as="style" onload="this.rel='stylesheet'">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
-
-
-
-
-
 
 
 
@@ -30,7 +21,7 @@
 
 
 
-<body draggable="false" style="margin: 0px; color: #cfc5fd;">
+<body draggable="false" style="margin: 0px; background-color: #5552a0;">
 <div id="transitionScreen" class="transitionScreen">
   <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
   <div class="loadingThing" id="loadingThing">loading</div>
@@ -55,7 +46,9 @@
 
 
 
-<img onclick="openNav()" src="openNav.svg" class="smallScreenOpenNav" id="smallScreenOpenNav" draggable="false">  <!--for smaller screens-->
+
+<div onclick="openNav()" id="smallScreenOpenNav" class="smallScreenOpenNav"><img src="openNav.svg" draggable="false"></div>  <!--for smaller screens-->
+
 <div onclick="openNav()" class="menuSlider" id="menuSlider">
   <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
 </div>
@@ -155,10 +148,10 @@
   </div>
 </div>
 
-
 <div id="fotoAllPage">
-<img id="backButton" class="backButton" src="favicon.svg">
+<div id="backButton" class="backButton"><img src="close.svg" draggable="false"></div>
 </div>
+
 <div class="fotoBackground" id="fotoBackground"></div> <!--I need to put this outside or it blocks scrolling-->
 
 

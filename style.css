@@ -1,7 +1,7 @@
 body {
   background-color: #5552a0;
   font-family: 'Reem Kufi Fun', sans-serif;
-  font-size: 40px;
+  font-size: 4vh;
   color: #cfc5fd;
   margin: none;
   user-select: none;
@@ -110,9 +110,9 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   transform: translate(0, -50%);
   transform-origin: top left;
   top: 50%;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  filter: drop-shadow(0 0 1vh rgba(207, 197, 253, 0.5));
 }
-.menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
+.menuSlider:hover { box-shadow: 11vh 0 4vh -8vh rgba(0, 0, 0, 0.15) inset; }
 .menuSlider:hover .arrow{ scale: 115%; }
 
 @keyframes point {
@@ -122,7 +122,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 @media screen and (max-width: 1300px) {
   #smallScreenOpenNav {
-    display: block;
+    display: flex;
   }
   .menuSlider {
     display: none;
@@ -131,7 +131,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 }
 
 .smallScreenOpenNav {
-  display: none;
+  /* display: none;
   position: fixed;
   left: 4vh;
   top: 4vh;
@@ -139,9 +139,40 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   height: 7vh;
   filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
   z-index: 1;
+  cursor: pointer; */
+  position: fixed;
+  left: -3vh;
+  top: 2vh;
+  transition: 0.2s;
+  box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
+  background-color: #6262bf;
+  transition: 0.3s, transform 1s 0.5s;
   cursor: pointer;
+  border: solid #6262bf;
+  border-width: 1.5vh 1.5vh 1.5vh 6vh;
+  transform-origin: left;
+  display: flex;
+  z-index: 5;
 } 
-.smallScreenOpenNav:hover { scale: 110%; }
+.smallScreenOpenNav:hover {
+  scale: 105%;
+  left: -2.5vh;
+}
+.smallScreenOpenNav img {
+  height: 4vh;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .bgdots {
@@ -152,25 +183,22 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   left: 0;
   z-index: -5;
   transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  
 }
 .bgdots::before {
   content: "";
   position: absolute;
-  width: 250%;
-  height: 250%;
-  top: -75%;
-  left: -75%;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
   z-index: -1;
-  background: radial-gradient(circle, rgba(0,0,0,0.04) 10px, transparent 15px);
+  background: radial-gradient(circle, rgba(0,0,0,0.04) 1vh, transparent 1.5vh);
   background-size: 100px 100px;
-  animation: bg 1000s infinite;
-  animation-timing-function: linear;
   transform-origin: center;
   rotate: 100deg;
 }
-@keyframes bg {
-  50% { rotate: -100deg; background-size: 150px 150px; }
-}
+
 
 
 
