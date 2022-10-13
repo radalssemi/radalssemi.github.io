@@ -17,12 +17,12 @@ function makePhotoGone(targetImage) {
 
 
 
-  nodes = document.getElementById('row').childNodes; //basically selects all columns
-  for( ai=0; ai<nodes.length; ai++) {
-    if (nodes[ai].nodeName.toLowerCase() == 'div') {
-      columnCount.push(nodes[ai].getElementsByTagName("img").length); //keeps track of how many images in each column so I can put them back when the user exits photoPage mode 
+  nodes = document.getElementById('row').childNodes; // basically select all columns
+  for( j=0; j<nodes.length; j++) {
+    if (nodes[j].nodeName.toLowerCase() == 'div') {
+      columnCount.push(nodes[j].getElementsByTagName("img").length); //keeps track of how many images in each column so I can put them back when the user exits photoPage mode 
       console.log(columnCount);
-      imgFadeOutAnimation(ai); // applies effects with a delay, I know it's retarded
+      imgFadeOutAnimation(j); // applies effects with a delay, I know it's r
    }
   }
   
@@ -40,11 +40,11 @@ function makePhotoGone(targetImage) {
   }, 750)
 }
 
-function imgFadeOutAnimation(ai) { // applies effects with a delay, I know it's retarded, I need to do this because ai var is not the same in 50ms
+function imgFadeOutAnimation(j) { // applies effects with a delay, I know it's retarded, I need to do this because j var is not the same in 50ms
   setTimeout(function() {
-    nodes[ai].style.opacity = "0";
-    nodes[ai].style.transform = "translateY(100px)";
-  }, 50 * ai);
+    nodes[j].style.opacity = "0";
+    nodes[j].style.transform = "translateY(100px)";
+  }, 50 * j);
 }
 
 

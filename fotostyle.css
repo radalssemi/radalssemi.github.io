@@ -144,7 +144,7 @@
   top: 2vh;
   box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
   background-color: #6262bf;
-  transition: scale 0.2s, right 0.2s, transform 1s 0.5s;
+  transition: right 0.3s, transform 1s 0.5s;
   transform: translate(150%, 0%);
   cursor: pointer;
   border: solid #6262bf;
@@ -154,8 +154,7 @@
   z-index: 1;
 }
 .backButton:hover {
-  scale: 105%;
-  right: -2.5vh;
+  right: -2vh;
 }
 .backButton img {
   height: 4vh;
