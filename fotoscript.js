@@ -4,37 +4,39 @@ for (var i = 0; i < images ; i++) {
     document.querySelectorAll(".fotoImg")[i].addEventListener("click", function() {
         if(fotoPageOpened == false) {
           console.log( event.target.id );
-          switchPhotoMode(event.target.id);
+          makePhotoGone(event.target.id);
         }
     });
 }
 
-
-
-function switchPhotoMode(targetImage) {
+columnCount = [];
+function makePhotoGone(targetImage) {
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
+  document.getElementById("fotoAll").style.overflow = "hidden";
+
+
 
   nodes = document.getElementById('row').childNodes; //basically selects all columns
   for( ai=0; ai<nodes.length; ai++) {
     if (nodes[ai].nodeName.toLowerCase() == 'div') {
+      columnCount.push(nodes[ai].getElementsByTagName("img").length); //keeps track of how many images in each column so I can put them back when the user exits photoPage mode 
+      console.log(columnCount);
       imgFadeOutAnimation(ai); // applies effects with a delay, I know it's retarded
    }
   }
   
   document.getElementById("menuSlider").style.pointerEvents = "none";
   document.getElementById("menuSlider").style.opacity = "0";
-  document.getElementById("smallScreenOpenNav").style.opacity = "0";
-  document.getElementById("smallScreenOpenNav").style.display = "flex";
-  document.getElementById("fotoBackground").style.width = "100%";
+  document.getElementById("fotoBackground").style.width = "120%";
   setTimeout(() => {
-    document.getElementById("smallScreenOpenNav").style.opacity = "1";
+    document.getElementById("smallScreenOpenNav").style.transform = "none";
     document.getElementById("backButton").style.transform = "none";
   }, 500)
 
 
   setTimeout(() => {
-    showOtherFuckingThing(targetImage);
+    showFotoPageMode(targetImage);
   }, 750)
 }
 
@@ -55,7 +57,7 @@ fotoPageOpened = false;
 
 
 
-function showOtherFuckingThing(targetImage) {
+function showFotoPageMode(targetImage) {
   for (var i = 1; i < images + 1; i++) { // this makes all images
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment

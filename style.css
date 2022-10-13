@@ -25,7 +25,6 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  font-size: 0px;
   box-shadow: none;
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
   pointer-events: none;
@@ -97,14 +96,14 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   min-width: 150px;
   width: 5%;
   cursor: pointer;
-  transition: 0.1s;
+  transition: box-shadow 0.1s;
   z-index: 1;
 }
 .arrow {
   position: relative;
   left: 3.5vh;
   animation: point 5s infinite ease 1s;
-  transition: 0.2s;
+  transition: scale 0.2s;
   height: 6vh;
   width: 6vh;
   transform: translate(0, -50%);
@@ -122,31 +121,21 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 @media screen and (max-width: 1300px) {
   #smallScreenOpenNav {
-    display: flex;
+    transform: translate(0,0);
   }
   .menuSlider {
     display: none;
   }
-
 }
 
 .smallScreenOpenNav {
-  /* display: none;
-  position: fixed;
-  left: 4vh;
-  top: 4vh;
-  transition: 0.2s;
-  height: 7vh;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
-  z-index: 1;
-  cursor: pointer; */
   position: fixed;
   left: -3vh;
   top: 2vh;
-  transition: 0.2s;
   box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
   background-color: #6262bf;
-  transition: 0.3s, transform 1s 0.5s;
+  transition: scale 0.2s, left 0.2s, transform 1s;
+  transform: translate(-150%, 0%);
   cursor: pointer;
   border: solid #6262bf;
   border-width: 1.5vh 1.5vh 1.5vh 6vh;
@@ -182,8 +171,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   top: 0;
   left: 0;
   z-index: -5;
-  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
-  
+  transition: opacity 3;
 }
 .bgdots::before {
   content: "";
@@ -194,7 +182,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   left: -50%;
   z-index: -1;
   background: radial-gradient(circle, rgba(0,0,0,0.04) 1vh, transparent 1.5vh);
-  background-size: 100px 100px;
+  background-size: 8vh 8vh;
   transform-origin: center;
   rotate: 100deg;
 }
@@ -236,12 +224,13 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
     width: 100%;
   background-color: #6262bf;
   overflow: hidden;
-  transition: 1s;
+  transition: height 1s, opacity 1s, box-shadow 1s;
   font-size: 0px;
   box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
   filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
   z-index: 10000000000;
   align-content: center;
+  color: #413e7a;
 }
 .transitionScreenLocation {
   line-height: 0px;
@@ -341,7 +330,7 @@ button {
     left: 100px;
     bottom: 100px;
   opacity: 0;
-  transition: 5s 2.5s;
+  transition: opacity 5s 2.5s;
   font-size: 30px;
   color: #413e7a;
   filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
@@ -367,8 +356,8 @@ button {
     left: 250px;
     bottom: 100px;
   opacity: 0;
-  transition: 5s 2.5s;
+  transition: opacity 5s 2.5s;
   font-size: 30px;
-  color: #413e7a;
+  color: #413e7a !important;
   filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
 }
