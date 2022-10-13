@@ -110,7 +110,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   transform: translate(0, -50%);
   transform-origin: top left;
   top: 50%;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
 }
 .menuSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
 .menuSlider:hover .arrow{ scale: 115%; }

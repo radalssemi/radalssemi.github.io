@@ -154,7 +154,9 @@
   transform: translate(-50%, -50%) scale(69%);
   transition: 0.4s;
   opacity: 0;
-  box-shadow: 0 0 0 3vh #6868cc, 0 3vh 0 3vh #6868cc;
+  box-shadow: 2vh 2vh 0 0 rgba(0, 0, 0, 0.10);
+  border: solid #6262bf;
+  border-width: 3vh 3vh 6vh 3vh;
 }
 .fotoAllPage {
   width: 100%;
@@ -163,6 +165,36 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+
+
+
+
+
+.backButton {
+  position: fixed;
+  right: 10vw;
+  top: 2vh;
+  transition: 0.2s;
+  height: 5vh;
+  width: 5vh;
+  transform-origin: center;
+  box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
+  background-color: #6262bf;
+  transform: translate(0, -200%) rotate(15deg);
+  transition: transform 2s, top 0.3s;
+  transition-timing-function: ease-in-out;
+  z-index: 2;
+  cursor: pointer;
+  border: solid #6262bf;
+  border-width: 5vh 1vh 1vh 1vh;
+}
+.backButton:hover {
+  top: 3vh;
+}
+
+
 
 
 

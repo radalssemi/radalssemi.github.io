@@ -29,6 +29,7 @@ function switchPhotoMode(targetImage) {
   document.getElementById("smallScreenOpenNav").style.display = "block";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.opacity = "1";
+    document.getElementById("backButton").style.transform = "translate(0, -50%)";
   }, 500)
 
 
