@@ -19,10 +19,10 @@ function incrementCounter() {
 }
 
 
-
 document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
-document.getElementById("loadingNumber").style.opacity = "1"; // this will make a loading thing appear slowly
-                                                             
+document.getElementById("loadingNumber").style.opacity = "1"; // this will make a loading thing appear slowly  
+
+
 function hideTransition() {
   document.getElementById("transitionScreen").style.bottom = "0";
   setTimeout(() => {

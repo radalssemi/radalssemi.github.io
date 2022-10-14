@@ -12,6 +12,90 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 
+
+
+
+
+
+
+
+.transitionScreen {
+  position: absolute;
+    height: 100%;
+    width: 100%;
+  background-color: #6262bf;
+  overflow: hidden;
+  transition: height 1s, opacity 1s, box-shadow 1s;
+  font-size: 0px;
+  box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  z-index: 10000000000;
+  align-content: center;
+  color: #413e7a;
+}
+.transitionScreen div {
+  color: #413e7a;
+  transition: opacity 5s 2.5s;
+}
+.transitionScreenLocation {
+  line-height: 0px;
+  position: fixed;
+    bottom: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+  color: #413e7a;
+  font-size: 40px;
+  max-width: 100%;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.loadingThing {
+  position: absolute;
+    left: 100px;
+    bottom: 100px;
+  opacity: 0;
+  font-size: 30px;
+  color: #413e7a;
+  filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
+}
+
+.loadingThing:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+@keyframes ellipsis {
+  to {
+    width: 21px;
+  }
+}
+
+.loadingNumber {
+  position: absolute;
+    left: 250px;
+    bottom: 100px;
+  opacity: 0;
+  font-size: 30px;
+  color: #413e7a !important;
+  filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .sidenavtext { font-size: 40px; color: #cfc5fd; }
 
 .sidenav {
@@ -217,36 +301,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 
-.transitionScreen {
-  position: absolute;
-    height: 100%;
-    width: 100%;
-  background-color: #6262bf;
-  overflow: hidden;
-  transition: height 1s, opacity 1s, box-shadow 1s;
-  font-size: 0px;
-  box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
-  z-index: 10000000000;
-  align-content: center;
-  color: #413e7a;
-}
-.transitionScreen div {
-  color: #413e7a;
-  transition: opacity 5s 2.5s;
-}
-.transitionScreenLocation {
-  line-height: 0px;
-  position: fixed;
-    bottom: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-  color: #413e7a;
-  font-size: 40px;
-  max-width: 100%;
-  white-space: nowrap;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-}
+
 
 
 
@@ -319,46 +374,4 @@ button {
     left: 50%;
     transform: scale(3000%) translate(-55%, -25%);
     transform-origin: left top;
-}
-
-
-
-
-
-
-
-
-.loadingThing {
-  position: absolute;
-    left: 100px;
-    bottom: 100px;
-  opacity: 0;
-  font-size: 30px;
-  color: #413e7a;
-  filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
-}
-
-.loadingThing:after {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
-  content: "\2026";
-  /* ascii code for the ellipsis character */
-  width: 0px;
-}
-@keyframes ellipsis {
-  to {
-    width: 21px;
-  }
-}
-
-.loadingNumber {
-  position: absolute;
-    left: 250px;
-    bottom: 100px;
-  opacity: 0;
-  font-size: 30px;
-  color: #413e7a !important;
-  filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
 }
