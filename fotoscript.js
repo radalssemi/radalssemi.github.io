@@ -14,6 +14,7 @@ for (var i = 0; i < images ; i++) {
 }
 
 function makePhotoGone(targetImage) {
+  columnCount = []; //reset var
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
   document.getElementById("fotoAll").style.overflowY = "hidden";
@@ -115,8 +116,7 @@ function closePageMode() {
   }, 300)
   setTimeout(() => {
     for (var i = 1; i != 5; i++) {
-      imgFadeInAnimation(i);
-      console.log(i)
+      imgFadeInAnimation(i); 
     }
     document.getElementById("borblur").style.pointerEvents = "all"; //enable controls for thingsfadjkhslhlhlhlhlhlhlhlhlh
     document.getElementById("row").style.pointerEvents = "all";
@@ -133,7 +133,7 @@ function closePageMode() {
       document.getElementById(i).removeAttribute('style');
     }
   
-    for (var i = 1 + columnCount[0] ; i < columnCount[0] + columnCount[1] + 2; i++) { // this makes all images - ??????
+    for (var i = 1 + columnCount[0] ; i <= columnCount[0] + columnCount[1] + 2; i++) { // this makes all images - ??????
       var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
       fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
       document.getElementById("column2").appendChild(fragment); // Append fragment to desired element
@@ -141,7 +141,7 @@ function closePageMode() {
       document.getElementById(i).removeAttribute('style');
     }
   
-    for (var i = 1 + columnCount[0] + columnCount[1]; i < columnCount[0] + columnCount[1] + columnCount[2]; i++) { // this makes all images - ??????
+    for (var i = 1 + columnCount[0] + columnCount[1]; i <= columnCount[0] + columnCount[1] + columnCount[2]; i++) { // this makes all images - ??????
       var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
       fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
       document.getElementById("column3").appendChild(fragment); // Append fragment to desired element
@@ -149,7 +149,7 @@ function closePageMode() {
       document.getElementById(i).removeAttribute('style');
     }
   
-    for (var i = 1 + columnCount[0] + columnCount[1] + columnCount[2]; i < columnCount[0] + columnCount[1] + columnCount[2] + columnCount[3]; i++) { // this makes all images - ??????
+    for (var i = 1 + columnCount[0] + columnCount[1] + columnCount[2]; i <= columnCount[0] + columnCount[1] + columnCount[2] + columnCount[3]; i++) { // this makes all images - ??????
       var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
       fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
       document.getElementById("column4").appendChild(fragment); // Append fragment to desired element
