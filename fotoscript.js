@@ -14,7 +14,9 @@ for (var i = 0; i < images ; i++) {
 }
 
 function makePhotoGone(targetImage) {
-  columnCount = []; //reset var
+  columnCount = []; //reset vars
+  currentFotoPage = 1;
+  
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
   document.getElementById("fotoAll").style.overflowY = "hidden";
