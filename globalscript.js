@@ -88,6 +88,7 @@ function go(location) {  // handles fade out animation and goes to corresponding
 
 
 function borWarning() {
+  document.getElementById("borblur").style.pointerEvents = "none";
   document.getElementById("borWarning").style.display = "grid";
   setTimeout(() => {
     document.getElementById("borWarning").style.opacity = "1";
@@ -98,6 +99,7 @@ function borWarning() {
 
 }
 function borWarningClos() {
+  document.getElementById("borblur").style.pointerEvents = "all";
   document.getElementById("borWarning").style.opacity = "0";
   document.getElementById("borWarning").style.transform = "rotate(10deg) scale(0.75) translate(-50%,-50%)";
   document.getElementById("borblur").style.filter = "";

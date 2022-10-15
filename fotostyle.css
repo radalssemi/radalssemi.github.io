@@ -116,7 +116,7 @@
   object-fit: contain;
   height: 82vh;
   position: absolute;
-  top: 47%;
+  top: 46.5%;
   left: 60%;
   transform: translate(-50%, -50%) scale(69%);
   transition: transform 0.4s, opacity 0.45s, left 0.4s, right 0.4s, translate 0.4s;
