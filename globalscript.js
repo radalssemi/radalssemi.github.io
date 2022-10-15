@@ -115,12 +115,11 @@ function borWarningGo() {
   document.body.style.backgroundColor = "#4F5861";
   document.getElementById("bgdots").style.opacity = "0";
   document.getElementById("borblur").style.opacity = "0";
-  document.getElementById("logoWrap").style.transform = "scaleX(0%)";
   document.getElementById("oldlogo").style.display = "block";
   setTimeout(() => {
     document.getElementById("oldlogo").style.opacity = "0.1";
     document.getElementById("oldlogo").style.transform = "translate(-50%, -50%)";
-  }, 10) //have to do this or the logo appears without transition
+  }, 50) //have to do this or the logo appears without transition
   setTimeout(() => {
     location = "./old-site/index.html";
   }, 1200)
