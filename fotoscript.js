@@ -16,7 +16,7 @@ for (var i = 0; i < images ; i++) {
 function makePhotoGone(targetImage) {
   columnCount = []; //reset vars
   currentFotoPage = 1;
-  
+
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
   document.getElementById("fotoAll").style.overflowY = "hidden";
@@ -35,14 +35,12 @@ function makePhotoGone(targetImage) {
   document.getElementById("fotoBackground").style.width = "100%";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.transform = "none";
-    setTimeout(() => {
       document.getElementById("closePageButton").style.transform = "none";
-    }, 500)
   }, 500)
 
   setTimeout(() => {
     showFotoPageMode(targetImage);
-  }, 700)
+  }, 600)
 }
 
 function imgFadeOutAnimation(j) { // applies effects with a delay, I know it's retarded, I need to do this because j var is not the same in 50ms
@@ -97,7 +95,7 @@ function showFotoPageMode(targetImage) {
   }, 100)
   setTimeout(() => { // this is to avoid controls before the image has appeared and transition animation has finished
     fotoPageOpened = true;
-  }, 520)
+  }, 450)
 }
 
 
@@ -219,10 +217,15 @@ document.onkeydown = checkKey;
 
 function checkKey(e) {
   e = e || window.event;
-  if (e.keyCode == '37' && fotoPageOpened == true) {     // left arrow
-    movePic("left");
-  }
-  else if (e.keyCode == '39' && fotoPageOpened == true) {     // right arrow
-    movePic("right");
+  switch(e.keyCode) {
+    case 37: 
+      if (fotoPageOpened == true) movePic("left");
+      break;
+    case 39: 
+      if (fotoPageOpened == true) movePic("right");
+      break;
+    case 27:  // escape key
+      if (fotoPageOpened == true) closePageMode();
+      break;
   }
 }

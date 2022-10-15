@@ -23,7 +23,7 @@ function incrementCounter() {
 
 
 
-setTimeout(() => { // I tried to do this another way but aaaaaaaaaaaaaaaaaaaaa
+setTimeout(() => { // I tried to do this another way but aaaaaaaaaaaaaaaaaaaaaX
   document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
   document.getElementById("loadingNumber").style.opacity = "1"; // this will make the loading thing appear slowly  
 }, 5000) // basically like half the time these would appear immediately without any transition
@@ -52,7 +52,6 @@ function openNav() {
   setTimeout(() => {
     document.getElementById("menuArrow").style.animation = "none";
   }, 200)
-  document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // open sidenav
   document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15)) drop-shadow(2.5vh 0vh 0 rgba(0, 0, 0, 0.10))"; 
 }
@@ -93,9 +92,9 @@ function borWarning() {
   setTimeout(() => {
     document.getElementById("borWarning").style.opacity = "1";
     document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
-    document.getElementById("borblur").style.filter = "blur(1.5vh)";
+    document.getElementById("borblur").style.filter = "blur(1.5vh) brightness(80%)";
     document.getElementById("borblur").style.background = "inherit";
-  }, 10) //this is done so the effects aren't applied at the same time resulting in the element popping in wihtout a transition playing
+  }, 50) //this is done so the effects aren't applied at the same time resulting in the element popping in wihtout a transition playing
 
 }
 function borWarningClos() {

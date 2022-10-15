@@ -50,7 +50,7 @@
 <div onclick="openNav()" id="smallScreenOpenNav" class="smallScreenOpenNav"><img src="openNav.svg" draggable="false"></div>  <!--for smaller screens-->
 
 <div onclick="openNav()" class="menuSlider" id="menuSlider">
-  <img src="menuarrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
+  <img src="arrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
 </div>
 
 
@@ -147,6 +147,11 @@
 
 <div id="fotoAllPage">
 <div id="closePageButton" class="closePageButton" onclick="closePageMode()"><img src="close.svg" draggable="false"></div>
+
+<div id="fotoPageLeftRight" class="fotoPageLeftRight">
+  <img id="pageLeft" src="arrow.svg" draggable="false" style="transform: scaleX(-100%);">
+  <img id="pageRight" src="arrow.svg" draggable="false">
+</div>
 </div>
 
 <div class="fotoBackground" id="fotoBackground"></div> <!--I need to put this outside or it blocks scrolling-->

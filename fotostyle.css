@@ -34,7 +34,7 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 2;
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transition: transform 0.6s, opacity 0.35s;
 }
 .column * {
   vertical-align: middle;
@@ -116,13 +116,13 @@
   object-fit: contain;
   height: 82vh;
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 60%;
   transform: translate(-50%, -50%) scale(69%);
-  transition: transform 0.35s, opacity 0.35s, left 0.4s, right 0.4s;
+  transition: transform 0.4s, opacity 0.45s, left 0.4s, right 0.4s;
   opacity: 0;
   pointer-events: none;
-  filter: drop-shadow(3vh 0vh 0 #6262bf) drop-shadow(-3vh 0 0 #6262bf) drop-shadow(0 3vh 0 #6262bf) drop-shadow(0 -3vh 0 #6262bf) drop-shadow(2vh 2vh 0 rgba(0, 0, 0, 0.10));
+  filter: drop-shadow(2vh 0vh 0 #6262bf) drop-shadow(-2vh 0 0 #6262bf) drop-shadow(0 2vh 0 #6262bf) drop-shadow(0 -2vh 0 #6262bf) drop-shadow(1.5vh 1.5vh 0 rgba(0, 0, 0, 0.10));
   /* I am not adding a wrapper to each image for the border no fuck you */
 }
 .fotoAllPage {
@@ -169,52 +169,43 @@
 
 
 
-.fotoSliderRight {
+.fotoPageLeftRight {
   position: absolute;
-  top: 0%;
-  left: 0%;
-  height: 100vh;
-  min-width: 150px;
-  width: 5%;
+  bottom: 0%;
+  left: 50%;
+  width: 24vh;
+  height: 7vh;
+  transform: translate(-50%, 0);
   cursor: pointer;
-  transition: 0.1s;
-  z-index: 1;
+  background-color: #6262bf;
+  box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.fotoArrowRight {
-  position: relative;
-  left: 3.5vh;
-  transition: 0.2s;
-  height: 6vh;
-  width: 6vh;
-  transform: translate(0, -50%);
-  transform-origin: top left;
-  top: 50%;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
-}
-.fotoSlider:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
-.fotoSlider:hover .fotoArrow{ scale: 115%; }
 
-.fotoSliderRight {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  height: 100vh;
-  min-width: 150px;
-  width: 5%;
-  cursor: pointer;
-  transition: 0.1s;
-  z-index: 1;
-}
-.fotoArrowRight {
-  position: relative;
+.fotoPageLeftRight img {
   left: 3.5vh;
-  transition: 0.2s;
-  height: 6vh;
-  width: 6vh;
-  transform: translate(0, -50%);
-  transform-origin: top left;
+  transition: padding 0.3s, scale 0.3s;
+  height: 4.5vh;
   top: 50%;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))
+  padding: 2.5vh;
+  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
 }
-.fotoSliderRight:hover { box-shadow: 120px 0 40px -80px rgba(0, 0, 0, 0.15) inset; }
-.fotoSliderRight:hover .fotoArrow{ scale: 115%; }
+
+.fotoPageLeftRight img:hover { scale: 110%;}
+
+/* 
+position: fixed;
+right: -3vh;
+top: 2vh;
+box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
+background-color: #6262bf;
+transition: right 0.3s, transform 1s;
+transform: translate(150%, 0%);
+cursor: pointer;
+border: solid #6262bf;
+border-width: 1.5vh 6vh 1.5vh 1.5vh;
+transform-origin: right;
+display: flex;
+z-index: 1; */
