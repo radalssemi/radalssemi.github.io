@@ -54,7 +54,7 @@ function openNav() {
   }, 200)
   document.getElementById("main").style.filter = "blur(1vh)";
   document.getElementById("sideNav").style.width = "300px"; // side navigation panel
-  document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15)) drop-shadow(2vh 0vh 0 rgba(0, 0, 0, 0.10))"; 
+  document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15)) drop-shadow(2.5vh 0vh 0 rgba(0, 0, 0, 0.10))"; 
 }
 function closeNav() {
   document.getElementById("sideNav").style.pointerEvents = "none";
