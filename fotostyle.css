@@ -119,8 +119,9 @@
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%) scale(69%);
-  transition: transform 0.4s, opacity 0.4s;
+  transition: transform 0.35s, opacity 0.35s, left 0.4s, right 0.4s;
   opacity: 0;
+  pointer-events: none;
   filter: drop-shadow(3vh 0vh 0 #6262bf) drop-shadow(-3vh 0 0 #6262bf) drop-shadow(0 3vh 0 #6262bf) drop-shadow(0 -3vh 0 #6262bf) drop-shadow(2vh 2vh 0 rgba(0, 0, 0, 0.10));
   /* I am not adding a wrapper to each image for the border no fuck you */
 }
@@ -138,13 +139,13 @@
 
 
 
-.backButton {
+.closePageButton {
   position: fixed;
   right: -3vh;
   top: 2vh;
   box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.10);
   background-color: #6262bf;
-  transition: right 0.3s, transform 1s 0.5s;
+  transition: right 0.3s, transform 1s;
   transform: translate(150%, 0%);
   cursor: pointer;
   border: solid #6262bf;
@@ -153,10 +154,10 @@
   display: flex;
   z-index: 1;
 }
-.backButton:hover {
+.closePageButton:hover {
   right: -2vh;
 }
-.backButton img {
+.closePageButton img {
   height: 4vh;
   filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
 }

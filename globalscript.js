@@ -1,7 +1,10 @@
 const imgs = document.images, //stolen and edited script to detect that all images were loaded
       len = imgs.length;
 var counter = 0;
-    document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
+
+document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
+
+
 [].forEach.call( imgs, function( img ) {
   if(img.complete) {
     incrementCounter();
@@ -13,15 +16,22 @@ var counter = 0;
 function incrementCounter() {
   counter++;
   document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
-  if ( counter === len ) {
+  if ( counter == len ) {
     hideTransition();
   }
 }
 
 
-document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
-document.getElementById("loadingNumber").style.opacity = "1"; // this will make a loading thing appear slowly  
 
+setTimeout(() => { // I tried to do this another way but aaaaaaaaaaaaaaaaaaaaa
+  document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
+  document.getElementById("loadingNumber").style.opacity = "1"; // this will make the loading thing appear slowly  
+}, 5000) // basically like half the time these would appear immediately without any transition
+
+setTimeout(() => {
+  document.body.style.backgroundColor = "#5552a0"; //to reduce the prominence of the flash when transitioning sites sometimes
+  document.getElementById("main").style.opacity = "1";
+}, 200)
 
 function hideTransition() {
   document.getElementById("transitionScreen").style.bottom = "0";
@@ -102,6 +112,7 @@ function borWarningGo() {
   closeNav();
   document.getElementById("menuSlider").style.display = "none";
   document.getElementById("smallScreenOpenNav").style.display = "none";
+  document.body.style.transition = "1s";
   document.body.style.backgroundColor = "#4F5861";
   document.getElementById("bgdots").style.opacity = "0";
   document.getElementById("borblur").style.opacity = "0";
@@ -115,3 +126,26 @@ function borWarningGo() {
     location = "./old-site/index.html";
   }, 1200)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.addEventListener('contextmenu', function (e) { //prevents right click context menu cause
+  // do something here... 
+  e.preventDefault(); 
+}, false);

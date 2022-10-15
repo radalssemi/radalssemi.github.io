@@ -20,13 +20,14 @@
 
 
 
-<body draggable="false" style="margin: 0px; color: #cfc5fd;  background-color: #5552a0;"> <!--dumb flashes if I don't do this cause loading and transition-->
+<body draggable="false" style="margin: 0px; color: #cfc5fd;"> <!--dumb flashes if I don't do this cause loading and transition-->
 <div id="transitionScreen" class="transitionScreen">
   <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
+  <script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
   <div class="loadingThing" id="loadingThing">loading</div>
   <div class="loadingNumber" id="loadingNumber">ur mom</div>
 </div>
-<script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+
 
 
 <div class="borblur" id="borblur"> <!--borblur :pffft:-->
@@ -68,7 +69,7 @@
 
 <div class="fotoAll" id="fotoAll">
   <div class="row" id="row"> 
-    <div class="column" id="column"> <!-- fuck you, I'm not doing a script to load the images, also it would be unpractical as I would still have to give a number of images as github has very limited server side code for security purposes probably or something idk it's 2:30 am I'm still not done fuck me -->
+    <div class="column" id="column1"> <!-- fuck you, I'm not doing a script to load the images, also it would be unpractical as I would still have to give a number of images as github has very limited server side code for security purposes probably or something idk it's 2:30 am I'm still not done fuck me -->
       <div> Download all</div>
       <img src="foto/foto1.jpg" class="fotoImg" id="1" draggable="false">
       <img src="foto/foto2.jpg" class="fotoImg" id="2" draggable="false">
@@ -123,7 +124,7 @@
       <img src="foto/foto47.jpg" class="fotoImg" id="47" draggable="false">
       <img src="foto/foto48.jpg" class="fotoImg" id="48" draggable="false">
     </div>
-    <div class="column" id="column4 ">
+    <div class="column" id="column4">
       <img src="foto/foto49.jpg" class="fotoImg" id="49" draggable="false">
       <img src="foto/foto50.jpg" class="fotoImg" id="50" draggable="false">
       <img src="foto/foto51.jpg" class="fotoImg" id="51" draggable="false">
@@ -145,7 +146,7 @@
 </div>
 
 <div id="fotoAllPage">
-<div id="backButton" class="backButton"><img src="close.svg" draggable="false"></div>
+<div id="closePageButton" class="closePageButton" onclick="closePageMode()"><img src="close.svg" draggable="false"></div>
 </div>
 
 <div class="fotoBackground" id="fotoBackground"></div> <!--I need to put this outside or it blocks scrolling-->

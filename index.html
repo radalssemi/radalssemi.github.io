@@ -19,15 +19,14 @@
 
 
 
-
-
-<body draggable="false" style="margin: 0px; color: #cfc5fd;  background-color: #5552a0;"> <!--dumb flashes if I don't do this cause loading and transition-->
+<body draggable="false" style="margin: 0px; color: #cfc5fd;" > <!--dumb flashes if I don't do this cause loading and transition-->
 <div id="transitionScreen" class="transitionScreen">
   <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
+  <script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
   <div class="loadingThing" id="loadingThing">loading</div>
   <div class="loadingNumber" id="loadingNumber">ur mom</div>
 </div>
-<script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+
 
 
 <div class="borblur" id="borblur"> <!--borblur :pffft:-->

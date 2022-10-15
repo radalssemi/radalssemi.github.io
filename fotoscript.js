@@ -1,4 +1,8 @@
 const images = document.querySelectorAll(".column img").length;
+currentFotoPage = 1;
+fotoPageOpened = false;
+columnCount = []; //idk what happened, I had these vars in a place where they were relevant but then it just stopped working and was saying that it's not declared /shrug
+
 
 for (var i = 0; i < images ; i++) {
     document.querySelectorAll(".fotoImg")[i].addEventListener("click", function() {
@@ -9,13 +13,10 @@ for (var i = 0; i < images ; i++) {
     });
 }
 
-columnCount = [];
 function makePhotoGone(targetImage) {
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
-  document.getElementById("fotoAll").style.overflow = "hidden";
-
-
+  document.getElementById("fotoAll").style.overflowY = "hidden";
 
   nodes = document.getElementById('row').childNodes; // basically select all columns
   for( j=0; j<nodes.length; j++) {
@@ -25,19 +26,20 @@ function makePhotoGone(targetImage) {
       imgFadeOutAnimation(j); // applies effects with a delay, I know it's r
    }
   }
-  
+
   document.getElementById("menuSlider").style.pointerEvents = "none";
   document.getElementById("menuSlider").style.opacity = "0";
-  document.getElementById("fotoBackground").style.width = "120%";
+  document.getElementById("fotoBackground").style.width = "100%";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.transform = "none";
-    document.getElementById("backButton").style.transform = "none";
+    setTimeout(() => {
+      document.getElementById("closePageButton").style.transform = "none";
+    }, 500)
   }, 500)
-
 
   setTimeout(() => {
     showFotoPageMode(targetImage);
-  }, 750)
+  }, 700)
 }
 
 function imgFadeOutAnimation(j) { // applies effects with a delay, I know it's retarded, I need to do this because j var is not the same in 50ms
@@ -50,26 +52,38 @@ function imgFadeOutAnimation(j) { // applies effects with a delay, I know it's r
 
 
 
+function imgFadeInAnimation(i) { // applies effects with a delay, I know it's retarded, I need to do this because j var is not the same in 50ms
+  setTimeout(function() {
+    document.getElementById("column" + i).style.opacity = "1";
+    document.getElementById("column" + i).style.transform = "none";
+  }, 50 * i);
+}
 
 
-currentFotoPage = 1;
-fotoPageOpened = false;
+
+
+
+
+
+
+
+
 
 
 
 function showFotoPageMode(targetImage) {
-  for (var i = 1; i < images + 1; i++) { // this makes all images
+  for (var i = 1; i < images + 1; i++) { // this makes all images - ??????
     var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
     fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
     document.getElementById("fotoAllPage").appendChild(fragment); // Append fragment to desired element
     document.getElementById(i).classList = "fotoPage";
   }
 
-  while(currentFotoPage != targetImage) {
-    document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage offscreen to the LEFT
+  while(currentFotoPage != targetImage) { // I don't use the function movePic("right") cause it would make it appear without transition and I'm too lazy to fix it
+    document.getElementById(currentFotoPage).style.left = "40%"; 
     document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
     currentFotoPage++;
-    document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image onscreen to the center
+    document.getElementById(currentFotoPage).style.left = "50%";
   }
 
   document.getElementById(targetImage).style.left = "50%"; //if I don't do this the first images bugs 
@@ -82,6 +96,71 @@ function showFotoPageMode(targetImage) {
     fotoPageOpened = true;
   }, 520)
 }
+
+
+
+
+
+function closePageMode() {
+  fotoPageOpened = false;
+  document.getElementById("borblur").style.pointerEvents = "none"; // I disable pointerEvents to borblur so you can't fuck with the images during transition
+  document.getElementById("smallScreenOpenNav").removeAttribute('style');
+  document.getElementById("closePageButton").removeAttribute('style');
+  document.getElementById(currentFotoPage).style.opacity = "0";
+  document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
+
+  setTimeout(() => {
+    document.getElementById("fotoBackground").removeAttribute('style');
+    document.getElementById("menuSlider").removeAttribute('style');
+  }, 300)
+  setTimeout(() => {
+    for (var i = 1; i != 5; i++) {
+      imgFadeInAnimation(i);
+      console.log(i)
+    }
+    document.getElementById("borblur").style.pointerEvents = "all"; //enable controls for thingsfadjkhslhlhlhlhlhlhlhlhlh
+    document.getElementById("row").style.pointerEvents = "all";
+    document.getElementById("fotoAll").style.overflowY = "scroll";
+  }, 500)
+
+
+  setTimeout(() => { // bor I'm not doing it properly, I'm tired of this :sob:
+    for (var i = 1; i <= columnCount[0]; i++) { // this makes all images - ??????
+      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
+      document.getElementById("column1").appendChild(fragment); // Append fragment to desired element
+      document.getElementById(i).removeAttribute('class');
+      document.getElementById(i).removeAttribute('style');
+    }
+  
+    for (var i = 1 + columnCount[0] ; i < columnCount[0] + columnCount[1] + 2; i++) { // this makes all images - ??????
+      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
+      document.getElementById("column2").appendChild(fragment); // Append fragment to desired element
+      document.getElementById(i).removeAttribute('class');
+      document.getElementById(i).removeAttribute('style');
+    }
+  
+    for (var i = 1 + columnCount[0] + columnCount[1]; i < columnCount[0] + columnCount[1] + columnCount[2]; i++) { // this makes all images - ??????
+      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
+      document.getElementById("column3").appendChild(fragment); // Append fragment to desired element
+      document.getElementById(i).removeAttribute('class');
+      document.getElementById(i).removeAttribute('style');
+    }
+  
+    for (var i = 1 + columnCount[0] + columnCount[1] + columnCount[2]; i < columnCount[0] + columnCount[1] + columnCount[2] + columnCount[3]; i++) { // this makes all images - ??????
+      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
+      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
+      document.getElementById("column4").appendChild(fragment); // Append fragment to desired element
+      document.getElementById(i).removeAttribute('class');
+      document.getElementById(i).removeAttribute('style');
+    }
+  }, 500)
+}
+
+
+
 
 
 

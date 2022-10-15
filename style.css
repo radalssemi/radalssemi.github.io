@@ -1,12 +1,11 @@
 body {
-  background-color: #5552a0;
+  background-color: #6262bf; /* I change the bg color to be right with javascript cause there's an ugly flash sometimes when going from one page to another */
   font-family: 'Reem Kufi Fun', sans-serif;
   font-size: 4vh;
   color: #cfc5fd;
   margin: none;
   user-select: none;
   overflow: hidden;
-  transition: 1s;
 }
 span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
@@ -35,7 +34,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 }
 .transitionScreen div {
   color: #413e7a;
-  transition: opacity 5s 2.5s;
+  transition: opacity 2.5s;
 }
 .transitionScreenLocation {
   line-height: 0px;
@@ -55,6 +54,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
     left: 100px;
     bottom: 100px;
   opacity: 0;
+  
   font-size: 30px;
   color: #413e7a;
   filter: drop-shadow(0 0 7.5px rgba(0, 0, 0, 0.5));
@@ -139,8 +139,9 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: 0.6s;
+  transition: filter 0.6s;
   z-index: 0;
+  opacity: 0;
 }
 
 
@@ -180,7 +181,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   min-width: 150px;
   width: 5%;
   cursor: pointer;
-  transition: box-shadow 0.2s, opacity 0.2s;
+  transition: box-shadow 0.2s, opacity 0.3s;
   z-index: 1;
 }
 .arrow {
