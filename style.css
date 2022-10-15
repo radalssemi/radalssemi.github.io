@@ -233,7 +233,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 }
 .smallScreenOpenNav img {
   height: 4vh;
-  filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
+  filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5));
 }
 
 

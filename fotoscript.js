@@ -1,6 +1,7 @@
 const images = document.querySelectorAll(".column img").length;
 currentFotoPage = 1;
 fotoPageOpened = false;
+whichArrow = "none";
 columnCount = []; //idk what happened, I had these vars in a place where they were relevant but then it just stopped working and was saying that it's not declared /shrug
 
 
@@ -35,7 +36,8 @@ function makePhotoGone(targetImage) {
   document.getElementById("fotoBackground").style.width = "100%";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.transform = "none";
-      document.getElementById("closePageButton").style.transform = "none";
+    document.getElementById("closePageButton").style.transform = "none";
+    document.getElementById("fotoPageLeftRight").style.transform = "translate(-50%, 0)";
   }, 500)
 
   setTimeout(() => {
@@ -107,6 +109,7 @@ function closePageMode() {
   document.getElementById("borblur").style.pointerEvents = "none"; // I disable pointerEvents to borblur so you can't fuck with the images during transition
   document.getElementById("smallScreenOpenNav").removeAttribute('style');
   document.getElementById("closePageButton").removeAttribute('style');
+  document.getElementById("fotoPageLeftRight").removeAttribute('style');
   document.getElementById(currentFotoPage).style.opacity = "0";
   document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
 
@@ -114,17 +117,22 @@ function closePageMode() {
     document.getElementById("fotoBackground").removeAttribute('style');
     document.getElementById("menuSlider").removeAttribute('style');
   }, 300)
+
+
   setTimeout(() => {
     for (var i = 1; i != 5; i++) {
       imgFadeInAnimation(i); 
     }
+
     document.getElementById("borblur").style.pointerEvents = "all"; //enable controls for thingsfadjkhslhlhlhlhlhlhlhlhlh
     document.getElementById("row").style.pointerEvents = "all";
     document.getElementById("fotoAll").style.overflowY = "scroll";
-  }, 500)
 
 
-  setTimeout(() => { // bor I'm not doing it properly, I'm tired of this :sob:
+
+
+
+
     for (var i = 1; i <= columnCount[0]; i++) { // this makes all images - ??????
       var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
       fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
@@ -171,6 +179,30 @@ function closePageMode() {
 
 
 
+function arrowHover(which) {
+  switch(which) {
+    case "onLeft":
+      document.getElementById(currentFotoPage).style.translate = "1vh";
+      whichArrow = "left";
+      break;
+    case "onRight":
+      document.getElementById(currentFotoPage).style.translate = "-1vh";
+      whichArrow = "right";
+      break;
+    case "off":
+      document.getElementById(currentFotoPage).style.removeProperty("translate");
+      whichArrow = "none";
+      break;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -186,20 +218,26 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage to the LEFT
         document.getElementById(currentFotoPage).style.opacity = "0";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
+        document.getElementById(currentFotoPage).style.removeProperty("translate");
         currentFotoPage++;
         document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image to the center
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
+        if(whichArrow = "right") { document.getElementById(currentFotoPage).style.translate = "1vh"; }
+        if(whichArrow = "left") { document.getElementById(currentFotoPage).style.translate = "-1vh"; }
         break;
       
       case "left":
         document.getElementById(currentFotoPage).style.left = "60%"; //moves currentFotoPage to the RIGHT
         document.getElementById(currentFotoPage).style.opacity = "0"; 
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
+        document.getElementById(currentFotoPage).style.removeProperty("translate");
         currentFotoPage--;
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image to the center
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
+        if(whichArrow = "right") { document.getElementById(currentFotoPage).style.translate = "-1vh"; }
+        if(whichArrow = "left") { document.getElementById(currentFotoPage).style.translate = "1vh"; }
         break;
     }
   }

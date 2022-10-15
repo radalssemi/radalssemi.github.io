@@ -149,8 +149,8 @@
 <div id="closePageButton" class="closePageButton" onclick="closePageMode()"><img src="close.svg" draggable="false"></div>
 
 <div id="fotoPageLeftRight" class="fotoPageLeftRight">
-  <img id="pageLeft" src="arrow.svg" draggable="false" style="transform: scaleX(-100%);">
-  <img id="pageRight" src="arrow.svg" draggable="false">
+  <img id="pageLeft" src="arrow.svg" draggable="false" onclick="movePic('left')" onmouseenter="arrowHover('onLeft')" onmouseout="arrowHover('off')" style="transform: scaleX(-100%);">
+  <img id="pageRight" src="arrow.svg" draggable="false" onclick="movePic('right')" onmouseenter="arrowHover('onRight')" onmouseout="arrowHover('off')">
 </div>
 </div>
 
