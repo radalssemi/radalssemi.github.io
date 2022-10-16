@@ -182,11 +182,11 @@ function closePageMode() {
 function arrowHover(which) {
   switch(which) {
     case "onLeft":
-      document.getElementById(currentFotoPage).style.translate = "1vh";
+      document.getElementById(currentFotoPage).style.translate = "2vh";
       whichArrow = "left";
       break;
     case "onRight":
-      document.getElementById(currentFotoPage).style.translate = "-1vh";
+      document.getElementById(currentFotoPage).style.translate = "-2vh";
       whichArrow = "right";
       break;
     case "off":
@@ -223,8 +223,8 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.left = "50%"; //moves NEXT image to the center
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
-        if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-1vh"; }
-        if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "1vh"; }
+        if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-2vh"; }
+        if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "2vh"; }
         break;
       
       case "left":
@@ -236,8 +236,8 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.opacity = "1";
         document.getElementById(currentFotoPage).style.left = "50%"; //moves PREVIOUS image to the center
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
-        if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-1vh"; }
-        if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "1vh"; }
+        if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-2vh"; }
+        if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "2vh"; }
         break;
     }
   }
