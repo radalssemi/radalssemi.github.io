@@ -2,172 +2,33 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="shortcut icon" type="image/png" href="logo.png">
+
+<link rel="stylesheet" href="style.css">
 <style>
-body {
-  background-color: #4F5861;
-  font-family: 'Comfortaa';
-  font-size: 40px;
-  color: #B3E8CD;
-}
-
-
-
-.sidenavtext {
-  font-family: 'Comfortaa';
-  font-size: 40px;
-  color: #B3E8CD;
-}
-
-.sidenav {
-  height: 100%;
-  width: 0%;
-  position: fixed;
-  z-index: 108;
-  top: 0;
-  left: 0;
-  background-color: #729394;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  font-size: 0px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  color: #B3E8CD;
-  display: block;
-  transition: 0.2s;
-}
-
-.sidenav a:hover {
-  color: #E3F6ED;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.menuOpen {
-  position: fixed;
-  left: 40px;
-  top: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
-  color: #B3E8CD;
-  background-color: #729394;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  cursor: pointer;
-  font-size: 60px;
-  border-radius: 10px;
-  z-index: 30;
-}
-.menuOpen:hover {
-  color: #E3F6ED;
-}
-.icon {
-  filter: invert(89%) sepia(47%) saturate(216%) hue-rotate(74deg) brightness(96%) contrast(88%);
-  height: 50%;
-  width: 50%;
-  transition: 0.2s;
-}
-.icon:hover {
-  filter: invert(96%) sepia(8%) saturate(415%) hue-rotate(80deg) brightness(103%) contrast(93%);
-}
-
-.title {
-  font-size: 100px;
-  transition: 0.5s;
-  left: 240px;
-  position: relative;
-  z-index: 50;
-}
-
-
-.hyperlink {
-  color: #B3E8CD;
-  text-decoration: underline;
-}
-
-
-
 .text {
-  background-color: #729394;
-  border-radius: 40px;
-  padding: 40px;
+  background-color: #6262bf;
+  padding: 3vh;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%; 
-  line-height: 160%;
-  font-size: 35px;
-}
-.select {
-  -ms-user-select: text;
-  -webkit-user-select: text; /* Safari */
-  -khtml-user-select: text; /* Konqueror HTML */
-  -moz-user-select: text; /* Firefox */
-  user-select: text; /* supported by Chrome and Opera */
-}
+  width: 70%; 
+  max-height: 80%;
+  user-select: text; 
+  font-size: 30px;
+  box-shadow: 2vh 2vh 0 0 rgba(0, 0, 0, 0.10);
 
-
-.bgdots {
-  background: radial-gradient(circle, rgba(0,0,0,0.05) 10px, transparent 0);
-  transform: rotate(-60deg);
-  background-size: 50px 50px;
-  width: 400%;
-  height: 400%;
-  position: fixed;
-  top: -150%;
-  left: -150%;
-  animation: bg 1000s infinite;
-  animation-timing-function: linear;
-  transition: 3s cubic-bezier(0.39, 0.575, 0.565, 1);
-  z-index: -5;
-}
-
-@keyframes bg {
-  50% {transform: rotate(-20deg); background-size: 80px 80px;}
-}
-
-
-.title {
-  position: fixed;
-  left: 40px;
-  top: 140px;
-  font-size: 75px;
-  transition: 0.5s;
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  z-index: 2;
-}
-
-
-body {
-  -ms-user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  user-select: none; /* supported by Chrome and Opera */
+  overflow: auto;
 }
 </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="favicon.svg">
+<title>nudi home</title>
 
 
 </head>
@@ -175,125 +36,92 @@ body {
 
 
 
-<body onload="onLoad()" draggable="false" style="margin: 40px;">
-<img id="bg" style="height: 50%;opacity: 0.1; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%)" src="logo.png"> <!--background logo img-->
-<div id="main" style="position: fixed; opacity: 0; transition: 0.6s;">
-
-<div id="menuOpen" onclick="javascript:openNav()" class="menuOpen"><img draggable="false" style="width: 85%; height: 100%;" src="menu.svg" class="icon"></div>
-
-<span id="title" class="title">about</span> <!--main title-->
-<br>
-
+<body draggable="false" style="margin: 0px; color: #cfc5fd;" > <!--dumb flashes if I don't do this cause loading and transition-->
+<div id="transitionScreen" class="transitionScreen">
+  <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
+  <script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+  <div class="loadingThing" id="loadingThing">loading</div>
+  <div class="loadingNumber" id="loadingNumber">ur mom</div>
+</div>
 
 
+<div class="borblur" id="borblur"> <!--borblur :pffft:-->
+
+<div id="sideNav" class="sidenav">
+  <div class="sidenavtext">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
+    <a href="javascript:go('index')"><div>domů</div></a>
+    <a href="javascript:go('foto')"><div>foto</div></a> 
+    <a href="https://onlinesequencer.net/members/69357" target="_blank"><div>musiq</div></a>
+    <a href="javascript:go('about')"><div>about</div></a>
+    <a href="javascript:go('./old-site/index')"><div>old site</div></a>
+  </div>
+  <div id="sideTitle" class="sideTitle">index</div> <!--current page-->
+</div> <!-- end of sidenav options-->
+
+
+
+
+<div onclick="openNav()" id="smallScreenOpenNav" class="smallScreenOpenNav"><img src="openNav.svg" draggable="false"></div>  <!--for smaller screens-->
+
+<div onclick="openNav()" class="menuSlider" id="menuSlider">
+  <img src="arrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
+</div>
+
+
+
+<div id="main" class="main" onclick="closeNav()"> <!--things outside sidenav for blur effect-->
+
+
+<div class="bgdots" id="bgdots"></div>
 
 
 
 
 <div class="text">
-Ikony od: <a class="hyperlink" href="https://icons8.com">icons8.com</a>
-<br><br>
-Html projekt Lukáše Rady naprogramovaný pomocí <a class="hyperlink" href="https://code.visualstudio.com">Visual Studio Code</a>
-<br><br><br>
-Kontakty:
-<br>
-email: <a class="select">lukasrada88@email.com</a>
-<br>
-tel: <a class="select">773 233 315</a>
+<div style="filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5))">
+  This is a shitty "web-app" (static page) I made instead of a powerpoint presentation cause that's boring.
+  <div style="font-size: 10px;">(also I needed an excuse to code something cause it's fun)</div>
+  <br>
+  <br>
+  Everything except the font (and literally one small shaking css class cause I was too lazy to do it myself) was coded in <a href="https://code.visualstudio.com/" style="color:#cfc5fd;" target="_blank">VSC</a> by me. I even made the svg icons in Adobe Illustrator.<br>
+  I tried to do things properly and tried not to apply too many band-aid fixes.  <br>
+  <br>
+  The images in the photo page are in no particular order.<br>
+  Some of them aren't perfect due me not having the right equipment and my camera being 16 years old; the autofocus isn't very precise, nor fast, I cannot properly review the picture I just took as the screen on the camera is pretty shit, I'm a bad photographer,<br>
+  I included those "bad" shots to more show the vision I had with the picture.<br>
+
+  <p style="font-size: 200vh;"><br></p>
+  <p style="font-size: 10px;">also there is a small visual bug with the fotoBackground transition while closing fotoPage mode<br>
+  firefox is weird :sob:<br></p>
+  <img src="oldComputer.svg" style="width: 5%; position: relative; translate: -50%; left: 50%;">
+</div>
 </div>
 
 
 
 
+</div> <!--end of main-->
 
 
-
-<div id="sideNav" class="sidenav">
-    <div class="sidenavtext">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
-      <a href="javascript:goHome()">domů</a>
-      <a href="javascript:goFoto()">foto</a>
-      <a href="javascript:goKresby()">kresby</a>
-      <a href="javascript:goDopis()">dopis</a>
-      <a href="javascript:goAudio()">audio</a>
-      <a href="javascript:goAbout()">about</a>
-    </div>
-  </div> <!-- end of sidenav options-->
+</div> <!--borblur-->
 
 
-<div class="bgdots" id="bgdots"></div>
+<img id="oldlogo" class="oldLogo" draggable="false" src="logo.png"> <!--old logo for transition to old site-->
+
+
+<div class="borWarning" id="borWarning">
+<!-- img -->
+<div class="oldP">This was the old web-app I made for school admissions. It's pretty bad and was optimized for a specific resolution (1680x1050) as I forgor 💀 that screen scaling would have an effect. There is also no optimization for mobile devices.</div>
+<br>
+<div class="oldContinue">Continue?</div>
+<br>
+<button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
 </div>
+
+
 </body>
 
 
-<script>
-function openNav() {
-  document.getElementById("sideNav").style.width = "300px"; // side navigation panel
-  document.getElementById("title").style.opacity = "0.3";   //title
-  document.getElementById("title").style.fontSize = "50px"; //title
-  document.getElementById("bgdots").style.left = "-130%";   //animates background to slide right when nav opens
-}
-
-function closeNav() {
-  document.getElementById("sideNav").style.width = "0";     //sidenav
-  document.getElementById("title").style.opacity = "1";
-  document.getElementById("title").style.fontSize = "75px";
-  document.getElementById("bgdots").style.left = "-150%";
-}
-
-</script>
-
-<script>
-function onLoad() {  // fade in animation at load
-  setTimeout(() => {
-    document.getElementById("main").style.opacity = "1"; //fade in effect
-  }, 200)
-}
-</script>
-<script>
-
-function goHome() {  // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 600)
-}
-function goFoto() {  // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "foto.html";
-  }, 600)
-}
-function goKresby() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "kresby.html";
-  }, 600)
-}
-function goDopis() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "dopis.html";
-  }, 600)
-}
-function goAudio() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "audio.html";
-  }, 600)
-}
-function goAbout() { // handles fade out animation and goes to corresponding page
-  document.getElementById("main").style.opacity = "0"
-  closeNav();
-  setTimeout(() => {
-    window.location.href = "about.html";
-  }, 600)
-}
-</script>
-</script>
+<script src="globalscript.js"></script>
 </html>

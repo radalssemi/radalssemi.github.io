@@ -1,4 +1,4 @@
-const images = document.querySelectorAll(".column img").length;
+const images = document.querySelectorAll(".column img").length -1; //I remove one cause it's the download icon
 currentFotoPage = 1;
 fotoPageOpened = false;
 whichArrow = "none";
@@ -8,7 +8,7 @@ columnCount = []; //idk what happened, I had these vars in a place where they we
 for (var i = 0; i < images ; i++) {
     document.querySelectorAll(".fotoImg")[i].addEventListener("click", function() {
         if(fotoPageOpened == false) {
-          console.log( event.target.id );
+          // console.log( event.target.id );
           makePhotoGone(event.target.id);
         }
     });
@@ -21,19 +21,20 @@ function makePhotoGone(targetImage) {
   document.getElementById("fotoBackground").style.transform = "translate(-50%, -50%)";
   document.getElementById("row").style.pointerEvents = "none";
   document.getElementById("fotoAll").style.overflowY = "hidden";
+  document.getElementById("menuSlider").style.pointerEvents = "none";
+  document.getElementById("menuSlider").style.translate = "-50%";
+  document.getElementById("fotoBackground").style.width = "100%";
 
+  
   nodes = document.getElementById('row').childNodes; // basically select all columns
   for( j=0; j<nodes.length; j++) {
     if (nodes[j].nodeName.toLowerCase() == 'div') {
       columnCount.push(nodes[j].getElementsByTagName("img").length); //keeps track of how many images in each column so I can put them back when the user exits photoPage mode 
-      console.log(columnCount);
+      // console.log(columnCount);
       imgFadeOutAnimation(j); // applies effects with a delay, I know it's r
    }
   }
 
-  document.getElementById("menuSlider").style.pointerEvents = "none";
-  document.getElementById("menuSlider").style.opacity = "0";
-  document.getElementById("fotoBackground").style.width = "100%";
   setTimeout(() => {
     document.getElementById("smallScreenOpenNav").style.transform = "none";
     document.getElementById("closePageButton").style.transform = "none";
@@ -207,14 +208,17 @@ function arrowHover(which) {
 
 
 function movePic(direction) {
-  if (currentFotoPage==images && direction=="right" || currentFotoPage==1 && direction=="left") { // idk why I need to check if the direction is actually left/right 
-    console.log("sugmaballs - " + direction); //    ^ = OR
-    return;
-  }
-
-  else {
-    switch(direction) {
-      case "right":
+  switch(direction) {
+    case "right":
+      if(currentFotoPage==images) {
+        document.getElementById(currentFotoPage).classList.add("shake-horizontal");
+        fotoPageOpened = false;
+        setTimeout(() => {
+          document.getElementById(currentFotoPage).classList.remove("shake-horizontal");
+          fotoPageOpened = true;
+        }, 250)
+      }
+      else if(fotoPageOpened == true) {
         document.getElementById(currentFotoPage).style.left = "40%"; //moves currentFotoPage to the LEFT
         document.getElementById(currentFotoPage).style.opacity = "0";
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
@@ -225,9 +229,19 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-2vh"; }
         if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "2vh"; }
-        break;
-      
-      case "left":
+      }
+      break;
+    
+    case "left":
+      if(currentFotoPage==1) {
+        document.getElementById(currentFotoPage).classList.add("shake-horizontal");
+        fotoPageOpened = false;
+        setTimeout(() => {
+          document.getElementById(currentFotoPage).classList.remove("shake-horizontal");
+          fotoPageOpened = true;
+        }, 250)
+      }
+      else if(fotoPageOpened == true) {
         document.getElementById(currentFotoPage).style.left = "60%"; //moves currentFotoPage to the RIGHT
         document.getElementById(currentFotoPage).style.opacity = "0"; 
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(69%)";
@@ -238,8 +252,8 @@ function movePic(direction) {
         document.getElementById(currentFotoPage).style.transform = "translate(-50%, -50%) scale(100%)";
         if(whichArrow == "right") { document.getElementById(currentFotoPage).style.translate = "-2vh"; }
         if(whichArrow == "left") { document.getElementById(currentFotoPage).style.translate = "2vh"; }
-        break;
-    }
+      }
+      break;
   }
 }
 
