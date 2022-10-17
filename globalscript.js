@@ -17,7 +17,9 @@ function incrementCounter() {
   counter++;
   document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
   if ( counter == len ) {
-    hideTransition();
+    setTimeout(() => {
+      hideTransition();
+    }, 200)
   }
 }
 
