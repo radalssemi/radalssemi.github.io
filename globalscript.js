@@ -28,7 +28,7 @@ function incrementCounter() {
 setTimeout(() => { // I tried to do this another way but aaaaaaaaaaaaaaaaaaaaaX
   document.getElementById("loadingThing").style.opacity = "1";// I made the transition screen go away only after everything's loaded,
   document.getElementById("loadingNumber").style.opacity = "1"; // this will make the loading thing appear slowly  
-}, 5000) // basically like half the time these would appear immediately without any transition
+}, 1000) // basically like half the time these would appear immediately without any transition
 
 setTimeout(() => {
   document.body.style.backgroundColor = "#5552a0"; //to reduce the prominence of the flash when transitioning sites sometimes
