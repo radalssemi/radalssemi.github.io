@@ -134,36 +134,28 @@ function closePageMode() {
 
 
 
-    for (var i = 1; i <= columnCount[0]; i++) { // this makes all images - ??????
-      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
-      document.getElementById("column1").appendChild(fragment); // Append fragment to desired element
+
+    function putImageIntoColumn(whichImage, whichColumn) { // definitely not borrowed from the internet
+      var fragment = document.createDocumentFragment(); // Declare a fragment 
+      fragment.appendChild(document.getElementById(whichImage)); // Append desired element to the fragment 
+      document.getElementById("column" + whichColumn).appendChild(fragment); // Append fragment to desired element
       document.getElementById(i).removeAttribute('class');
       document.getElementById(i).removeAttribute('style');
     }
-  
-    for (var i = 1 + columnCount[0] ; i <= columnCount[0] + columnCount[1] + 2; i++) { // this makes all images - ??????
-      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
-      document.getElementById("column2").appendChild(fragment); // Append fragment to desired element
-      document.getElementById(i).removeAttribute('class');
-      document.getElementById(i).removeAttribute('style');
+
+
+
+    for (var i = 1; i <= columnCount[0] -1; i++) { // puts images back into columns | I had to do some retarded shit I doN't even know how to explain to get it to work with the download icon - it still throws an error but it works
+      putImageIntoColumn(i, 1);
     }
-  
-    for (var i = 1 + columnCount[0] + columnCount[1]; i <= columnCount[0] + columnCount[1] + columnCount[2]; i++) { // this makes all images - ??????
-      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
-      document.getElementById("column3").appendChild(fragment); // Append fragment to desired element
-      document.getElementById(i).removeAttribute('class');
-      document.getElementById(i).removeAttribute('style');
+    for (var i = columnCount[0]; i <= columnCount[0] + columnCount[1]; i++) { // puts images back into columns
+      putImageIntoColumn(i, 2);
     }
-  
-    for (var i = 1 + columnCount[0] + columnCount[1] + columnCount[2]; i <= columnCount[0] + columnCount[1] + columnCount[2] + columnCount[3]; i++) { // this makes all images - ??????
-      var fragment = document.createDocumentFragment(); // Declare a fragment -totally didn't steal this
-      fragment.appendChild(document.getElementById(i)); // Append desired element to the fragment
-      document.getElementById("column4").appendChild(fragment); // Append fragment to desired element
-      document.getElementById(i).removeAttribute('class');
-      document.getElementById(i).removeAttribute('style');
+    for (var i = columnCount[0] + columnCount[1]; i <= columnCount[0] + columnCount[1] + columnCount[2]; i++) { // puts images back into columns
+      putImageIntoColumn(i, 3);
+    }
+    for (var i = columnCount[0] + columnCount[1] + columnCount[2]; i <= columnCount[0] - 1 + columnCount[1] + columnCount[2] + columnCount[3]; i++) { // puts images back into columns | also for some reason I need to do a -1 because it throws an error otherwise?????
+      putImageIntoColumn(i, 4);
     }
   }, 500)
 }
