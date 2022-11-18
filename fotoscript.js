@@ -22,7 +22,7 @@ function makePhotoGone(targetImage) {
   document.getElementById("row").style.pointerEvents = "none";
   document.getElementById("fotoAll").style.overflowY = "hidden";
   document.getElementById("menuSlider").style.pointerEvents = "none";
-  document.getElementById("menuSlider").style.translate = "-50%";
+  document.getElementById("menuSlider").style.translate = "-100%";
   document.getElementById("fotoBackground").style.width = "100%";
 
   

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="shake-horizontal.css"> <!--I'm too tired to make the shaking myself, give me a break-->
 
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="fotostyle.css">
+<link rel="stylesheet" href="postsstyle.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="favicon.svg">
@@ -38,6 +38,7 @@
   <div class="sidenavtext">
     <a draggable="false" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
     <a draggable="false" href="javascript:go('index')"><div>domů</div></a>
+    <a draggable="false" href="javascript:go('posts')"><div>posts</div></a> 
     <a draggable="false" href="javascript:go('foto')"><div>foto</div></a> 
     <a draggable="false" href="https://onlinesequencer.net/members/69357" target="_blank"><div>musiq</div></a>
     <a draggable="false" href="javascript:go('about')"><div>about</div></a>
@@ -57,9 +58,13 @@
 
 
 
+
+
+
+
+
+
 <div id="main" class="main" onclick="closeNav()">
-
-
 <div class="bgdots" id="bgdots"></div>
 
 
@@ -71,14 +76,7 @@
 
 
 
-<div id="fotoAllPage">
-<div id="closePageButton" class="closePageButton" onclick="closePageMode()"><img src="close.svg" draggable="false"></div>
 
-<div id="fotoPageLeftRight" class="fotoPageLeftRight">
-  <img id="pageLeft" src="arrow.svg" draggable="false" onclick="movePic('left')" onmouseenter="arrowHover('onLeft')" onmouseout="arrowHover('off')" style="transform: scaleX(-100%);">
-  <img id="pageRight" src="arrow.svg" draggable="false" onclick="movePic('right')" onmouseenter="arrowHover('onRight')" onmouseout="arrowHover('off')">
-</div>
-</div>
 
 
 
@@ -106,5 +104,5 @@
 
 
 <script src="globalscript.js"></script>
-<script src="fotoscript.js"></script>
+<script src="postsscript.js"></script>
 </html>
