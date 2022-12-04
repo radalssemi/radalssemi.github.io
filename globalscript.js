@@ -1,7 +1,6 @@
 const imgs = document.images, //stolen and edited script to detect that all images were loaded
       len = imgs.length;
 var counter = 0;
-
 document.getElementById("loadingNumber").innerHTML = "(" + counter + "/" + len + ")";
 
 
@@ -22,6 +21,18 @@ function incrementCounter() {
     }, 200)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,7 +82,12 @@ function go(location) {  // handles fade out animation and goes to corresponding
     borWarning();
   }
   else {
-    document.getElementById("menuSlider").style.display = "none";
+    if (location == "posts") { // this is done so the openNav button doesn't disappear in 1 frame and slides to the left while pressing the button on the homepage card
+      document.getElementById("menuSlider").style.translate = "-100%";
+    }
+    else {
+      document.getElementById("menuSlider").style.display = "none";
+    }
     document.getElementById("smallScreenOpenNav").style.display = "none";
     document.getElementById("transitionScreen").style.top = "0";
     document.getElementById("transitionScreenLocation").style.top = "50vh";
@@ -86,6 +102,15 @@ function go(location) {  // handles fade out animation and goes to corresponding
     }, 1000)
   };
 }
+
+
+
+
+
+
+
+
+
 
 
 

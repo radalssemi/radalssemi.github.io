@@ -25,9 +25,9 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   background-color: #6262bf;
   overflow: hidden;
   transition: height 1s, opacity 1s, box-shadow 1s;
-  font-size: 0px;
+  font-size: 0;
   box-shadow: 0 0 0 50vh rgba(98, 98, 191, 1);
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 0  4vh rgba(0, 0, 0, 0.15));
   z-index: 10000000000;
   align-content: center;
   color: #413e7a;
@@ -37,7 +37,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   transition: opacity 2.5s;
 }
 .transitionScreenLocation {
-  line-height: 0px;
+  line-height: 0;
   position: fixed;
     bottom: 50vh;
     left: 50vw;
@@ -67,7 +67,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   animation: ellipsis steps(4, end) 4000ms infinite 2.5s;
   content: "\2026";
   /* ascii code for the ellipsis character */
-  width: 0px;
+  width: 0;
 }
 @keyframes ellipsis {
   to {
@@ -110,7 +110,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   transition: 0.5s;
   padding-top: 60px;
   box-shadow: none;
-  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 0 4vh rgba(0, 0, 0, 0.15));
   pointer-events: none;
 }
 .sidenav a {
@@ -200,8 +200,8 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 .menuSlider:hover .arrow{ scale: 115%; }
 
 @keyframes point {
-  60% {left: 40px;}
-  80% {left: 80px; }
+  60% {left: 4vh;}
+  80% {left: 8vh; }
 }
 
 @media screen and (max-width: 1300px) {
@@ -319,8 +319,8 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   max-height: 90vh;
   max-width: 90vw;
   padding: 4vh;
-  transition: 0.4s;
-  box-shadow: 3vh 3vh 0 0px rgba(105, 101, 198, 0.302), 0 0 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s, opacity 0.4s;
+  box-shadow: 3vh 3vh 0 0 rgba(105, 101, 198, 0.302), 0 0 4vh rgba(0, 0, 0, 0.2);
   font-size: 3.5vh;
   background-image: url(exclamate.svg);
     background-repeat: no-repeat;
@@ -331,15 +331,15 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
     grid-template-rows: 80% 10% 10%;
 }
 
+.borWarning button { width: 11vh; }
 .oldP { grid-area: 1 / 1 / 2 / 3; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5))}
 .oldContinue { grid-area: 2 / 1 / 3 / 3; text-align: center; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
-.oldYes { grid-area: 3 / 1 / 4 / 2; }
+.oldYes { grid-area: 3 / 1 / 4 / 2;}
 .oldNo { grid-area: 3 / 2 / 4 / 3; }
 
 button {
   background-color: #cfc5fd;
   border: none;
-  width: 11vh;
   border-radius: 1vh 0 1vh 0;
   margin-left: auto;
   margin-right: auto;
@@ -348,7 +348,7 @@ button {
   font-family: 'Reem Kufi Fun', sans-serif;
   font-size: 2vh;
   padding: 2vh;
-  line-height: 0px;
+  line-height: 0;
   cursor: pointer;
 }
 
@@ -376,3 +376,41 @@ button {
     transform: scale(3000%) translate(-55%, -25%);
     transform-origin: left top;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.postCard {
+  position: absolute;
+    right: 5vh;
+    bottom: 5vh;
+  z-index: 1;
+  background-color: #6965c6;
+  width: 30vh;
+  height: 20vh;
+  padding: 2vh;
+  transition: transform 0.4s;
+  box-shadow: 2vh 2vh 0 0 rgba(105, 101, 198, 0.302), 0 0 4vh rgba(0, 0, 0, 0.2);
+  font-size: 3.5vh;
+}
+
+.postP { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
+.oldButton { width: 200px !important; }
