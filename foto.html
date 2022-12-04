@@ -1,188 +1,566 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-<link rel="stylesheet" href="shake-horizontal.css"> <!--I'm too tired to make the shaking myself, give me a break-->
+    <link rel="stylesheet" href="shake-horizontal.css" />
+    <!--I'm too tired to make the shaking myself, give me a break-->
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="fotostyle.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fotostyle.css" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png" href="favicon.svg">
-<title>nudi foto</title>
-  
-  
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="favicon.svg" />
+    <title>nudi foto</title>
+  </head>
 
-
-
-
-<body draggable="false" style="margin: 0px; color: #cfc5fd;"> <!--dumb flashes if I don't do this cause loading and transition-->
-<div id="transitionScreen" class="transitionScreen">
-  <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
-  <script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
-  <div class="loadingThing" id="loadingThing">loading</div>
-  <div class="loadingNumber" id="loadingNumber">ur mom</div>
-</div>
-
-
-
-<div class="borblur" id="borblur"> <!--borblur :pffft:-->
-
-<div id="sideNav" class="sidenav">
-  <div class="sidenavtext">
-    <a draggable="false" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
-    <a draggable="false" href="javascript:go('index')"><div>domů</div></a>
-    <a draggable="false" href="javascript:go('posts')"><div>posts</div></a> 
-    <a draggable="false" href="javascript:go('foto')"><div>foto</div></a> 
-    <a draggable="false" href="https://onlinesequencer.net/members/69357" target="_blank"><div>musiq</div></a>
-    <a draggable="false" href="javascript:go('about')"><div>about</div></a>
-    <a draggable="false" href="javascript:go('./old-site/index')"><div>old site</div></a>
-  </div>
-  <div id="sideTitle" class="sideTitle">foto</div> <!--current page-->
-</div> <!-- end of sidenav options-->
-
-
-
-
-<div onclick="openNav()" id="smallScreenOpenNav" class="smallScreenOpenNav"><img src="openNav.svg" draggable="false"></div>  <!--for smaller screens-->
-
-<div onclick="openNav()" class="menuSlider" id="menuSlider">
-  <img src="arrow.svg" id="menuArrow" draggable="false" class="arrow icon" style="animation: none;"> <!--for bigger screens-->
-</div>
-
-
-
-<div id="main" class="main" onclick="closeNav()">
-
-
-<div class="bgdots" id="bgdots"></div>
-
-
-
-
-
-
-
-
-<div class="fotoAll" id="fotoAll">
-  <div class="row" id="row"> 
-    <div class="column" id="column1"> <!-- fuck you, I'm not doing a script to load the images, also it would be unpractical as I would still have to give a number of images as github has very limited server side code for security purposes probably or something idk it's 2:30 am I'm still not done fuck me -->
-      <a class="downloadAll" href="/foto/fotos.zip" download>Download all <img src="download.svg"></a>
-      <img src="foto/foto1.jpg" class="fotoImg" id="1" draggable="false">
-      <img src="foto/foto2.jpg" class="fotoImg" id="2" draggable="false">
-      <img src="foto/foto3.jpg" class="fotoImg" id="3" draggable="false">
-      <img src="foto/foto4.jpg" class="fotoImg" id="4" draggable="false">
-      <img src="foto/foto5.jpg" class="fotoImg" id="5" draggable="false">
-      <img src="foto/foto6.jpg" class="fotoImg" id="6" draggable="false">
-      <img src="foto/foto7.jpg" class="fotoImg" id="7" draggable="false">
-      <img src="foto/foto8.jpg" class="fotoImg" id="8" draggable="false">
-      <img src="foto/foto9.jpg" class="fotoImg" id="9" draggable="false">
-      <img src="foto/foto10.jpg" class="fotoImg" id="10" draggable="false">
-      <img src="foto/foto11.jpg" class="fotoImg" id="11" draggable="false">
-      <img src="foto/foto12.jpg" class="fotoImg" id="12" draggable="false">
-      <img src="foto/foto13.jpg" class="fotoImg" id="13" draggable="false">
-      <img src="foto/foto14.jpg" class="fotoImg" id="14" draggable="false">
-      <img src="foto/foto15.jpg" class="fotoImg" id="15" draggable="false">
-      <img src="foto/foto16.jpg" class="fotoImg" id="16" draggable="false">
+  <body draggable="false" style="margin: 0px; color: #cfc5fd">
+    <!--dumb flashes if I don't do this cause loading and transition-->
+    <div id="transitionScreen" class="transitionScreen">
+      <div class="transitionScreenLocation" id="transitionScreenLocation">
+        ass
+      </div>
+      <script>
+        document.getElementById("transitionScreenLocation").innerHTML =
+          window.location;
+      </script>
+      <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+      <div class="loadingThing" id="loadingThing">loading</div>
+      <div class="loadingNumber" id="loadingNumber">ur mom</div>
     </div>
-    <div class="column" id="column2">
-      <img src="foto/foto17.jpg" class="fotoImg" id="17" draggable="false">
-      <img src="foto/foto18.jpg" class="fotoImg" id="18" draggable="false">
-      <img src="foto/foto19.jpg" class="fotoImg" id="19" draggable="false">
-      <img src="foto/foto20.jpg" class="fotoImg" id="20" draggable="false">
-      <img src="foto/foto21.jpg" class="fotoImg" id="21" draggable="false">
-      <img src="foto/foto22.jpg" class="fotoImg" id="22" draggable="false">
-      <img src="foto/foto23.jpg" class="fotoImg" id="23" draggable="false">
-      <img src="foto/foto24.jpg" class="fotoImg" id="24" draggable="false">
-      <img src="foto/foto25.jpg" class="fotoImg" id="25" draggable="false">
-      <img src="foto/foto26.jpg" class="fotoImg" id="26" draggable="false">
-      <img src="foto/foto27.jpg" class="fotoImg" id="27" draggable="false">
-      <img src="foto/foto28.jpg" class="fotoImg" id="28" draggable="false">
-      <img src="foto/foto29.jpg" class="fotoImg" id="29" draggable="false">
-      <img src="foto/foto30.jpg" class="fotoImg" id="30" draggable="false">
-      <img src="foto/foto31.jpg" class="fotoImg" id="31" draggable="false">
-      <img src="foto/foto32.jpg" class="fotoImg" id="32" draggable="false">
-    </div>  
-    <div class="column" id="column3">
-      <img src="foto/foto33.jpg" class="fotoImg" id="33" draggable="false">
-      <img src="foto/foto34.jpg" class="fotoImg" id="34" draggable="false">
-      <img src="foto/foto35.jpg" class="fotoImg" id="35" draggable="false">
-      <img src="foto/foto36.jpg" class="fotoImg" id="36" draggable="false">
-      <img src="foto/foto37.jpg" class="fotoImg" id="37" draggable="false">
-      <img src="foto/foto38.jpg" class="fotoImg" id="38" draggable="false">
-      <img src="foto/foto39.jpg" class="fotoImg" id="39" draggable="false">
-      <img src="foto/foto40.jpg" class="fotoImg" id="40" draggable="false">
-      <img src="foto/foto41.jpg" class="fotoImg" id="41" draggable="false">
-      <img src="foto/foto42.jpg" class="fotoImg" id="42" draggable="false">
-      <img src="foto/foto43.jpg" class="fotoImg" id="43" draggable="false">
-      <img src="foto/foto44.jpg" class="fotoImg" id="44" draggable="false">
-      <img src="foto/foto45.jpg" class="fotoImg" id="45" draggable="false">
-      <img src="foto/foto46.jpg" class="fotoImg" id="46" draggable="false">
-      <img src="foto/foto47.jpg" class="fotoImg" id="47" draggable="false">
-      <img src="foto/foto48.jpg" class="fotoImg" id="48" draggable="false">
+
+    <div class="borblur" id="borblur">
+      <!--borblur :pffft:-->
+
+      <div id="sideNav" class="sidenav">
+        <div class="sidenavtext">
+          <a
+            draggable="false"
+            href="javascript:void(0)"
+            class="closebtn"
+            onclick="closeNav()"
+            >&times;</a
+          >
+          <!--closes this menu-->
+          <a draggable="false" href="javascript:go('index')"><div>domů</div></a>
+          <a draggable="false" href="javascript:go('posts')"
+            ><div>posts</div></a
+          >
+          <a draggable="false" href="javascript:go('foto')"><div>foto</div></a>
+          <a
+            draggable="false"
+            href="https://onlinesequencer.net/members/69357"
+            target="_blank"
+            ><div>musiq</div></a
+          >
+          <a draggable="false" href="javascript:go('about')"
+            ><div>about</div></a
+          >
+          <a draggable="false" href="javascript:go('./old-site/index')"
+            ><div>old site</div></a
+          >
+        </div>
+        <div id="sideTitle" class="sideTitle">foto</div>
+        <!--current page-->
+      </div>
+      <!-- end of sidenav options-->
+
+      <div
+        onclick="openNav()"
+        id="smallScreenOpenNav"
+        class="smallScreenOpenNav"
+      >
+        <img src="openNav.svg" draggable="false" />
+      </div>
+      <!--for smaller screens-->
+
+      <div onclick="openNav()" class="menuSlider" id="menuSlider">
+        <img
+          src="arrow.svg"
+          id="menuArrow"
+          draggable="false"
+          class="arrow icon"
+          style="animation: none"
+        />
+        <!--for bigger screens-->
+      </div>
+
+      <div id="main" class="main" onclick="closeNav()">
+        <div class="bgdots" id="bgdots"></div>
+
+        <div class="fotoAll" id="fotoAll">
+          <div class="row" id="row">
+            <div class="column" id="column1">
+              <!-- fuck you, I'm not doing a script to load the images, also it would be unpractical as I would still have to give a number of images as github has very limited server side code for security purposes probably or something idk it's 2:30 am I'm still not done fuck me -->
+              <a class="downloadAll" href="/foto/fotos.zip" download
+                >Download all <img src="download.svg"
+              /></a>
+              <img
+                src="foto/foto1.jpg"
+                class="fotoImg"
+                id="1"
+                draggable="false"
+              />
+              <img
+                src="foto/foto2.jpg"
+                class="fotoImg"
+                id="2"
+                draggable="false"
+              />
+              <img
+                src="foto/foto3.jpg"
+                class="fotoImg"
+                id="3"
+                draggable="false"
+              />
+              <img
+                src="foto/foto4.jpg"
+                class="fotoImg"
+                id="4"
+                draggable="false"
+              />
+              <img
+                src="foto/foto5.jpg"
+                class="fotoImg"
+                id="5"
+                draggable="false"
+              />
+              <img
+                src="foto/foto6.jpg"
+                class="fotoImg"
+                id="6"
+                draggable="false"
+              />
+              <img
+                src="foto/foto7.jpg"
+                class="fotoImg"
+                id="7"
+                draggable="false"
+              />
+              <img
+                src="foto/foto8.jpg"
+                class="fotoImg"
+                id="8"
+                draggable="false"
+              />
+              <img
+                src="foto/foto9.jpg"
+                class="fotoImg"
+                id="9"
+                draggable="false"
+              />
+              <img
+                src="foto/foto10.jpg"
+                class="fotoImg"
+                id="10"
+                draggable="false"
+              />
+              <img
+                src="foto/foto11.jpg"
+                class="fotoImg"
+                id="11"
+                draggable="false"
+              />
+              <img
+                src="foto/foto12.jpg"
+                class="fotoImg"
+                id="12"
+                draggable="false"
+              />
+              <img
+                src="foto/foto13.jpg"
+                class="fotoImg"
+                id="13"
+                draggable="false"
+              />
+              <img
+                src="foto/foto14.jpg"
+                class="fotoImg"
+                id="14"
+                draggable="false"
+              />
+              <img
+                src="foto/foto15.jpg"
+                class="fotoImg"
+                id="15"
+                draggable="false"
+              />
+              <img
+                src="foto/foto16.jpg"
+                class="fotoImg"
+                id="16"
+                draggable="false"
+              />
+            </div>
+            <div class="column" id="column2">
+              <img
+                src="foto/foto17.jpg"
+                class="fotoImg"
+                id="17"
+                draggable="false"
+              />
+              <img
+                src="foto/foto18.jpg"
+                class="fotoImg"
+                id="18"
+                draggable="false"
+              />
+              <img
+                src="foto/foto19.jpg"
+                class="fotoImg"
+                id="19"
+                draggable="false"
+              />
+              <img
+                src="foto/foto20.jpg"
+                class="fotoImg"
+                id="20"
+                draggable="false"
+              />
+              <img
+                src="foto/foto21.jpg"
+                class="fotoImg"
+                id="21"
+                draggable="false"
+              />
+              <img
+                src="foto/foto22.jpg"
+                class="fotoImg"
+                id="22"
+                draggable="false"
+              />
+              <img
+                src="foto/foto23.jpg"
+                class="fotoImg"
+                id="23"
+                draggable="false"
+              />
+              <img
+                src="foto/foto24.jpg"
+                class="fotoImg"
+                id="24"
+                draggable="false"
+              />
+              <img
+                src="foto/foto25.jpg"
+                class="fotoImg"
+                id="25"
+                draggable="false"
+              />
+              <img
+                src="foto/foto26.jpg"
+                class="fotoImg"
+                id="26"
+                draggable="false"
+              />
+              <img
+                src="foto/foto27.jpg"
+                class="fotoImg"
+                id="27"
+                draggable="false"
+              />
+              <img
+                src="foto/foto28.jpg"
+                class="fotoImg"
+                id="28"
+                draggable="false"
+              />
+              <img
+                src="foto/foto29.jpg"
+                class="fotoImg"
+                id="29"
+                draggable="false"
+              />
+              <img
+                src="foto/foto30.jpg"
+                class="fotoImg"
+                id="30"
+                draggable="false"
+              />
+              <img
+                src="foto/foto31.jpg"
+                class="fotoImg"
+                id="31"
+                draggable="false"
+              />
+              <img
+                src="foto/foto32.jpg"
+                class="fotoImg"
+                id="32"
+                draggable="false"
+              />
+            </div>
+            <div class="column" id="column3">
+              <img
+                src="foto/foto33.jpg"
+                class="fotoImg"
+                id="33"
+                draggable="false"
+              />
+              <img
+                src="foto/foto34.jpg"
+                class="fotoImg"
+                id="34"
+                draggable="false"
+              />
+              <img
+                src="foto/foto35.jpg"
+                class="fotoImg"
+                id="35"
+                draggable="false"
+              />
+              <img
+                src="foto/foto36.jpg"
+                class="fotoImg"
+                id="36"
+                draggable="false"
+              />
+              <img
+                src="foto/foto37.jpg"
+                class="fotoImg"
+                id="37"
+                draggable="false"
+              />
+              <img
+                src="foto/foto38.jpg"
+                class="fotoImg"
+                id="38"
+                draggable="false"
+              />
+              <img
+                src="foto/foto39.jpg"
+                class="fotoImg"
+                id="39"
+                draggable="false"
+              />
+              <img
+                src="foto/foto40.jpg"
+                class="fotoImg"
+                id="40"
+                draggable="false"
+              />
+              <img
+                src="foto/foto41.jpg"
+                class="fotoImg"
+                id="41"
+                draggable="false"
+              />
+              <img
+                src="foto/foto42.jpg"
+                class="fotoImg"
+                id="42"
+                draggable="false"
+              />
+              <img
+                src="foto/foto43.jpg"
+                class="fotoImg"
+                id="43"
+                draggable="false"
+              />
+              <img
+                src="foto/foto44.jpg"
+                class="fotoImg"
+                id="44"
+                draggable="false"
+              />
+              <img
+                src="foto/foto45.jpg"
+                class="fotoImg"
+                id="45"
+                draggable="false"
+              />
+              <img
+                src="foto/foto46.jpg"
+                class="fotoImg"
+                id="46"
+                draggable="false"
+              />
+              <img
+                src="foto/foto47.jpg"
+                class="fotoImg"
+                id="47"
+                draggable="false"
+              />
+              <img
+                src="foto/foto48.jpg"
+                class="fotoImg"
+                id="48"
+                draggable="false"
+              />
+            </div>
+            <div class="column" id="column4">
+              <img
+                src="foto/foto49.jpg"
+                class="fotoImg"
+                id="49"
+                draggable="false"
+              />
+              <img
+                src="foto/foto50.jpg"
+                class="fotoImg"
+                id="50"
+                draggable="false"
+              />
+              <img
+                src="foto/foto51.jpg"
+                class="fotoImg"
+                id="51"
+                draggable="false"
+              />
+              <img
+                src="foto/foto52.jpg"
+                class="fotoImg"
+                id="52"
+                draggable="false"
+              />
+              <img
+                src="foto/foto53.jpg"
+                class="fotoImg"
+                id="53"
+                draggable="false"
+              />
+              <img
+                src="foto/foto54.jpg"
+                class="fotoImg"
+                id="54"
+                draggable="false"
+              />
+              <img
+                src="foto/foto55.jpg"
+                class="fotoImg"
+                id="55"
+                draggable="false"
+              />
+              <img
+                src="foto/foto56.jpg"
+                class="fotoImg"
+                id="56"
+                draggable="false"
+              />
+              <img
+                src="foto/foto57.jpg"
+                class="fotoImg"
+                id="57"
+                draggable="false"
+              />
+              <img
+                src="foto/foto58.jpg"
+                class="fotoImg"
+                id="58"
+                draggable="false"
+              />
+              <img
+                src="foto/foto59.jpg"
+                class="fotoImg"
+                id="59"
+                draggable="false"
+              />
+              <img
+                src="foto/foto60.jpg"
+                class="fotoImg"
+                id="60"
+                draggable="false"
+              />
+              <img
+                src="foto/foto61.jpg"
+                class="fotoImg"
+                id="61"
+                draggable="false"
+              />
+              <img
+                src="foto/foto62.jpg"
+                class="fotoImg"
+                id="62"
+                draggable="false"
+              />
+              <img
+                src="foto/foto63.jpg"
+                class="fotoImg"
+                id="63"
+                draggable="false"
+              />
+              <img
+                src="foto/foto64.jpg"
+                class="fotoImg"
+                id="64"
+                draggable="false"
+              />
+              <img
+                src="foto/foto65.jpg"
+                class="fotoImg"
+                id="65"
+                draggable="false"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="fotoAllPage">
+          <div
+            id="closePageButton"
+            class="closePageButton"
+            onclick="closePageMode()"
+          >
+            <img src="close.svg" draggable="false" />
+          </div>
+
+          <div id="fotoPageLeftRight" class="fotoPageLeftRight">
+            <img
+              id="pageLeft"
+              src="arrow.svg"
+              draggable="false"
+              onclick="movePic('left')"
+              onmouseenter="arrowHover('onLeft')"
+              onmouseout="arrowHover('off')"
+              style="transform: scaleX(-100%)"
+            />
+            <img
+              id="pageRight"
+              src="arrow.svg"
+              draggable="false"
+              onclick="movePic('right')"
+              onmouseenter="arrowHover('onRight')"
+              onmouseout="arrowHover('off')"
+            />
+          </div>
+        </div>
+
+        <div class="fotoBackground" id="fotoBackground"></div>
+        <!--I need to put this outside or it blocks scrolling-->
+      </div>
+      <!--end of main-->
     </div>
-    <div class="column" id="column4">
-      <img src="foto/foto49.jpg" class="fotoImg" id="49" draggable="false">
-      <img src="foto/foto50.jpg" class="fotoImg" id="50" draggable="false">
-      <img src="foto/foto51.jpg" class="fotoImg" id="51" draggable="false">
-      <img src="foto/foto52.jpg" class="fotoImg" id="52" draggable="false">
-      <img src="foto/foto53.jpg" class="fotoImg" id="53" draggable="false">
-      <img src="foto/foto54.jpg" class="fotoImg" id="54" draggable="false">
-      <img src="foto/foto55.jpg" class="fotoImg" id="55" draggable="false">
-      <img src="foto/foto56.jpg" class="fotoImg" id="56" draggable="false">
-      <img src="foto/foto57.jpg" class="fotoImg" id="57" draggable="false">
-      <img src="foto/foto58.jpg" class="fotoImg" id="58" draggable="false">
-      <img src="foto/foto59.jpg" class="fotoImg" id="59" draggable="false">
-      <img src="foto/foto60.jpg" class="fotoImg" id="60" draggable="false">
-      <img src="foto/foto61.jpg" class="fotoImg" id="61" draggable="false">
-      <img src="foto/foto62.jpg" class="fotoImg" id="62" draggable="false">
-      <img src="foto/foto63.jpg" class="fotoImg" id="63" draggable="false">
-      <img src="foto/foto64.jpg" class="fotoImg" id="64" draggable="false">
-      <img src="foto/foto65.jpg" class="fotoImg" id="65" draggable="false">
+    <!--borblur-->
+
+    <img id="oldlogo" class="oldLogo" draggable="false" src="logo.png" />
+    <!--old logo for transition to old site-->
+
+    <div class="borWarning" id="borWarning">
+      <!-- img -->
+      <div class="oldP">
+        This was the old web-app I made for school admissions. It's pretty bad
+        and was optimized for a specific resolution (1680x1050) as I forgor 💀
+        that screen scaling would have an effect. It's also pretty laggy on less
+        than powerful devices.
+      </div>
+      <br />
+      <div class="oldContinue">Continue?</div>
+      <br />
+      <button class="oldYes" onclick="borWarningGo()">yay</button>
+      <button class="oldNo" onclick="borWarningClos()">nay</button>
     </div>
-  </div>
-</div>
+  </body>
 
-<div id="fotoAllPage">
-<div id="closePageButton" class="closePageButton" onclick="closePageMode()"><img src="close.svg" draggable="false"></div>
-
-<div id="fotoPageLeftRight" class="fotoPageLeftRight">
-  <img id="pageLeft" src="arrow.svg" draggable="false" onclick="movePic('left')" onmouseenter="arrowHover('onLeft')" onmouseout="arrowHover('off')" style="transform: scaleX(-100%);">
-  <img id="pageRight" src="arrow.svg" draggable="false" onclick="movePic('right')" onmouseenter="arrowHover('onRight')" onmouseout="arrowHover('off')">
-</div>
-</div>
-
-
-
-
-
-
-<div class="fotoBackground" id="fotoBackground"></div> <!--I need to put this outside or it blocks scrolling-->
-</div> <!--end of main-->
-</div> <!--borblur-->
-
-
-<img id="oldlogo" class="oldLogo" draggable="false" src="logo.png"> <!--old logo for transition to old site-->
-
-
-<div class="borWarning" id="borWarning">
-<!-- img -->
-<div class="oldP">This was the old web-app I made for school admissions. It's pretty bad and was optimized for a specific resolution (1680x1050) as I forgor 💀 that screen scaling would have an effect. It's also pretty laggy on less than powerful devices.</div>
-<br>
-<div class="oldContinue">Continue?</div>
-<br>
-<button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
-</div>
-
-</body>
-
-
-<script src="globalscript.js"></script>
-<script src="fotoscript.js"></script>
+  <script src="globalscript.js"></script>
+  <script src="fotoscript.js"></script>
 </html>
