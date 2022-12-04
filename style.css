@@ -204,7 +204,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   80% {left: 8vh; }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
   #smallScreenOpenNav {
     transform: translate(0,0);
   }
@@ -314,13 +314,13 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
     top: 50%;
   opacity: 0;
   z-index: 1000000000;
-  background-color: #6965c6;
+  background-color: #6262bf;
   height: fit-content;
   max-height: 90vh;
   max-width: 90vw;
   padding: 4vh;
   transition: transform 0.4s, opacity 0.4s;
-  box-shadow: 3vh 3vh 0 0 rgba(105, 101, 198, 0.302), 0 0 4vh rgba(0, 0, 0, 0.2);
+  box-shadow: 3vh 3vh 0 0px rgba(98, 98, 191, 0.302), 0 0 4vh rgba(0, 0, 0, 0.2);
   font-size: 3.5vh;
   background-image: url(exclamate.svg);
     background-repeat: no-repeat;
@@ -343,7 +343,7 @@ button {
   border-radius: 1vh 0 1vh 0;
   margin-left: auto;
   margin-right: auto;
-  color: #6965c6;
+  color: #7876cc;
   filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));
   font-family: 'Reem Kufi Fun', sans-serif;
   font-size: 2vh;
