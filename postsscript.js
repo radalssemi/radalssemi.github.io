@@ -96,7 +96,7 @@ function loadPost() {
   currentPostImageRange = [postsJson["posts"]["post1"]["edit"]["rangeStart"], postsJson["posts"]["post1"]["edit"]["rangeEnd"]];
   currentPostDate = postsJson["posts"]["post1"]["info"]["date"];
   // currentImagesLocation = "/posts/" + postID + "/edit
-  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostID + "/edit/thumbnail/"
+  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostID + "/edit/"
   currentImageCounter = currentPostImageRange[0];
   currentImage = "img" + currentImageCounter;
   currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
