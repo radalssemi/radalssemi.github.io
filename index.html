@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< Updated upstream
   <head>
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -138,3 +139,137 @@
 
   <script src="globalscript.js"></script>
 </html>
+=======
+<head>
+<meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="favicon.svg">
+<title>nudi home</title>
+
+
+<style>
+  .note {
+    background-color: #6262bf;
+    padding: 2.5vh;
+    position: fixed;
+    bottom: 0vh;
+    right: 0vh;
+    transform: translate(-50%, -50%); 
+    user-select: text; 
+    font-size: 2.5vh;
+    box-shadow: 1.5vh 1.5vh 0 0 rgba(0, 0, 0, 0.10);
+    z-index: 1;
+    width: 40vh;
+    max-width: 50vw;
+    user-select: none;
+  }
+</style>
+
+</head>
+
+
+
+
+<body draggable="false" style="margin: 0px; color: #cfc5fd;" > <!--dumb flashes if I don't do this cause loading and transition-->
+<div id="transitionScreen" class="transitionScreen">
+  <div class="transitionScreenLocation" id="transitionScreenLocation">ass</div>
+  <script>document.getElementById("transitionScreenLocation").innerHTML = window.location;</script> <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+  <div class="loadingThing" id="loadingThing">loading</div>
+  <div class="loadingNumber" id="loadingNumber">ur mom</div>
+</div>
+
+
+
+<div class="borblur" id="borblur"> <!--borblur :pffft:-->
+
+<div id="sideNav" class="sidenav">
+  <div class="sidenavtext">
+    <a draggable="false" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  <!--closes this menu-->
+    <a draggable="false" href="javascript:go('index')"><div>domů</div></a>
+    <a draggable="false" href="javascript:go('foto')"><div>foto</div></a>
+    <a draggable="false" href="javascript:go('posts')"><div>posts</div></a> 
+    <a draggable="false" href="https://onlinesequencer.net/members/69357" target="_blank"><div>musiq</div></a>
+    <a draggable="false" href="javascript:go('about')"><div>about</div></a>
+    <a draggable="false" href="javascript:go('./old-site/index')"><div>old site</div></a>
+  </div>
+  <div id="sideTitle" class="sideTitle">index</div> <!--current page-->
+</div> <!-- end of sidenav options-->
+
+
+
+
+<div onclick="openNav()" id="smallScreenOpenNav" class="smallScreenOpenNav"><img src="openNav.svg" draggable="false"></div>  <!--for smaller screens-->
+
+<div onclick="openNav()" class="menuSlider" id="menuSlider">
+  <img src="arrow.svg" id="menuArrow" draggable="false" class="arrow icon"> <!--for bigger screens-->
+</div>
+
+
+
+<div id="main" class="main" onclick="closeNav()"> <!--things outside sidenav for blur effect-->
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="title" class="title">radal</span> <!--main title-->
+
+<div class="note">
+  <div style="filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5))">
+    hi, I post pictures from photography class here<br>
+    <br>
+    to get to the new posts, not the old static page open the <b>posts</b> tab
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="bgdots" id="bgdots"></div>
+
+<div class="logoWrap" id="logoWrap"><img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg"></div><!--background logo img-->
+</div> <!--end of main-->
+
+
+</div> <!--borblur-->
+
+
+<img id="oldlogo" class="oldLogo" draggable="false" src="logo.png"> <!--old logo for transition to old site-->
+
+
+<div class="borWarning" id="borWarning">
+<!-- img -->
+<div class="oldP">This was the old web-app I made for school admissions. It's pretty bad and was optimized for a specific resolution (1680x1050) as I forgor 💀 that screen scaling would have an effect. It's also pretty laggy on less than powerful devices.</div>
+<br>
+<div class="oldContinue">Continue?</div>
+<br>
+<button class="oldYes" onclick="borWarningGo()">yay</button> <button class="oldNo" onclick="borWarningClos()">nay</button>
+</div>
+
+
+</body>
+
+
+<script src="globalscript.js"></script>
+</html>
+>>>>>>> Stashed changes

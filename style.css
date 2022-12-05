@@ -147,8 +147,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 
 
 .title {
-  font-size: 100px;
-  transition: 1s;
+  font-size: 10vh;
   left: 15%;
   position: relative;
   top: 20%;
