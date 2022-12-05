@@ -1,4 +1,8 @@
 /* * { outline: inset 1px red; } */
+/* * { filter: none !important;} */
+
+/* I need to find all glowing shits and remove the things individually when noglow is on */
+
 
 .posts {
   background-color: #6262bf;
@@ -48,15 +52,16 @@
   width: 90%;
   height: 90%;
   padding: 0;
-  font-size: 1.5vh;
+  font-size: 1.6vh;
   transition: scale 0.2s, rotate 0.2s;
 }
-.posts .infocard .postDownload:hover {scale: 111%; }
+.posts .infocard .postDownload:hover {scale: 115%; }
 
 
 .post .images {
   box-shadow: inset 0 0 2vh rgba(0, 0, 0, 0.2);
   height: 25vh;
+  width: 100%;
   display: flex;
     flex-direction: row;
     gap: 1vh;
@@ -71,6 +76,8 @@
   height: 100%;
   transition: scale 0.2s, rotate 0.2s;
   cursor: pointer;
+  background: url('image.svg') no-repeat center;
+  background-size: 7.5vh;
 }
 
 .post img:hover {

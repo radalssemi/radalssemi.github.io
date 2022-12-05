@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 952.76 952.76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        opacity: .2;
+        stroke: #cfc5fd;
+        stroke-miterlimit: 10;
+        stroke-width: 150px;
+      }
+
+      .cls-2 {
+        fill: #cfc5fd;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M476.38,150C170.54,143.66,20.04,505.49,225.71,727.06c96.61,105.6,258.09,141.87,391.72,89.89,166.39-61.27,267.33-241.07,236.54-415.69-20.29-126.82-108.04-239.24-225.77-291.41-47.58-21.47-99.51-33.26-151.82-34.84,0,0,0,75,0,75h0Zm0-75c295.17-7.69,497.36,290.27,392.52,563.98-59.25,160.21-221.52,273.7-392.52,276.28-210.56,7.3-401.87-144.41-446.57-350.11C-4.49,417.36,40.79,255.57,146.16,146.16,230.62,56.41,352.81,2.48,476.38,0c0,0,0,75,0,75h0Z"/>
+  <circle class="cls-1" cx="476.38" cy="476.38" r="401.38"/>
+      <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0"
+      to="360"
+      dur="10s"
+      repeatCount="indefinite" />
+</svg>

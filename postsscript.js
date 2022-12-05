@@ -9,46 +9,58 @@ addEventListeners();
 // these for loops add event listeners on all download buttons and images to call function to apply a random rotation
 function addEventListeners() {
   const downloadButtonCount = document.querySelectorAll(".postDownload").length;
-  for (var i = 0; i < 4 ; i++) {
+  for (var i = 0; i < downloadButtonCount ; i++) {
     document.querySelectorAll(".postDownload")[i].addEventListener("mouseover", function() {
-      randomRotate(this, true); // it is checked if input #2 is true to see if it's the download button to have a larger range for random number. it looks kinda bad when the images rotate a lot but it also looks kinda bad when the download button doesn't rotate enough
+      hoverRotate(this, true); // it is checked if input #2 is true to see if it's the download button to have a larger range for random number. it looks kinda bad when the images rotate a lot but it also looks kinda bad when the download button doesn't rotate enough
     });
-  }
-  for (var i = 0; i < 4 ; i++) {
     document.querySelectorAll(".postDownload")[i].addEventListener("mouseout", function() {
-      unRotate(this);
+      unHoverRotate(this, true);
     });
   }
 
-  const imagesCount = document.querySelectorAll(".images img").length;
-  for (var i = 0; i < imagesCount ; i++) {
-    document.querySelectorAll("div.images img")[i].addEventListener("mouseover", function() {
-      randomRotate(this);
-    });
-  }
-  for (var i = 0; i < imagesCount ; i++) {
-    document.querySelectorAll("div.images img")[i].addEventListener("mouseout", function() {
-      unRotate(this);
-    });
-  }
+  // const imagesCount = document.querySelectorAll(".images img").length;
+  // for (var i = 0; i < imagesCount ; i++) {
+  //   document.querySelectorAll("div.images img")[i].addEventListener("mouseover", function() {
+  //     hoverRotate(this);
+  //   });
+  // }
+  // for (var i = 0; i < imagesCount ; i++) {
+  //   document.querySelectorAll("div.images img")[i].addEventListener("mouseout", function() {
+  //     unHoverRotate(this);
+  //   });
+  // }
 }
-
-
-
-
 
 //hover effect for random rotation
-function randomRotate(element, isDownloadButton) {
-  if(isDownloadButton == true) {
-    element.style.rotate = randomIntFromInterval(-2, 2) + "deg";
-  }
-  else {
-    element.style.rotate = randomIntFromInterval(-1, 1) + "deg";
-  }
+function hoverRotate(element) {
+  element.style.rotate = randomIntFromInterval(-3, 3) + "deg";
 }
-function unRotate(element) {
+function unHoverRotate(element) {
   element.style.rotate = "0deg";
 }
+
+
+
+
+// function removeEventListeners(el, withChildren) {
+//   if (withChildren) {
+//     el.parentNode.replaceChild(el.cloneNode(true), el);
+//   }
+//   else {
+//     var newEl = el.cloneNode(false);
+//     while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+//     el.parentNode.replaceChild(newEl, el);
+//   }
+// }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,25 +90,71 @@ function unRotate(element) {
 
 */
 
-var htmlass = 
+
+function loadPost() {
+  postID = "post1";
+  currentPostImageRange = [postsJson["posts"]["post1"]["edit"]["rangeStart"], postsJson["posts"]["post1"]["edit"]["rangeEnd"]];
+  currentPostDate = postsJson["posts"]["post1"]["info"]["date"];
+  currentImagesLocation = "/posts/" + postID + "/edit/";
+  currentImageCounter = currentPostImageRange[0];
+  currentImage = "img" + currentImageCounter;
+  currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
+  currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
+  currentMediumImageLocation = currentImagesLocation + "medium/" + currentImageName;
+  thumbnailImgHtml = "";
+
+  var postHtml = 
   '<div class="post">' +
-'  <div class="infocard">' +
-  '    <div class="date">' +
-  '      12.2.2022' +
-  '    </div>' +
-  '    <div class="postID">post #4</div>' +
+  '<div class="infocard">' +
+  '    <div class="date">' + currentPostDate + '</div>' +
+  '    <div class="postID">#' + postID + '</div>' +
   '    <button class="postDownload">download</button>' +
   '  </div>' +
   '  <div class="images">' +
-  '    <img src="image.svg" draggable=false />' +
+  addPostImages() +
   '  </div>' +
   '</div>' ;
 
-
-
-function ass() {
-  for (var i = 0; i < 4 ; i++) {
-    document.getElementById('posts').insertAdjacentHTML("beforeend", htmlass);
-    addEventListeners();
+  for (var i = 0; i < 1 ; i++) {
+    document.getElementById('posts').insertAdjacentHTML("beforeend", postHtml);
   }
 }
+
+
+
+function addPostImages() {
+  for(currentImageCounter = currentPostImageRange[0]; currentImageCounter < currentPostImageRange[1]; currentImageCounter++) {
+    currentImage = "img" + currentImageCounter; //updating vars
+    currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
+    currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
+
+    console.log('    <img draggable=false src="' + currentThumbnailImageLocation + '"/>');
+    thumbnailImgHtml = thumbnailImgHtml + '    <img draggable=false src="' + currentThumbnailImageLocation + '"/>';
+  }
+  return thumbnailImgHtml;
+}
+
+
+
+
+
+function findProp(obj, prop, defval){
+  if (typeof defval == 'undefined') defval = null;
+  prop = prop.split('.');
+  for (var i = 0; i < prop.length; i++) {
+      if(typeof obj[prop[i]] == 'undefined')
+          return defval;
+      obj = obj[prop[i]];
+  }
+  return obj;
+}
+
+
+var postsJson;
+
+//this reads the file and uhh puts it into an object
+
+fetch('./posts/posts.json')
+  .then(response => response.json())
+  .then(json => postsJson = json)
+  .then(() => loadPost());
