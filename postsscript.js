@@ -154,7 +154,7 @@ function findProp(obj, prop, defval){
 var postsJson;
 
 //this reads the file and uhh puts it into an object
-
+//this worked normally, probably because the file location was expressely mentioned, but I'll do it this way so updates should be instant when a commit is done (for posts)
 fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
