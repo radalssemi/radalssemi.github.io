@@ -80,7 +80,7 @@ function unHoverRotate(element) {
     <div class="date">
       12.2.2022
     </div>
-    <div class="postID">post #4</div>
+    <div class="currentPostID">post #4</div>
     <button class="postDownload">download</button>
   </div>
   <div class="images">
@@ -108,7 +108,7 @@ function loadPost() {
   '<div class="post">' +
   '<div class="infocard">' +
   '    <div class="date">' + currentPostDate + '</div>' +
-  '    <div class="postID">#' + postID + '</div>' +
+  '    <div class="postID">#' + currentPostID + '</div>' +
   '    <button class="postDownload">download</button>' +
   '  </div>' +
   '  <div class="images">' +
