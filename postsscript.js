@@ -155,7 +155,7 @@ var postsJson;
 
 //this reads the file and uhh puts it into an object
 
-fetch('./posts/posts.json')
+fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
   .then(() => loadPost());
