@@ -92,11 +92,11 @@ function unHoverRotate(element) {
 
 
 function loadPost() {
-  currentPostID = "post1";
+  currentPostName = "post1";
   currentPostImageRange = [postsJson["posts"]["post1"]["edit"]["rangeStart"], postsJson["posts"]["post1"]["edit"]["rangeEnd"]];
   currentPostDate = postsJson["posts"]["post1"]["info"]["date"];
   // currentImagesLocation = "/posts/" + postID + "/edit
-  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostID + "/edit/"
+  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostName + "/edit/"
   currentImageCounter = currentPostImageRange[0];
   currentImage = "img" + currentImageCounter;
   currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
