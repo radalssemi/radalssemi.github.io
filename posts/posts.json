@@ -1,0 +1,39 @@
+{
+  "numberOfPosts": 1,
+  "numberOfImages": 9,
+  "posts": {
+    "post1": {
+      "edit": {
+        "rangeStart": 1,
+        "rangeEnd": 9,
+        "name": {
+          "img1": "_MG_1878.jpg",
+          "img2": "_MG_1882.jpg",
+          "img3": "_MG_1895.jpg",
+          "img4": "_MG_1896.jpg",
+          "img5": "_MG_1906.jpg",
+          "img6": "_MG_1909.jpg",
+          "img7": "_MG_1932.jpg",
+          "img8": "_MG_1943.jpg",
+          "img9": "_MG_1957.jpg"
+        }
+      },
+      "info": {
+        "contentType": "photos",
+        "date": "24-10-2022",
+        "imgComments": {}
+      },
+      "src": {
+        "img1": "_MG_1878.CR2",
+        "img2": "_MG_1882.CR2",
+        "img3": "_MG_1895.CR2",
+        "img4": "_MG_1896.CR2",
+        "img5": "_MG_1906.CR2",
+        "img6": "_MG_1909.CR2",
+        "img7": "_MG_1932.CR2",
+        "img8": "_MG_1943.CR2",
+        "img9": "_MG_1957.CR2"
+      }
+    }
+  }
+}
