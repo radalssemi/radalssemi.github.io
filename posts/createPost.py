@@ -1,11 +1,11 @@
-import zipfile # zipping files for download
-import pathlib # to zip folder structure
-import os # directories and stuff
-import cv2 # making thumbnails and medium images
-import re # searching for 
-import json # writing json file
-import easygui # selecting source folder and adding comments
-import shutil # copying files
+import zipfile  # zipping files for download
+import pathlib  # to zip folder structure
+import os  # directories and stuff
+import cv2  # making thumbnails and medium images
+import re  # searching for
+import json  # writing json file
+import easygui  # selecting source folder and adding comments
+import shutil  # copying files
 
 
 # ------------------------------------------------------
@@ -18,10 +18,17 @@ import shutil # copying files
 # ------------------------------------------------------
 
 
-path = easygui.diropenbox()
 
-print(f"\n\n\nsource path:   {path}\n\n\n\n")
 
+
+
+
+
+
+
+#
+# ----- VARIABLES -----
+#
 
 with open("./posts.json", "r+") as f:
     try:
@@ -43,29 +50,82 @@ with open("./posts.json", "r+") as f:
         allPostsData = {}
         pass
 
-
-# compiledPath = re.compile(path, re.IGNORECASE)
+path = easygui.diropenbox()
 imagesDate = re.search("\d\d[-]\d\d[-]\d\d\d\d", path)[0]
 
-print("-------------------------------------------------------")
-print(f"date read:          {imagesDate}")
-print(f"images exist:       {currentImageID}")
-print(f"making post:        {currentPostName}")
-print("-------------------------------------------------------\n")
-dictionarySrc = {}
-dictionaryImages = {}
+comment = {}
+
+
+
+
+
 
 
 postsDirectory = ".\\" + currentPostName
-checkDirectory = [postsDirectory + "\\edit", postsDirectory + "\\edit\\fullsize",
-                  postsDirectory + "\\edit\\medium", postsDirectory + "\\edit\\thumbnail", postsDirectory + "\\src", postsDirectory + "\\download"]
 
-for i in checkDirectory:
-    if not os.path.isdir(i):
-        os.makedirs(i)
-        print(f"created dir:     {i}")
-open(".\\posts.json", "w")  # create the file if it don't exist
-print("\n")
+directoryToMake = [postsDirectory + "\\edit", postsDirectory + "\\edit\\fullsize", postsDirectory +
+                  "\\edit\\medium", postsDirectory + "\\edit\\thumbnail", postsDirectory + "\\src", postsDirectory + "\\download"]
+
+
+dictionarySrc = {} 
+dictionaryImages = {}
+
+
+writeThis = {
+    currentPostName: {
+        "edit": {
+            "rangeStart": initialNumberOfImages + 1,
+            "rangeEnd": initialNumberOfImages + currentImageID - initialNumberOfImages,
+            "name": dictionaryImages
+        },
+        "info":
+        {
+            "contentType": "photos",
+            "date": imagesDate,
+            "imgComments": {}
+        },
+        "src": dictionarySrc
+    }
+}
+defaultJson = {
+    "numberOfPosts": 0,
+    "numberOfImages": 0,
+    "posts": {}
+}
+#
+# ----- END OF VARIABLES -----
+#
+
+
+
+
+
+
+#
+# ----- FUNCTIONS -----
+#
+
+
+def writeComment(commentText, commentImageID):
+    with open(".\\posts.json", "r+") as f:
+        data = json.load(f)
+        rangeStart = data["posts"][currentPostName]["edit"]["rangeStart"]
+        rangeEnd = data["posts"][currentPostName]["edit"]["rangeEnd"]
+        commentImageID += rangeStart
+        data["posts"][currentPostName]["info"]["imgComments"]["img" +
+                                                              str(commentImageID)] = str(commentText)
+        f.seek(0)        # <--- should reset file position to the beginning.
+        json.dump(data, f, indent=2)
+        f.truncate()
+        print(f"comment for img{commentImageID} written:    {commentText}\n")
+
+def addComments():
+    commentImageID = 0
+    for filename in os.listdir(".\\" + currentPostName + "\\edit\\thumbnail"):
+        commentText = easygui.enterbox(
+            "add comment", image=".\\" + currentPostName + "\\edit\\thumbnail\\" + filename)
+        writeComment(commentText, commentImageID)
+        commentImageID += 1
 
 
 
@@ -76,13 +136,13 @@ def makeZipFile(toZip, zipTo):
             archive.write(file_path, arcname=file_path.name)
 
 def writeFilesToZips():
-    makeZipFile(pathlib.Path(f"./{currentPostName}/edit/"), f"./{currentPostName}/download/{currentPostName}-edit.zip")
-    makeZipFile(pathlib.Path(f"./{currentPostName}/src/"), f"./{currentPostName}/download/{currentPostName}-src.zip")
+    makeZipFile(pathlib.Path(f"./{currentPostName}/edit/"),
+                f"./{currentPostName}/download/{currentPostName}-edit.zip")
+    makeZipFile(pathlib.Path(f"./{currentPostName}/src/"),
+                f"./{currentPostName}/download/{currentPostName}-src.zip")
 
 
 
-
-comment = {}
 
 def createThumbnail(filename):
     im = cv2.imread(path + "\\picks\\edit\\" + filename, cv2.IMREAD_UNCHANGED)
@@ -94,7 +154,6 @@ def createThumbnail(filename):
                 filename.rsplit(".", 1)[0] + ".jpg", resized, [cv2.IMWRITE_JPEG_QUALITY, 80])
     print(f"thumbnail        {filename}")
 
-
 def createMedium(filename):
     im = cv2.imread(path + "\\picks\\edit\\" + filename, cv2.IMREAD_UNCHANGED)
     h = im.shape[0]
@@ -105,16 +164,62 @@ def createMedium(filename):
                 filename.rsplit(".", 1)[0] + ".jpg", resized, [cv2.IMWRITE_JPEG_QUALITY, 90])
     print(f"medium           {filename}")
 
-
 def copyFullsize(filename):
     shutil.copy2(path + "\\picks\\edit\\" + filename,
                  postsDirectory + "\\edit\\fullsize\\")
     print(f"fullsize         {filename}")
 
-
 def copySrc(filename):
     shutil.copy2(path + "\\picks\\" + filename, postsDirectory + "\\src\\")
     print(f"srcimage          {filename}")
+
+
+
+
+def writeJsonData():
+    with open(".\\posts.json", "r+") as f:
+        data = json.load(f)
+        data["posts"] = writeThis | allPostsData
+        data["numberOfPosts"] = currentPostID
+        data["numberOfImages"] = currentImageID
+        f.seek(0)
+        json.dump(data, f, indent=2)
+        f.truncate()
+        if (easygui.ynbox("do you wanna add comments?")):
+            addComments()
+        print("\n-------------------------------------------------------")
+        print(f"written {currentPostName} to posts.json")
+        print("-------------------------------------------------------\n")
+#
+# ----- END OF FUNCTIONS -----
+#
+
+
+
+
+
+
+#
+# ----- WORKING SCRIPT -----
+#
+
+
+print(f"\n\n\nsource path:   {path}\n\n\n\n")
+
+print("-------------------------------------------------------")
+print(f"date read:          {imagesDate}")
+print(f"images exist:       {currentImageID}")
+print(f"making post:        {currentPostName}")
+print("-------------------------------------------------------\n")
+
+
+# create folders for post
+for i in directoryToMake:
+    if not os.path.isdir(i):
+        os.makedirs(i)
+        print(f"created dir:     {i}")
+open(".\\posts.json", "w")  # creates the file if it don't exist
+print("\n")
 
 
 for filename in os.listdir(path + "\\picks\\edit"):
@@ -134,47 +239,8 @@ for filename in os.listdir(path + ".\\picks\\"):
         copySrc(filename)
 print()
 
-writeThis = {
-    currentPostName: {
-        "edit": {
-            "rangeStart": initialNumberOfImages + 1,
-            "rangeEnd": initialNumberOfImages + currentImageID - initialNumberOfImages,
-            "name": dictionaryImages
-        },
-        "info":
-        {
-            "contentType": "photos",
-            "date": imagesDate,
-            "imgComments": {}
-        },
-        "src": dictionarySrc
-    }
-}
-
-defaultJson = {
-    "numberOfPosts": 0,
-    "numberOfImages": 0,
-    "posts": {}
-}
-
-
 
 writeFilesToZips()
-
-def writeJsonData():
-    with open(".\\posts.json", "r+") as f:
-        data = json.load(f)
-        data["posts"] = writeThis | allPostsData
-        data["numberOfPosts"] = currentPostID
-        data["numberOfImages"] = currentImageID
-        f.seek(0)        # <--- should reset file position to the beginning.
-        json.dump(data, f, indent=2)
-
-        # addComments(data)
-        f.truncate()
-        print("\n-------------------------------------------------------")
-        print(f"written {currentPostName} to posts.json")
-        print("-------------------------------------------------------\n")
 
 
 try:
@@ -189,29 +255,6 @@ except:
         f.truncate()
         print("default json loaded")
     writeJsonData()
-
-
-def writeComment(commentText, commentImageID):
-    with open(".\\posts.json", "r+") as f:
-        data = json.load(f)
-        rangeStart = data["posts"][currentPostName]["edit"]["rangeStart"]
-        rangeEnd = data["posts"][currentPostName]["edit"]["rangeEnd"]
-        commentImageID += rangeStart
-        data["posts"][currentPostName]["info"]["imgComments"]["img" + str(commentImageID)] = str(commentText)
-        f.seek(0)        # <--- should reset file position to the beginning.
-        json.dump(data, f, indent=2)
-        f.truncate()
-        print(f"comment for img{commentImageID} written:    {commentText}\n")
-
-
-def addComments():
-    commentImageID = 0
-    for filename in os.listdir(".\\" + currentPostName + "\\edit\\thumbnail"):
-        commentText = easygui.enterbox(
-            "add comment", image=".\\" + currentPostName + "\\edit\\thumbnail\\" + filename)
-        writeComment(commentText, commentImageID)
-        commentImageID += 1
-
-
-if (easygui.ynbox("do you wanna add comments?")):
-    addComments()
+#
+# ----- WORKING SCRIPT -----
+#
