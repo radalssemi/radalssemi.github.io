@@ -20,7 +20,7 @@ import shutil
 
 path = easygui.diropenbox()
 
-print("\n\n\nsource path:   " + path + "\n\n\n\n")
+print(f"\n\n\nsource path:   {path}\n\n\n\n")
 
 
 with open("./posts.json", "r+") as f:
@@ -45,12 +45,12 @@ with open("./posts.json", "r+") as f:
 
 
 # compiledPath = re.compile(path, re.IGNORECASE)
-imagesDate = re.search("\d\d[-]\d\d[-]\d\d\d\d", path)
+imagesDate = re.search("\d\d[-]\d\d[-]\d\d\d\d", path)[0]
 
 print("-------------------------------------------------------")
-print("date read:          " + str(imagesDate[0]))
-print("images exist:       " + str(currentImageID))
-print("making post:        " + str(currentPostName))
+print(f"date read:          {imagesDate}")
+print(f"images exist:       {currentImageID}")
+print(f"making post:        {currentPostName}")
 print("-------------------------------------------------------\n")
 dictionarySrc = {}
 dictionaryImages = {}
@@ -63,7 +63,7 @@ checkDirectory = [postsDirectory + "\\edit", postsDirectory + "\\edit\\fullsize"
 for i in checkDirectory:
     if not os.path.isdir(i):
         os.makedirs(i)
-        print("created dir:     " + i)
+        print(f"created dir:     {i}")
 open(".\\posts.json", "w")  # create the file if it don't exist
 print("\n")
 
@@ -95,7 +95,7 @@ def createThumbnail(filename):
     resized = cv2.resize(im, dim, interpolation=cv2.INTER_AREA)
     cv2.imwrite(postsDirectory + "\\edit\\thumbnail\\" +
                 filename.rsplit(".", 1)[0] + ".jpg", resized, [cv2.IMWRITE_JPEG_QUALITY, 80])
-    print("thumbnail        " + filename)
+    print(f"thumbnail        {filename}")
 
 
 def createMedium(filename):
@@ -106,18 +106,18 @@ def createMedium(filename):
     resized = cv2.resize(im, dim, interpolation=cv2.INTER_AREA)
     cv2.imwrite(postsDirectory + "\\edit\\medium\\" +
                 filename.rsplit(".", 1)[0] + ".jpg", resized, [cv2.IMWRITE_JPEG_QUALITY, 90])
-    print("medium           " + filename)
+    print(f"medium           {filename}")
 
 
 def copyFullsize(filename):
     shutil.copy2(path + "\\picks\\edit\\" + filename,
                  postsDirectory + "\\edit\\fullsize\\")
-    print("fullsize         " + filename)
+    print(f"fullsize         {filename}")
 
 
 def copySrc(filename):
     shutil.copy2(path + "\\picks\\" + filename, postsDirectory + "\\src\\")
-    print("srcimage          " + filename)
+    print(f"srcimage          {filename}")
 
 
 for filename in os.listdir(path + "\\picks\\edit"):
@@ -147,7 +147,7 @@ writeThis = {
         "info":
         {
             "contentType": "photos",
-            "date": str(imagesDate[0]),
+            "date": imagesDate,
             "imgComments": {}
         },
         "src": dictionarySrc
@@ -176,7 +176,7 @@ def writeJsonData():
         # addComments(data)
         f.truncate()
         print("\n-------------------------------------------------------")
-        print("written " + currentPostName + " to posts.json")
+        print(f"written {currentPostName} to posts.json")
         print("-------------------------------------------------------\n")
 
 
@@ -200,13 +200,11 @@ def writeComment(commentText, commentImageID):
         rangeStart = data["posts"][currentPostName]["edit"]["rangeStart"]
         rangeEnd = data["posts"][currentPostName]["edit"]["rangeEnd"]
         commentImageID += rangeStart
-        data["posts"][currentPostName]["info"]["imgComments"]["img" +
-                                                              str(commentImageID)] = str(commentText)
-        print(commentText)
+        data["posts"][currentPostName]["info"]["imgComments"]["img" + str(commentImageID)] = str(commentText)
         f.seek(0)        # <--- should reset file position to the beginning.
         json.dump(data, f, indent=2)
         f.truncate()
-        print("comment for img" + str(commentImageID) + " written:    " + commentText)
+        print(f"comment for img{commentImageID} written:    {commentText}\n")
 
 
 def addComments():
