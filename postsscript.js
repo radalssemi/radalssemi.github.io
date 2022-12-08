@@ -95,7 +95,6 @@ function loadPost() {
   currentPostName = "post1";
   currentPostImageRange = [postsJson["posts"]["post1"]["edit"]["rangeStart"], postsJson["posts"]["post1"]["edit"]["rangeEnd"]];
   currentPostDate = postsJson["posts"]["post1"]["info"]["date"];
-  // currentImagesLocation = "/posts/" + postID + "/edit
   currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostName + "/edit/"
   currentImageCounter = currentPostImageRange[0];
   currentImage = "img" + currentImageCounter;
@@ -108,7 +107,7 @@ function loadPost() {
   '<div class="post">' +
   '<div class="infocard">' +
   '    <div class="date">' + currentPostDate + '</div>' +
-  '    <div class="postID">#' + currentPostID + '</div>' +
+  '    <div class="postID">#' + currentPostName + '</div>' +
   '    <button class="postDownload">download</button>' +
   '  </div>' +
   '  <div class="images">' +
@@ -125,8 +124,8 @@ function loadPost() {
 
 function addPostImages() {
   for(currentImageCounter = currentPostImageRange[0]; currentImageCounter < currentPostImageRange[1]; currentImageCounter++) {
-    currentImage = "img" + currentImageCounter; //updating vars
-    currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
+    currentImageID = "img" + currentImageCounter; //updating vars
+    currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImageID];
     currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
 
     console.log('    <img draggable=false src="' + currentThumbnailImageLocation + '"/>');
