@@ -8,14 +8,21 @@ import easygui  # selecting source folder and adding comments
 import shutil  # copying files
 
 
-# ------------------------------------------------------
-# |  I know this is not really optimized and shit      |
-# |  this was meant to be a quick script               |
-# |  and it got more and more complex                  |
-# |                                                    |
-# |  it works i guess                                  |
-# |                                                    |
-# ------------------------------------------------------
+
+# -------------------------------------------------------
+# |  This is a script I made for creating a new post    |
+# |  for this website.                                  |
+# |                                                     |
+# |  It's based around a folder structure I use         |
+# |  for my photos. I have batch script in this folder  |
+# |  that creates the proper folders.                   |
+# |                                                     |
+# -------------------------------------------------------
+
+
+
+
+
 
 
 
@@ -29,6 +36,8 @@ import shutil  # copying files
 #
 # ----- VARIABLES -----
 #
+
+
 
 with open("./posts.json", "r+") as f:
     try:
@@ -50,43 +59,20 @@ with open("./posts.json", "r+") as f:
         allPostsData = {}
         pass
 
-path = easygui.diropenbox()
-imagesDate = re.search("\d\d[-]\d\d[-]\d\d\d\d", path)[0]
-
-comment = {}
-
-
-
-
-
-
 
 postsDirectory = ".\\" + currentPostName
 
-directoryToMake = [postsDirectory + "\\edit", postsDirectory + "\\edit\\fullsize", postsDirectory +
-                  "\\edit\\medium", postsDirectory + "\\edit\\thumbnail", postsDirectory + "\\src", postsDirectory + "\\download"]
+directoryToMake = [postsDirectory + "\\edit", postsDirectory + "\\edit\\fullsize", postsDirectory + "\\edit\\medium", postsDirectory + "\\edit\\thumbnail", postsDirectory + "\\src", postsDirectory + "\\download"]
+
+path = easygui.diropenbox()
+imagesDate = re.search("\d\d[-]\d\d[-]\d\d\d\d", path)[0]
+
 
 
 dictionarySrc = {} 
 dictionaryImages = {}
+comment = {}
 
-
-writeThis = {
-    currentPostName: {
-        "edit": {
-            "rangeStart": initialNumberOfImages + 1,
-            "rangeEnd": initialNumberOfImages + currentImageID - initialNumberOfImages,
-            "name": dictionaryImages
-        },
-        "info":
-        {
-            "contentType": "photos",
-            "date": imagesDate,
-            "imgComments": {}
-        },
-        "src": dictionarySrc
-    }
-}
 defaultJson = {
     "numberOfPosts": 0,
     "numberOfImages": 0,
@@ -101,16 +87,21 @@ defaultJson = {
 
 
 
+
+
+
+
+
 #
 # ----- FUNCTIONS -----
 #
+
 
 
 def writeComment(commentText, commentImageID):
     with open(".\\posts.json", "r+") as f:
         data = json.load(f)
         rangeStart = data["posts"][currentPostName]["edit"]["rangeStart"]
-        rangeEnd = data["posts"][currentPostName]["edit"]["rangeEnd"]
         commentImageID += rangeStart
         data["posts"][currentPostName]["info"]["imgComments"]["img" +
                                                               str(commentImageID)] = str(commentText)
@@ -199,18 +190,27 @@ def writeJsonData():
 
 
 
+
+
+
+
+
 #
 # ----- WORKING SCRIPT -----
 #
 
 
+
 print(f"\n\n\nsource path:   {path}\n\n\n\n")
 
+# printing info about post
 print("-------------------------------------------------------")
 print(f"date read:          {imagesDate}")
 print(f"images exist:       {currentImageID}")
 print(f"making post:        {currentPostName}")
 print("-------------------------------------------------------\n")
+
+
 
 
 # create folders for post
@@ -221,17 +221,18 @@ for i in directoryToMake:
 open(".\\posts.json", "w")  # creates the file if it don't exist
 print("\n")
 
-
+# find edited images and create thumbnails and  medium; copy fullsize
 for filename in os.listdir(path + "\\picks\\edit"):
     if filename.endswith(".jpg" or ".jpeg" or ".png" or "JPG" or "JPEG" or "PNG"):
         currentImageID += 1
+        print(currentImageID)
         dictionaryImages["img" + str(currentImageID)] = filename
         createThumbnail(filename)
         createMedium(filename)
         copyFullsize(filename)
         print()
 print()
-
+# find src images and copy
 for filename in os.listdir(path + ".\\picks\\"):
     if filename.endswith(".CR2"):
         currentSrcID += 1
@@ -240,9 +241,29 @@ for filename in os.listdir(path + ".\\picks\\"):
 print()
 
 
+# create download zip files with: src, edit
 writeFilesToZips()
 
 
+
+# I declare this here because currentImageID has to be updated
+writeThis = {
+    currentPostName: {
+        "edit": {
+            "rangeStart": initialNumberOfImages + 1,
+            "rangeEnd": currentImageID,
+            "name": dictionaryImages
+        },
+        "info":
+        {
+            "contentType": "photos",
+            "date": imagesDate,
+            "imgComments": {}
+        },
+        "src": dictionarySrc
+    }
+}
+# write data to json file: if can't read create new
 try:
     writeJsonData()
 except:
