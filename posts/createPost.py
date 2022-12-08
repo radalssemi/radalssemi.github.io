@@ -1,11 +1,11 @@
-from zipfile import ZipFile
-import os
-from os.path import basename
-import cv2
-import re
-import json
-import easygui
-import shutil
+import zipfile # zipping files for download
+import pathlib # to zip folder structure
+import os # directories and stuff
+import cv2 # making thumbnails and medium images
+import re # searching for 
+import json # writing json file
+import easygui # selecting source folder and adding comments
+import shutil # copying files
 
 
 # ------------------------------------------------------
@@ -68,19 +68,16 @@ open(".\\posts.json", "w")  # create the file if it don't exist
 print("\n")
 
 
-def makeZipFile(zipObj, which):
-    for folderName, subfolders, filenames in os.walk(postsDirectory + "\\" + which + "\\"):
-        for filename in filenames:
-            #create complete filepath of file in directory
-            filePath = os.path.join(folderName, filename)
-            # Add file to zip
-            zipObj.write(filePath, basename(filePath))
+
+
+def makeZipFile(toZip, zipTo):
+    with zipfile.ZipFile(zipTo, mode="w") as archive:
+        for file_path in toZip.iterdir():
+            archive.write(file_path, arcname=file_path.name)
 
 def writeFilesToZips():
-    with ZipFile(currentPostName + "\\download\\src.zip", 'w') as zipObj:
-        makeZipFile(zipObj, "src")
-    with ZipFile(currentPostName + "\\download\\edit.zip", 'w') as zipObj:
-        makeZipFile(zipObj, "edit")
+    makeZipFile(pathlib.Path(f"./{currentPostName}/edit/"), f"./{currentPostName}/download/{currentPostName}-edit.zip")
+    makeZipFile(pathlib.Path(f"./{currentPostName}/src/"), f"./{currentPostName}/download/{currentPostName}-src.zip")
 
 
 
