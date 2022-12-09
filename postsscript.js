@@ -1,6 +1,6 @@
 var postsJson;
 //this reads the file and uhh puts it into an object
-//reason why I load it like this is that it takes less time to update, since it reads from the github repo and not the website which takes longer to update
+//reason why I load it like this is that after I create a new post it takes less time to update, since it reads from the github repo and not the website which takes kinda long
 fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
@@ -10,11 +10,10 @@ fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/po
 
 
 
+
 function randomIntFromInterval(min, max) { // radom int between two numbers
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
-
 
 
 

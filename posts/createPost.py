@@ -23,7 +23,9 @@ import shutil  # copying files
 
 
 
-
+# check if posts.json exists:
+if not os.path.isfile("posts.json"):
+    open("./posts.json", "w")
 
 
 
@@ -218,6 +220,9 @@ for i in directoryToMake:
     if not os.path.isdir(i):
         os.makedirs(i)
         print(f"created dir:     {i}")
+
+
+open(".\\posts.json", "w")
 print("\n")
 
 # find edited images and create thumbnails and  medium; copy fullsize
