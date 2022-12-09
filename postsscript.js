@@ -1,3 +1,15 @@
+var postsJson;
+//this reads the file and uhh puts it into an object
+//reason why I load it like this is that it takes less time to update, since it reads from the github repo and not the website which takes longer to update
+fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
+  .then(response => response.json())
+  .then(json => postsJson = json)
+  .then(() => loadPost("post1"));
+
+
+
+
+
 function randomIntFromInterval(min, max) { // radom int between two numbers
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -5,30 +17,18 @@ function randomIntFromInterval(min, max) { // radom int between two numbers
 
 
 
-addEventListeners();
-// these for loops add event listeners on all download buttons and images to call function to apply a random rotation
+
+// these for loops add event listeners on all download buttons to call function to apply a random rotation on hover
 function addEventListeners() {
   const downloadButtonCount = document.querySelectorAll(".postDownload").length;
   for (var i = 0; i < downloadButtonCount ; i++) {
     document.querySelectorAll(".postDownload")[i].addEventListener("mouseover", function() {
-      hoverRotate(this, true); // it is checked if input #2 is true to see if it's the download button to have a larger range for random number. it looks kinda bad when the images rotate a lot but it also looks kinda bad when the download button doesn't rotate enough
+      hoverRotate(this);
     });
     document.querySelectorAll(".postDownload")[i].addEventListener("mouseout", function() {
-      unHoverRotate(this, true);
+      unHoverRotate(this);
     });
   }
-
-  // const imagesCount = document.querySelectorAll(".images img").length;
-  // for (var i = 0; i < imagesCount ; i++) {
-  //   document.querySelectorAll("div.images img")[i].addEventListener("mouseover", function() {
-  //     hoverRotate(this);
-  //   });
-  // }
-  // for (var i = 0; i < imagesCount ; i++) {
-  //   document.querySelectorAll("div.images img")[i].addEventListener("mouseout", function() {
-  //     unHoverRotate(this);
-  //   });
-  // }
 }
 
 //hover effect for random rotation
@@ -42,16 +42,16 @@ function unHoverRotate(element) {
 
 
 
-// function removeEventListeners(el, withChildren) {
-//   if (withChildren) {
-//     el.parentNode.replaceChild(el.cloneNode(true), el);
-//   }
-//   else {
-//     var newEl = el.cloneNode(false);
-//     while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
-//     el.parentNode.replaceChild(newEl, el);
-//   }
-// }
+function removeEventListeners(el, withChildren) {
+  if (withChildren) {
+    el.parentNode.replaceChild(el.cloneNode(true), el);
+  }
+  else {
+    var newEl = el.cloneNode(false);
+    while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+    el.parentNode.replaceChild(newEl, el);
+  }
+}
 
 
 
@@ -77,10 +77,8 @@ function unHoverRotate(element) {
 
 <div class="post">
   <div class="infocard">
-    <div class="date">
-      12.2.2022
-    </div>
-    <div class="currentPostID">post #4</div>
+    <div class="date">12.2.2022</div>
+    <div class="currentPostID">#post4</div>
     <button class="postDownload">download</button>
   </div>
   <div class="images">
@@ -91,14 +89,13 @@ function unHoverRotate(element) {
 */
 
 
-function loadPost() {
-  currentPostName = "post1";
-  currentPostImageRange = [postsJson["posts"]["post1"]["edit"]["rangeStart"], postsJson["posts"]["post1"]["edit"]["rangeEnd"]];
-  currentPostDate = postsJson["posts"]["post1"]["info"]["date"];
+function loadPost(currentPostName) {
+  currentPostImageRange = [postsJson["posts"][currentPostName]["edit"]["rangeStart"], postsJson["posts"][currentPostName]["edit"]["rangeEnd"]];
+  currentPostDate = postsJson["posts"][currentPostName]["info"]["date"];
   currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostName + "/edit/"
   currentImageCounter = currentPostImageRange[0];
   currentImage = "img" + currentImageCounter;
-  currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImage];
+  currentImageName = postsJson["posts"][currentPostName]["edit"]["name"][currentImage];
   currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
   currentMediumImageLocation = currentImagesLocation + "medium/" + currentImageName;
   thumbnailImgHtml = "";
@@ -118,6 +115,8 @@ function loadPost() {
   for (var i = 0; i < 1 ; i++) {
     document.getElementById('posts').insertAdjacentHTML("beforeend", postHtml);
   }
+  removeEventListeners();
+  addEventListeners();
 }
 
 
@@ -138,23 +137,27 @@ function addPostImages() {
 
 
 
-function findProp(obj, prop, defval){
-  if (typeof defval == 'undefined') defval = null;
-  prop = prop.split('.');
-  for (var i = 0; i < prop.length; i++) {
-      if(typeof obj[prop[i]] == 'undefined')
-          return defval;
-      obj = obj[prop[i]];
+// function findProp(obj, prop, defval){
+//   if (typeof defval == 'undefined') defval = null;
+//   prop = prop.split('.');
+//   for (var i = 0; i < prop.length; i++) {
+//       if(typeof obj[prop[i]] == 'undefined')
+//           return defval;
+//       obj = obj[prop[i]];
+//   }
+//   return obj;
+// }
+
+
+
+
+
+
+
+
+
+window.onscroll = function() {
+  if ((window.innerHeight + window.pageYOffset) >= (document.body.scrollHeight - 100)) {
+      fetchPosts();
   }
-  return obj;
-}
-
-
-var postsJson;
-
-//this reads the file and uhh puts it into an object
-//this worked normally, probably because the file location was expressely mentioned, but I'll do it this way so updates should be instant when a commit is done (for posts)
-fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
-  .then(response => response.json())
-  .then(json => postsJson = json)
-  .then(() => loadPost());
+};
