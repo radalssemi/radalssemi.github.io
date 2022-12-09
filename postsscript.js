@@ -1,7 +1,7 @@
 var postsJson;
 //this reads the file and uhh puts it into an object
 //reason why I load it like this is that after I create a new post it takes less time to update, since it reads from the github repo and not the website which takes kinda long
-fetch('https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/posts.json')
+fetch('https://raw.githubusercontent.com/radalssemi/radalssemiWebsitePosts/main/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
   .then(() => loadPost("post1"));
@@ -91,7 +91,7 @@ function removeEventListeners(el, withChildren) {
 function loadPost(currentPostName) {
   currentPostImageRange = [postsJson["posts"][currentPostName]["edit"]["rangeStart"], postsJson["posts"][currentPostName]["edit"]["rangeEnd"]];
   currentPostDate = postsJson["posts"][currentPostName]["info"]["date"];
-  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemi.github.io/main/posts/" + currentPostName + "/edit/"
+  currentImagesLocation = "https://raw.githubusercontent.com/radalssemi/radalssemiWebsitePosts/main/posts/" + currentPostName + "/edit/"
   currentImageCounter = currentPostImageRange[0];
   currentImage = "img" + currentImageCounter;
   currentImageName = postsJson["posts"][currentPostName]["edit"]["name"][currentImage];
