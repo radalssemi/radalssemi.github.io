@@ -4,7 +4,7 @@ var postsJson;
 fetch('https://raw.githubusercontent.com/radalssemi/radalssemiWebsitePosts/main/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
-  .then(() => fetchPosts());
+  .then(() => fetchPostsSetup());
 
 
 
@@ -66,29 +66,34 @@ function removeEventListeners(el, withChildren) {
 
 
 
-
-
-
-
-
-
-postsToLoad = 5
-
-function fetchPosts() {
+function fetchPostsSetup() {
   numberOfPosts = postsJson["numberOfPosts"]
+  postsToLoad = 0
   nextPostToLoad = numberOfPosts
-  console.log(numberOfPosts)
-  for(nextPostToLoad; nextPostToLoad > numberOfPosts - postsToLoad; nextPostToLoad--) {
-    console.log(nextPostToLoad)
-    loadPost("post" + nextPostToLoad)
-  }
+  fetchPosts()
 }
 
 
 
+function fetchPosts() {
+  postsToLoad += numbefForPostsToLoad()
+  for (nextPostToLoad; nextPostToLoad > numberOfPosts - postsToLoad; nextPostToLoad--) {
+    // console.log(nextPostToLoad)
+    loadPost("post" + nextPostToLoad)
+  }
+  // removeEventListeners();
+  // addEventListeners();
+}
 
 
-image.png
+function numbefForPostsToLoad(){
+  if (numberOfPosts - postsToLoad - 5 > 1) {
+    return(5);
+  }
+  else {
+    return(numberOfPosts - postsToLoad);
+  }
+}
 
 
 
@@ -123,7 +128,7 @@ function loadPost(currentPostName) {
   currentMediumImageLocation = currentImagesLocation + "medium/" + currentImageName;
   thumbnailImgHtml = "";
 
-  console.log("currentPostImageRange: " + currentPostImageRange)
+  // console.log("currentPostImageRange: " + currentPostImageRange)
 
   var postHtml = 
   '<div class="post">' +
@@ -140,8 +145,7 @@ function loadPost(currentPostName) {
   for (var i = 0; i < 1; i++) {
     document.getElementById('posts').insertAdjacentHTML("beforeend", postHtml);
   }
-  // removeEventListeners();
-  // addEventListeners();
+
 }
 
 
@@ -151,8 +155,7 @@ function addPostImages(currentPostName) {
     currentImageID = "img" + currentImageCounter; //updating vars
     currentImageName = postsJson["posts"][currentPostName]["edit"]["name"][currentImageID];
     currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
-
-    console.log('    <img draggable=false src="' + currentThumbnailImageLocation + '"/>');
+    // console.log('    <img draggable=false src="' + currentThumbnailImageLocation + '"/>');
     thumbnailImgHtml = thumbnailImgHtml + '    <img draggable=false src="' + currentThumbnailImageLocation + '"/>';
   }
   return thumbnailImgHtml;
@@ -162,27 +165,9 @@ function addPostImages(currentPostName) {
 
 
 
-// function findProp(obj, prop, defval){
-//   if (typeof defval == 'undefined') defval = null;
-//   prop = prop.split('.');
-//   for (var i = 0; i < prop.length; i++) {
-//       if(typeof obj[prop[i]] == 'undefined')
-//           return defval;
-//       obj = obj[prop[i]];
-//   }
-//   return obj;
-// }
 
-
-
-
-
-
-
-
-
-window.onscroll = function() {
-  if ((window.innerHeight + window.pageYOffset) >= (document.body.scrollHeight - 100)) {
+document.getElementById("posts").onscroll = function() {
+  if ((this.offsetHeight + this.scrollTop) >= (this.scrollHeight - 200)) {
       fetchPosts();
   }
 };
