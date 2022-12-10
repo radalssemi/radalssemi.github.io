@@ -72,7 +72,7 @@ function removeEventListeners(el, withChildren) {
 
 
 
-postsToLoad = 3
+postsToLoad = 5
 
 function fetchPosts() {
   numberOfPosts = postsJson["numberOfPosts"]
