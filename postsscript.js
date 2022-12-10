@@ -4,7 +4,7 @@ var postsJson;
 fetch('https://raw.githubusercontent.com/radalssemi/radalssemiWebsitePosts/main/posts.json')
   .then(response => response.json())
   .then(json => postsJson = json)
-  .then(() => loadPost("post1"));
+  .then(() => fetchPosts());
 
 
 
@@ -72,6 +72,30 @@ function removeEventListeners(el, withChildren) {
 
 
 
+postsToLoad = 3
+
+function fetchPosts() {
+  numberOfPosts = postsJson["numberOfPosts"]
+  nextPostToLoad = numberOfPosts
+  console.log(numberOfPosts)
+  for(nextPostToLoad; nextPostToLoad > numberOfPosts - postsToLoad; nextPostToLoad--) {
+    console.log(nextPostToLoad)
+    loadPost("post" + nextPostToLoad)
+  }
+}
+
+
+
+
+
+image.png
+
+
+
+
+
+
+
 /*
 
 <div class="post">
@@ -99,6 +123,8 @@ function loadPost(currentPostName) {
   currentMediumImageLocation = currentImagesLocation + "medium/" + currentImageName;
   thumbnailImgHtml = "";
 
+  console.log("currentPostImageRange: " + currentPostImageRange)
+
   var postHtml = 
   '<div class="post">' +
   '<div class="infocard">' +
@@ -107,23 +133,23 @@ function loadPost(currentPostName) {
   '    <button class="postDownload">download</button>' +
   '  </div>' +
   '  <div class="images">' +
-  addPostImages() +
+  addPostImages(currentPostName) +
   '  </div>' +
   '</div>' ;
 
-  for (var i = 0; i < 1 ; i++) {
+  for (var i = 0; i < 1; i++) {
     document.getElementById('posts').insertAdjacentHTML("beforeend", postHtml);
   }
-  removeEventListeners();
-  addEventListeners();
+  // removeEventListeners();
+  // addEventListeners();
 }
 
 
 
-function addPostImages() {
+function addPostImages(currentPostName) {
   for(currentImageCounter = currentPostImageRange[0]; currentImageCounter < currentPostImageRange[1]; currentImageCounter++) {
     currentImageID = "img" + currentImageCounter; //updating vars
-    currentImageName = postsJson["posts"]["post1"]["edit"]["name"][currentImageID];
+    currentImageName = postsJson["posts"][currentPostName]["edit"]["name"][currentImageID];
     currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
 
     console.log('    <img draggable=false src="' + currentThumbnailImageLocation + '"/>');
