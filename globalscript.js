@@ -122,7 +122,7 @@ function borWarning() {
   setTimeout(() => {
     document.getElementById("borWarning").style.opacity = "1";
     document.getElementById("borWarning").style.transform = "rotate(0deg) scale(1) translate(-50%,-50%)";
-    document.getElementById("borblur").style.filter = "blur(1.5vh) brightness(80%)";
+    document.getElementById("borblur").style.filter = "blur(1.5vh) brightness(80%) !important";
     document.getElementById("borblur").style.background = "inherit";
   }, 50) //this is done so the effects aren't applied at the same time resulting in the element popping in wihtout a transition playing
 

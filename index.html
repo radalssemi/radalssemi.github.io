@@ -19,19 +19,19 @@
   <!--dumb flashes if I don't do this cause loading and transition-->
   <div id="transitionScreen" class="transitionScreen">
     <div class="transitionScreenLocation" id="transitionScreenLocation">
-      ass
+      location
     </div>
     <script>
       document.getElementById("transitionScreenLocation").innerHTML =
         window.location;
     </script>
-    <!--this is done to avoid a brief flash of "ass" as it loads this js faster-->
+    <!--this is done to avoid a brief flash of "location" as it loads this js faster-->
     <div class="loadingThing" id="loadingThing">loading</div>
-    <div class="loadingNumber" id="loadingNumber">ur mom</div>
+    <div class="loadingNumber" id="loadingNumber">0</div>
   </div>
 
   <div class="borblur" id="borblur">
-    <!--borblur :pffft:-->
+    <!--borblur-->
 
     <div id="sideNav" class="sidenav">
       <div class="sidenavtext">
@@ -80,7 +80,6 @@
       <div class="bgdots" id="bgdots"></div>
 
 
-
       <div class="logoWrap" id="logoWrap">
         <img id="bglogo" class="bgLogo" draggable="false" src="nudilogo.svg" />
       </div>
@@ -88,9 +87,11 @@
     </div>
     <!--end of main-->
     <div class="infoCards">
-      <div class="infoCard" id="postCard">
-        <div class="postP">posts page under construction</div>
-        <button class="postButton" onclick="go('posts')">go there</button>
+      <div class="infoCard githubCard" id="postCard">
+        <div class="postP" style="grid-area: 2/1 / 1/4;">see github page</div>
+        <a href="https://google.com" target="_blank"><button class="postButton">website</button></a>
+        <img src="github-mark.svg" draggable="false" width="90%">
+        <a href="https://google.com" target="_blank"><button class="postButton">posts</button></a>
       </div>
       <div class="infoCard" id="postCard">
         <div class="postP">posts page under construction</div>
