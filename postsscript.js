@@ -20,11 +20,11 @@ function randomIntFromInterval(min, max) { // radom int between two numbers
 // these for loops add event listeners on all download buttons to call function to apply a random rotation on hover
 function addEventListeners() {
   const downloadButtonCount = document.querySelectorAll(".postDownload").length;
-  for (var i = 0; i < downloadButtonCount ; i++) {
-    document.querySelectorAll(".postDownload")[i].addEventListener("mouseover", function() {
+  for (var i = 0; i < downloadButtonCount; i++) {
+    document.querySelectorAll(".postDownload")[i].addEventListener("mouseover", function () {
       hoverRotate(this);
     });
-    document.querySelectorAll(".postDownload")[i].addEventListener("mouseout", function() {
+    document.querySelectorAll(".postDownload")[i].addEventListener("mouseout", function () {
       unHoverRotate(this);
     });
   }
@@ -86,12 +86,12 @@ function fetchPosts() {
 }
 
 
-function numberForPostsToLoad(){
+function numberForPostsToLoad() {
   if (numberOfPosts - postsToLoad - 5 > 1) {
-    return(5);
+    return (5);
   }
   else {
-    return(numberOfPosts - postsToLoad);
+    return (numberOfPosts - postsToLoad);
   }
 }
 
@@ -130,17 +130,17 @@ function loadPost(currentPostName) {
 
   // console.log("currentPostImageRange: " + currentPostImageRange)
 
-  var postHtml = 
-  '<div class="post">' +
-  '<div class="infocard">' +
-  '    <div class="date">' + currentPostDate + '</div>' +
-  '    <div class="postID">#' + currentPostName + '</div>' +
-  '    <button class="postDownload">download</button>' +
-  '  </div>' +
-  '  <div class="images">' +
-  addPostImages(currentPostName) +
-  '  </div>' +
-  '</div>' ;
+  var postHtml =
+    '<div class="post">' +
+    '<div class="infocard">' +
+    '    <div class="date">' + currentPostDate + '</div>' +
+    '    <div class="postID">#' + currentPostName + '</div>' +
+    '    <button class="postDownload">download</button>' +
+    '  </div>' +
+    '  <div class="images">' +
+    addPostImages(currentPostName) +
+    '  </div>' +
+    '</div>';
 
   for (var i = 0; i < 1; i++) {
     document.getElementById('posts').insertAdjacentHTML("beforeend", postHtml);
@@ -151,7 +151,7 @@ function loadPost(currentPostName) {
 
 
 function addPostImages(currentPostName) {
-  for(currentImageCounter = currentPostImageRange[0]; currentImageCounter < currentPostImageRange[1]; currentImageCounter++) {
+  for (currentImageCounter = currentPostImageRange[0]; currentImageCounter < currentPostImageRange[1]; currentImageCounter++) {
     currentImageID = "img" + currentImageCounter; //updating vars
     currentImageName = postsJson["posts"][currentPostName]["edit"]["name"][currentImageID];
     currentThumbnailImageLocation = currentImagesLocation + "thumbnail/" + currentImageName;
@@ -166,8 +166,8 @@ function addPostImages(currentPostName) {
 
 
 
-document.getElementById("posts").onscroll = function() {
+document.getElementById("posts").onscroll = function () {
   if ((this.offsetHeight + this.scrollTop) >= (this.scrollHeight - 200)) {
-      fetchPosts();
+    fetchPosts();
   }
 };
