@@ -89,11 +89,11 @@
     height: 700vw;
   }
   .row {
-    width: 60%;
+    width: 70%;
     gap: 5%;
   }
   .fotoBackground {
-    width: 70%;
+    width: 80%;
     transform: translate(-50%, -50%) rotate(3deg);
   }
   .downloadAll {
@@ -112,7 +112,7 @@
     margin-bottom: 5vh;
   }
   .row {
-    width: 40%;
+    width: 60%;
   }
   .fotoBackground {
     width: 70%;
@@ -143,8 +143,8 @@
   transition: transform 0.4s, opacity 0.45s, left 0.4s, right 0.4s, translate 0.4s;
   opacity: 0;
   pointer-events: none;
-  filter: drop-shadow(2vh 0vh 0 #6262bf) drop-shadow(-2vh 0 0 #6262bf) drop-shadow(0 2vh 0 #6262bf) drop-shadow(0 -2vh 0 #6262bf) drop-shadow(1.5vh 1.5vh 0 rgba(0, 0, 0, 0.10));
-  /* I am not adding a wrapper to each image for the border no fuck you */
+  filter: drop-shadow(2vh 0vh 0 #6262bf) drop-shadow(-2vh 0 0 #6262bf) drop-shadow(0 2vh 0 #6262bf) drop-shadow(0 -2vh 0 #6262bf) drop-shadow(1.5vh 1.5vh 0 rgba(0, 0, 0, 0.10)) !important;
+  /* I am not adding a wrapper to each image for the border, no*/
 }
 .fotoAllPage {
   width: 100%;
