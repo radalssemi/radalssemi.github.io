@@ -61,18 +61,20 @@ function hideTransition() {
 
 function openNav() {
   document.getElementById("sideNav").style.pointerEvents = "all";
-  document.getElementById("main").style.pointerEvents = "";
+  // document.getElementById("main").style.pointerEvents = "none";
   setTimeout(() => {
     document.getElementById("menuArrow").style.animation = "none";
   }, 200)
   document.getElementById("sideNav").style.width = "300px"; // open sidenav
-  document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15)) drop-shadow(2.5vh 0vh 0 rgba(0, 0, 0, 0.10))"; 
+  // document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15))";
+  document.getElementById("sideNav").style.boxShadow = "0 0 40px rgba(0, 0, 0, 0.15), 2.5vh 0vh 0 rgba(0, 0, 0, 0.10)"
 }
 function closeNav() {
+  // document.getElementById("main").style.pointerEvents = "";
   document.getElementById("sideNav").style.pointerEvents = "none";
-  document.getElementById("main").style.filter = "";
   document.getElementById("sideNav").style.width = "0";     // close sidenav
-  document.getElementById("sideNav").style.filter = "drop-shadow(0 0 40px rgba(0, 0, 0, 0.15))"; 
+  // document.getElementById("sideNav").style.filter = "0 0 40px rgba(0, 0, 0, 0.15)";
+  document.getElementById("sideNav").style.boxShadow = "none"
 }
 
 

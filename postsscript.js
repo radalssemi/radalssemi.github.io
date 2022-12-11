@@ -76,7 +76,7 @@ function fetchPostsSetup() {
 
 
 function fetchPosts() {
-  postsToLoad += numbefForPostsToLoad()
+  postsToLoad += numberForPostsToLoad()
   for (nextPostToLoad; nextPostToLoad > numberOfPosts - postsToLoad; nextPostToLoad--) {
     // console.log(nextPostToLoad)
     loadPost("post" + nextPostToLoad)
@@ -86,7 +86,7 @@ function fetchPosts() {
 }
 
 
-function numbefForPostsToLoad(){
+function numberForPostsToLoad(){
   if (numberOfPosts - postsToLoad - 5 > 1) {
     return(5);
   }
@@ -110,7 +110,7 @@ function numbefForPostsToLoad(){
     <button class="postDownload">download</button>
   </div>
   <div class="images">
-    <img src="image.svg" draggable=false />
+    <img src="image.svg" draggable=false/>
   </div>
 </div>
 
