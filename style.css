@@ -1,5 +1,6 @@
 * { filter: none !important;}
 
+
 body {
   background-color: #6262bf; /* I change the bg color to be right with javascript cause there's an ugly flash sometimes when going from one page to another */
   font-family: 'Reem Kufi Fun', sans-serif;
@@ -122,8 +123,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   transition: 0.4s;
   width: fit-content;
 }
-.sidenav a:hover { color: #E3F6ED; scale: 115%;}
-.sidenav a:hover div { padding-left: 20px; }
+
 .sidenav a div { transition: 0.4s; width: 2000%; left: 20px; filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5));}
 
 
@@ -200,8 +200,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   top: 50%;
   filter: drop-shadow(0 0 1vh rgba(207, 197, 253, 0.5));
 }
-.menuSlider:hover { box-shadow: 11vh 0 4vh -8vh rgba(0, 0, 0, 0.15) inset; }
-.menuSlider:hover .arrow{ scale: 115%; }
+
 
 @keyframes point {
   60% {left: 4vh;}
@@ -232,9 +231,7 @@ span { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
   display: flex;
   z-index: 5;
 } 
-.smallScreenOpenNav:hover {
-  left: -2vh;
-}
+
 .smallScreenOpenNav img {
   height: 4vh;
   filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5));
@@ -423,3 +420,20 @@ button {
 
 .postP { filter: drop-shadow(0 0 15px rgba(207, 197, 253, 0.5)) }
 .oldButton { width: 200px !important; }
+
+
+
+
+
+
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+  .smallScreenOpenNav:hover { left: -2vh; }
+  .menuSlider:hover { box-shadow: 11vh 0 4vh -8vh rgba(0, 0, 0, 0.15) inset; }
+  .menuSlider:hover .arrow{ scale: 115%; }
+  .sidenav a:hover { color: #E3F6ED; scale: 115%;}
+  .sidenav a:hover div { padding-left: 20px; }
+}

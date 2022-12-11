@@ -38,7 +38,6 @@
 /* gecko */
 * {
   scrollbar-color: #cfc5fd #00000000;
-  scroll-behavior:auto;
 }
 /* blink and webkit */
 *::-webkit-scrollbar {
@@ -89,7 +88,7 @@
   font-size: 1.6vh;
   transition: scale 0.2s, rotate 0.2s;
 }
-.posts .infocard .postDownload:hover {scale: 115%; }
+
 
 
 .post .images {
@@ -115,9 +114,7 @@
   background-size: 7.5vh;
 }
 
-.post img:hover {
-  scale: 102.5%;
-}
+
 
 
 
@@ -132,4 +129,13 @@
   .posts::-webkit-scrollbar {
     width: 0 !important;
   }
+}
+
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+  .postDownload:hover {scale: 105%; }
+  .post img:hover { scale: 102.5%; }
 }

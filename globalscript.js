@@ -168,12 +168,6 @@ function borWarningGo() {
 
 
 
-
-
-
-
-
-
 window.addEventListener('contextmenu', function (e) { //prevents right click context menu cause
   // do something here... 
   e.preventDefault(); 

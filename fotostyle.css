@@ -47,9 +47,7 @@
   font-size: 4vh;
   color: #cfc5fd;
 }
-.column *:hover {
-  scale: 110%;
-}
+
 
 
 
@@ -81,9 +79,7 @@
   box-shadow: none;
   background-color: none;
 }
-.downloadAll img:hover {
-  scale: 100%;
-}
+
 
 
 @media screen and (max-width: 1000px) {
@@ -179,9 +175,6 @@
   display: flex;
   z-index: 1;
 }
-.closePageButton:hover {
-  right: -2vh;
-}
 .closePageButton img {
   height: 4vh;
   filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5));
@@ -219,4 +212,21 @@
   filter: drop-shadow(0 0 1.5vh rgba(207, 197, 253, 0.5));
 }
 
-.fotoPageLeftRight img:hover { scale: 110%; filter: drop-shadow(0 0 1.25vh rgba(207, 197, 253, 1));}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+  .column *:hover { scale: 110%; }
+  .downloadAll img:hover { scale: 100%; }
+  .closePageButton:hover { right: -2vh; }
+  .fotoPageLeftRight img:hover { scale: 110%; filter: drop-shadow(0 0 1.25vh rgba(207, 197, 253, 1));}
+}
